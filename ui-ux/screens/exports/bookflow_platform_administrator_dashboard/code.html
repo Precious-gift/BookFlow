@@ -1,0 +1,578 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_dashboard" name="shell-type"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"primary-fixed-dim":"#b4c5ff","surface-container":"#e5eeff","primary-container":"#2563eb","secondary":"#006a61","outline-variant":"#c3c6d7","background":"#f8f9ff","inverse-primary":"#b4c5ff","surface-variant":"#d3e4fe","on-secondary-container":"#006f66","on-primary-fixed":"#00174b","on-tertiary-fixed":"#001453","secondary-container":"#86f2e4","on-tertiary-fixed-variant":"#173bab","outline":"#737686","surface-tint":"#0053db","on-primary-fixed-variant":"#003ea8","on-secondary-fixed":"#00201d","surface":"#f8f9ff","tertiary-fixed":"#dde1ff","on-tertiary-container":"#eff0ff","surface-container-lowest":"#ffffff","surface-container-high":"#dce9ff","surface-dim":"#cbdbf5","primary-fixed":"#dbe1ff","secondary-fixed-dim":"#6bd8cb","on-primary":"#ffffff","surface-bright":"#f8f9ff","error":"#ba1a1a","on-surface-variant":"#434655","tertiary-fixed-dim":"#b8c4ff","on-tertiary":"#ffffff","on-secondary-fixed-variant":"#005049","on-error":"#ffffff","inverse-surface":"#213145","on-surface":"#0b1c30","on-error-container":"#93000a","surface-container-low":"#eff4ff","on-secondary":"#ffffff","error-container":"#ffdad6","on-primary-container":"#eeefff","tertiary-container":"#4865d4","surface-container-highest":"#d3e4fe","primary":"#004ac6","tertiary":"#2c4bb9","secondary-fixed":"#89f5e7","on-background":"#0b1c30","inverse-on-surface":"#eaf1ff"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-xl":"2rem","space-xs":"0.25rem","space-lg":"1.5rem","space-md":"1rem","margin-sm":"1rem","gutter":"1.5rem","space-sm":"0.5rem","margin":"2rem","gutter-sm":"1rem"},"fontFamily":{"display-lg":["Inter"],"label-md":["Inter"],"headline-lg":["Inter"],"body-md":["Inter"],"display-lg-mobile":["Inter"],"headline-lg-mobile":["Inter"],"headline-sm":["Inter"],"body-lg":["Inter"],"headline-md":["Inter"],"label-sm":["Inter"],"body-sm":["Inter"]},"fontSize":{"display-lg":["3rem",{"lineHeight":"3.5rem","letterSpacing":"-0.025em","fontWeight":"700"}],"label-md":["0.875rem",{"lineHeight":"1.25rem","letterSpacing":"-0.005em","fontWeight":"500"}],"headline-lg":["2rem",{"lineHeight":"2.5rem","letterSpacing":"-0.02em","fontWeight":"600"}],"body-md":["0.875rem",{"lineHeight":"1.375rem","letterSpacing":"0em","fontWeight":"400"}],"display-lg-mobile":["2.25rem",{"lineHeight":"2.75rem","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-lg-mobile":["1.5rem",{"lineHeight":"2rem","letterSpacing":"-0.015em","fontWeight":"600"}],"headline-sm":["1rem",{"lineHeight":"1.5rem","letterSpacing":"0em","fontWeight":"600"}],"body-lg":["1.125rem",{"lineHeight":"1.75rem","letterSpacing":"0em","fontWeight":"400"}],"headline-md":["1.25rem",{"lineHeight":"1.75rem","letterSpacing":"-0.01em","fontWeight":"600"}],"label-sm":["0.75rem",{"lineHeight":"1rem","letterSpacing":"0.025em","fontWeight":"600"}],"body-sm":["0.75rem",{"lineHeight":"1.125rem","letterSpacing":"0.01em","fontWeight":"400"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-lowest z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col"><div class="h-16 px-space-lg flex items-center justify-between bg-surface-container-lowest"><div class="flex items-center gap-2.5"><div class="flex items-center gap-2"><div class="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center text-white font-bold text-base shadow-xs select-none">B</div><span class="font-bold text-slate-900 text-lg tracking-tight">BookFlow</span></div><span class="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-semibold tracking-wider uppercase bg-slate-100 text-slate-600 border border-slate-200/80 select-none">ADMIN</span></div></div><div class="px-space-md py-space-sm"><span class="px-space-sm font-label-sm text-label-sm uppercase tracking-wider text-outline">Core System</span></div><nav class="flex flex-col gap-space-xs px-space-md" data-active-classes="bg-primary-container text-on-primary-container font-medium rounded-lg shadow-sm"><a aria-current="page" class="flex items-center gap-3 px-3 py-2.5 transition-colors bg-primary-container text-on-primary-container font-medium rounded-lg shadow-sm" data-path="admin-dashboard" href="#"><span class="material-symbols-outlined text-[20px]">dashboard</span><span class="">Admin Dashboard</span></a><a class="flex items-center gap-3 px-3 py-2.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="businesses" href="#"><span class="material-symbols-outlined text-[20px]">store</span><span class="">Businesses</span></a><a class="flex items-center gap-3 px-3 py-2.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="platform-activity" href="#"><span class="material-symbols-outlined text-[20px]">analytics</span><span class="">Platform Activity</span></a></nav></div><div class="p-space-md bg-surface-container-lowest"><div class="p-space-sm rounded-lg bg-surface-container-low flex flex-col gap-space-sm"><div class="flex items-center justify-between"><div class="flex items-center gap-2 overflow-hidden"><div class="w-8 h-8 rounded-full bg-inverse-surface flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-inverse-on-surface text-[18px]">shield_person</span></div><div class="flex flex-col min-w-0"><span class="font-label-md text-label-md text-on-surface font-semibold truncate leading-tight">Platform Admin</span><span class="font-body-sm text-body-sm text-outline truncate leading-tight">admin@bookflow.internal</span></div></div></div><div class="flex items-center justify-between pt-space-xs"><span class="px-2 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm font-semibold">System Operator</span><a class="text-outline hover:text-error transition-colors flex items-center justify-center p-1 rounded hover:bg-error-container hover:text-on-error-container" data-path="admin-logout" href="#" title="End session"><span class="material-symbols-outlined text-[18px]">logout</span></a></div></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-xl z-40 flex items-center justify-between px-8 shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex items-center gap-space-md"><div class="flex items-center gap-2"><span class="font-label-md text-label-md text-outline font-normal">System Administration</span><span class="text-outline-variant font-label-sm text-label-sm">/</span><span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Platform Admin</span></div><div class="hidden md:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm font-medium"><span class="material-symbols-outlined text-[14px] text-tertiary">dns</span><span class="">Production Cluster (v1.1 Core)</span></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold"><span class="w-2 h-2 rounded-full bg-secondary inline-block animate-pulse"></span><span class="">Platform Systems Operational</span></div><div class="relative flex items-center"><div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container-low text-outline text-label-md font-label-md"><span class="material-symbols-outlined text-[18px]">terminal</span><span class="hidden sm:inline font-mono font-label-sm text-label-sm">internal://control</span></div></div><div class="relative group"><button class="flex items-center gap-2 focus:outline-none"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><span class="material-symbols-outlined text-[16px] text-outline group-hover:text-on-surface transition-colors">arrow_drop_down</span></button><div class="absolute right-0 top-full mt-2 w-56 bg-surface-container-lowest rounded-xl shadow-[0_4px_16px_rgba(0,0,0,0.08)] py-2 hidden group-hover:block transition-all z-50"><div class="px-4 py-2"><p class="font-label-sm text-label-sm text-outline font-semibold uppercase tracking-wider">Administrator Session</p><p class="font-label-md text-label-md text-on-surface font-semibold truncate">admin@bookflow.internal</p></div><div class="h-px bg-surface-container-high my-1"></div><a class="flex items-center gap-2 px-4 py-2 font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="admin-account" href="#"><span class="material-symbols-outlined text-[18px]">admin_panel_settings</span><span class="">Admin Account</span></a><a class="flex items-center gap-2 px-4 py-2 font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="platform-documentation" href="#"><span class="material-symbols-outlined text-[18px]">menu_book</span><span class="">Platform Documentation</span></a><div class="h-px bg-surface-container-high my-1"></div><a class="flex items-center gap-2 px-4 py-2 font-label-md text-label-md text-error hover:bg-error-container hover:text-on-error-container transition-colors" data-path="admin-logout" href="#"><span class="material-symbols-outlined text-[18px]">logout</span><span class="">Log Out</span></a></div></div></div></header><main class="relative pt-16 bg-surface min-h-screen"><div class="w-full max-w-7xl mx-auto px-8 py-8"><div class="flex flex-col w-full gap-space-lg">
+<!-- Interactive Prototype Stage Inspector -->
+<aside aria-label="Prototype state switcher" class="w-full bg-surface-container-lowest rounded-xl p-3 shadow-sm flex flex-col md:flex-row items-center justify-between gap-3">
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center justify-center w-6 h-6 rounded bg-primary text-on-primary">
+<span class="material-symbols-outlined text-[16px]">tune</span>
+</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Stage 7.5.1 Prototype Inspection</span>
+<span class="text-outline-variant font-label-sm">|</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Switch operational view states:</span>
+</div>
+<div aria-label="Dashboard state controls" class="flex items-center gap-1.5 p-1 bg-surface-container-low rounded-lg" role="tablist">
+<button aria-selected="true" class="state-pill px-3 py-1 rounded font-label-sm text-label-sm font-semibold bg-surface-container-lowest text-primary shadow-sm transition-all flex items-center gap-1.5" data-state-btn="default" onclick="switchState('default')" role="tab" type="button">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="">Default</span>
+</button>
+<button aria-selected="false" class="state-pill px-3 py-1 rounded font-label-sm text-label-sm font-semibold text-on-surface-variant hover:text-on-surface transition-all flex items-center gap-1.5" data-state-btn="loading" onclick="switchState('loading')" role="tab" type="button">
+<span class="material-symbols-outlined text-[14px]">hourglass_top</span>
+<span class="">Loading</span>
+</button>
+<button aria-selected="false" class="state-pill px-3 py-1 rounded font-label-sm text-label-sm font-semibold text-on-surface-variant hover:text-on-surface transition-all flex items-center gap-1.5" data-state-btn="empty" onclick="switchState('empty')" role="tab" type="button">
+<span class="material-symbols-outlined text-[14px]">inbox</span>
+<span class="">Empty Activity</span>
+</button>
+<button aria-selected="false" class="state-pill px-3 py-1 rounded font-label-sm text-label-sm font-semibold text-on-surface-variant hover:text-on-surface transition-all flex items-center gap-1.5" data-state-btn="error" onclick="switchState('error')" role="tab" type="button">
+<span class="material-symbols-outlined text-[14px]">error</span>
+<span class="">Error State</span>
+</button>
+</div>
+</aside>
+<!-- Error Alert Banner (Hidden by default) -->
+<div class="hidden w-full bg-error-container text-on-error-container rounded-xl p-4 shadow-sm flex items-center justify-between" id="state-error-banner">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-error flex items-center justify-center text-on-error shrink-0">
+<span class="material-symbols-outlined text-[24px]">cloud_off</span>
+</div>
+<div>
+<p class="font-headline-sm text-headline-sm font-semibold">Unable to load platform dashboard data</p>
+<p class="font-body-sm text-body-sm opacity-90">Core node synchronization timeout on cluster v1.1. Live aggregate counters could not be resolved.</p>
+</div>
+</div>
+<button class="px-4 py-2 bg-error text-on-error rounded-lg font-label-md text-label-md font-semibold hover:opacity-90 transition-opacity flex items-center gap-1.5 shrink-0" onclick="switchState('default')" type="button">
+<span class="material-symbols-outlined text-[18px]">refresh</span>
+<span class="">Try Again</span>
+</button>
+</div>
+<!-- Page Header -->
+<header class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<span class="px-2.5 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-semibold tracking-wide uppercase">
+          System-Level Platform Overview
+        </span>
+<span class="font-body-sm text-body-sm text-outline">Cluster ID: BF-PROD-01</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface font-semibold tracking-tight">Admin Dashboard</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Monitor businesses, customers, appointments, and platform activity.</p>
+</div>
+<div class="flex items-center gap-3">
+<div class="hidden lg:flex items-center gap-2 px-3 py-2 rounded-lg bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] text-secondary">update</span>
+<span class="">Auto-refreshed: 30s ago</span>
+</div>
+<a class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-primary-container text-on-primary font-label-md text-label-md font-medium hover:bg-primary transition-all shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" data-path="businesses" href="#">
+<span class="">View All Businesses</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+</header>
+<!-- ================= STATE: LOADING SKELETON ================= -->
+<div aria-hidden="true" class="hidden flex-col gap-space-lg animate-pulse" id="view-loading">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<div class="h-32 rounded-xl bg-surface-container-lowest shadow-sm p-5 flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<div class="w-24 h-4 bg-surface-container-high rounded"></div>
+<div class="w-8 h-8 rounded-lg bg-surface-container-high"></div>
+</div>
+<div class="w-16 h-8 bg-surface-container-high rounded"></div>
+<div class="w-32 h-3 bg-surface-container-high rounded"></div>
+</div>
+<div class="h-32 rounded-xl bg-surface-container-lowest shadow-sm p-5 flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<div class="w-24 h-4 bg-surface-container-high rounded"></div>
+<div class="w-8 h-8 rounded-lg bg-surface-container-high"></div>
+</div>
+<div class="w-16 h-8 bg-surface-container-high rounded"></div>
+<div class="w-32 h-3 bg-surface-container-high rounded"></div>
+</div>
+<div class="h-32 rounded-xl bg-surface-container-lowest shadow-sm p-5 flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<div class="w-24 h-4 bg-surface-container-high rounded"></div>
+<div class="w-8 h-8 rounded-lg bg-surface-container-high"></div>
+</div>
+<div class="w-16 h-8 bg-surface-container-high rounded"></div>
+<div class="w-32 h-3 bg-surface-container-high rounded"></div>
+</div>
+<div class="h-32 rounded-xl bg-surface-container-lowest shadow-sm p-5 flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<div class="w-24 h-4 bg-surface-container-high rounded"></div>
+<div class="w-8 h-8 rounded-lg bg-surface-container-high"></div>
+</div>
+<div class="w-16 h-8 bg-surface-container-high rounded"></div>
+<div class="w-32 h-3 bg-surface-container-high rounded"></div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+<div class="lg:col-span-7 bg-surface-container-lowest rounded-xl p-6 shadow-sm flex flex-col gap-4">
+<div class="h-6 w-48 bg-surface-container-high rounded"></div>
+<div class="h-4 w-72 bg-surface-container-high rounded"></div>
+<div class="mt-4 flex flex-col gap-3">
+<div class="h-14 bg-surface-container-low rounded-lg"></div>
+<div class="h-14 bg-surface-container-low rounded-lg"></div>
+<div class="h-14 bg-surface-container-low rounded-lg"></div>
+<div class="h-14 bg-surface-container-low rounded-lg"></div>
+</div>
+</div>
+<div class="lg:col-span-5 bg-surface-container-lowest rounded-xl p-6 shadow-sm flex flex-col gap-4">
+<div class="h-6 w-40 bg-surface-container-high rounded"></div>
+<div class="h-4 w-60 bg-surface-container-high rounded"></div>
+<div class="mt-4 flex flex-col gap-4">
+<div class="h-12 bg-surface-container-low rounded-lg"></div>
+<div class="h-12 bg-surface-container-low rounded-lg"></div>
+<div class="h-12 bg-surface-container-low rounded-lg"></div>
+<div class="h-12 bg-surface-container-low rounded-lg"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- ================= STATE: DEFAULT / OPERATIONAL ================= -->
+<div class="flex flex-col gap-space-lg" id="view-content">
+<!-- 4 Primary Platform Metrics -->
+<section aria-label="Platform core metrics" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- Metric 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-5 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow relative overflow-hidden group">
+<div class="absolute -right-4 -bottom-4 w-24 h-24 bg-primary/5 rounded-full pointer-events-none group-hover:scale-125 transition-transform duration-500"></div>
+<div>
+<div class="flex items-center justify-between gap-2">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Total Registered</span>
+<div class="w-9 h-9 rounded-lg bg-surface-container-low text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">store</span>
+</div>
+</div>
+<div class="mt-3 flex items-baseline gap-2">
+<span class="font-display-lg text-display-lg font-bold text-on-surface tracking-tight">128</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold">
+              +12 this month
+            </span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-3 pt-3 bg-surface-container-lowest border-t-0 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-outline">domain</span>
+<span class="">Solo operator businesses on BookFlow</span>
+</p>
+</div>
+<!-- Metric 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-5 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow relative overflow-hidden group">
+<div class="absolute -right-4 -bottom-4 w-24 h-24 bg-secondary/5 rounded-full pointer-events-none group-hover:scale-125 transition-transform duration-500"></div>
+<div>
+<div class="flex items-center justify-between gap-2">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Active Businesses</span>
+<div class="w-9 h-9 rounded-lg bg-secondary-container/50 text-secondary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">check_circle</span>
+</div>
+</div>
+<div class="mt-3 flex items-baseline gap-2">
+<span class="font-display-lg text-display-lg font-bold text-on-surface tracking-tight">117</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm font-semibold">
+              91.4% operational
+            </span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-3 pt-3 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-secondary">public</span>
+<span class="">Published booking links active</span>
+</p>
+</div>
+<!-- Metric 3 -->
+<div class="bg-surface-container-lowest rounded-xl p-5 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow relative overflow-hidden group">
+<div class="absolute -right-4 -bottom-4 w-24 h-24 bg-primary/5 rounded-full pointer-events-none group-hover:scale-125 transition-transform duration-500"></div>
+<div>
+<div class="flex items-center justify-between gap-2">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Total Customers</span>
+<div class="w-9 h-9 rounded-lg bg-surface-container-low text-tertiary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">group</span>
+</div>
+</div>
+<div class="mt-3 flex items-baseline gap-2">
+<span class="font-display-lg text-display-lg font-bold text-on-surface tracking-tight">4,286</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm font-semibold">
+              Accountless
+            </span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-3 pt-3 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-outline">badge</span>
+<span class="">Unique guest client records cross-system</span>
+</p>
+</div>
+<!-- Metric 4 -->
+<div class="bg-surface-container-lowest rounded-xl p-5 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow relative overflow-hidden group">
+<div class="absolute -right-4 -bottom-4 w-24 h-24 bg-primary-container/5 rounded-full pointer-events-none group-hover:scale-125 transition-transform duration-500"></div>
+<div>
+<div class="flex items-center justify-between gap-2">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Total Appointments</span>
+<div class="w-9 h-9 rounded-lg bg-surface-container-high text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">event_available</span>
+</div>
+</div>
+<div class="mt-3 flex items-baseline gap-2">
+<span class="font-display-lg text-display-lg font-bold text-on-surface tracking-tight">12,640</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold">
+              All-time volume
+            </span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-3 pt-3 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-outline">schedule</span>
+<span class="">Cumulative appointments logged</span>
+</p>
+</div>
+</section>
+<!-- Balanced Main Dashboard Grid (7 cols left, 5 cols right) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- LEFT COLUMN: Recently Registered Businesses (7 cols) -->
+<section aria-labelledby="heading-recent-businesses" class="lg:col-span-7 bg-surface-container-lowest rounded-xl p-6 shadow-sm flex flex-col gap-space-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-2">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface font-semibold tracking-tight" id="heading-recent-businesses">Recently Registered Businesses</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Latest single-operator businesses onboarded to BookFlow</p>
+</div>
+<a class="inline-flex items-center gap-1 font-label-md text-label-md text-primary hover:text-tertiary font-semibold group self-start sm:self-auto" data-path="businesses" href="#">
+<span class="">View All Businesses</span>
+<span class="material-symbols-outlined text-[18px] group-hover:translate-x-0.5 transition-transform">arrow_forward</span>
+</a>
+</div>
+<!-- Directory Preview List -->
+<div class="flex flex-col gap-3">
+<!-- Item 1 -->
+<article class="p-4 rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div class="flex items-start gap-3 min-w-0">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center shrink-0 text-primary">
+<span class="material-symbols-outlined text-[20px]">content_cut</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold truncate">Urban Edge Barbershop</h3>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold shrink-0">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="">Active</span>
+</span>
+</div>
+<div class="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-on-surface-variant font-body-sm text-body-sm mt-0.5">
+<span class="font-medium text-on-surface">Marcus Vance</span>
+<span class="text-outline-variant">•</span>
+<span class="text-outline truncate">marcus.vance@example.com</span>
+<span class="text-outline-variant">•</span>
+<span class="text-outline">Barbershop &amp; Men's Grooming</span>
+</div>
+</div>
+</div>
+<div class="flex md:flex-col items-center md:items-end justify-between md:justify-center shrink-0 pt-2 md:pt-0">
+<span class="font-label-sm text-label-sm text-primary font-semibold">3 Services • 48 Appts</span>
+<span class="font-body-sm text-body-sm text-outline flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[14px]">search_off</span>
+<span class="">Today, 10:42 AM</span>
+</span>
+</div>
+</article>
+<!-- Item 2 -->
+<article class="p-4 rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div class="flex items-start gap-3 min-w-0">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center shrink-0 text-secondary">
+<span class="material-symbols-outlined text-[20px]">directions_car</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold truncate">Prime Auto Detail</h3>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold shrink-0">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="">Active</span>
+</span>
+</div>
+<div class="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-on-surface-variant font-body-sm text-body-sm mt-0.5">
+<span class="font-medium text-on-surface">Tunde Adeleke</span>
+<span class="text-outline-variant">•</span>
+<span class="text-outline truncate">tunde@primeautodetail.example</span>
+<span class="text-outline-variant">•</span>
+<span class="text-outline">Auto Care &amp; Detailing</span>
+</div>
+</div>
+</div>
+<div class="flex md:flex-col items-center md:items-end justify-between md:justify-center shrink-0 pt-2 md:pt-0">
+<span class="font-label-sm text-label-sm text-primary font-semibold">5 Services • 14 Appts</span>
+<span class="font-body-sm text-body-sm text-outline flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[14px]">search_off</span>
+<span class="">Today, 9:18 AM</span>
+</span>
+</div>
+</article>
+<!-- Item 3 -->
+<article class="p-4 rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div class="flex items-start gap-3 min-w-0">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center shrink-0 text-tertiary">
+<span class="material-symbols-outlined text-[20px]">spa</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold truncate">Wellness Point Studio</h3>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold shrink-0">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="">Active</span>
+</span>
+</div>
+<div class="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-on-surface-variant font-body-sm text-body-sm mt-0.5">
+<span class="font-medium text-on-surface">Amaka Okafor</span>
+<span class="text-outline-variant">•</span>
+<span class="text-outline truncate">amaka@wellnesspoint.example</span>
+<span class="text-outline-variant">•</span>
+<span class="text-outline">Wellness &amp; Massage</span>
+</div>
+</div>
+</div>
+<div class="flex md:flex-col items-center md:items-end justify-between md:justify-center shrink-0 pt-2 md:pt-0">
+<span class="font-label-sm text-label-sm text-primary font-semibold">4 Services • 92 Appts</span>
+<span class="font-body-sm text-body-sm text-outline flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[14px]">search_off</span>
+<span class="">Yesterday, 4:32 PM</span>
+</span>
+</div>
+</article>
+<!-- Item 4 -->
+<article class="p-4 rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div class="flex items-start gap-3 min-w-0">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center shrink-0 text-primary">
+<span class="material-symbols-outlined text-[20px]">brush</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold truncate">Lumina Hair Lounge</h3>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold shrink-0">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="">Active</span>
+</span>
+</div>
+<div class="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-on-surface-variant font-body-sm text-body-sm mt-0.5">
+<span class="font-medium text-on-surface">Chioma Bello</span>
+<span class="text-outline-variant">•</span>
+<span class="text-outline truncate">chioma@luminahair.example</span>
+<span class="text-outline-variant">•</span>
+<span class="text-outline">Hair Styling &amp; Braiding</span>
+</div>
+</div>
+</div>
+<div class="flex md:flex-col items-center md:items-end justify-between md:justify-center shrink-0 pt-2 md:pt-0">
+<span class="font-label-sm text-label-sm text-primary font-semibold">6 Services • 131 Appts</span>
+<span class="font-body-sm text-body-sm text-outline flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[14px]">calendar_today</span>
+<span class="">Oct 14, 2024</span>
+</span>
+</div>
+</article>
+<!-- Item 5 (Inactive / Pending Setup) -->
+<article class="p-4 rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div class="flex items-start gap-3 min-w-0">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center shrink-0 text-outline">
+<span class="material-symbols-outlined text-[20px]">school</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold truncate">Apex Tech Tutoring</h3>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm font-semibold shrink-0">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+<span class="">Pending Setup</span>
+</span>
+</div>
+<div class="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-on-surface-variant font-body-sm text-body-sm mt-0.5">
+<span class="font-medium text-on-surface">David Kalu</span>
+<span class="text-outline-variant">•</span>
+<span class="text-outline truncate">david@apextutoring.example</span>
+<span class="text-outline-variant">•</span>
+<span class="text-outline">Private Tutoring</span>
+</div>
+</div>
+</div>
+<div class="flex md:flex-col items-center md:items-end justify-between md:justify-center shrink-0 pt-2 md:pt-0">
+<span class="font-label-sm text-label-sm text-outline font-medium">1 Service • 0 Appts</span>
+<span class="font-body-sm text-body-sm text-outline flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[14px]">calendar_today</span>
+<span class="">Oct 12, 2024</span>
+</span>
+</div>
+</article>
+</div>
+<!-- Directory Footer Status -->
+<div class="mt-2 pt-3 flex items-center justify-between text-body-sm font-body-sm text-outline">
+<span class="">Showing latest 5 of 128 businesses</span>
+<span class="font-mono text-label-sm">DATABASE_SYNC: LIVE</span>
+</div>
+</section>
+<!-- RIGHT COLUMN: Recent Platform Activity Feed (5 cols) -->
+<section aria-labelledby="heading-platform-activity" class="lg:col-span-5 bg-surface-container-lowest rounded-xl p-6 shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-2">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface font-semibold tracking-tight" id="heading-platform-activity">Recent Platform Activity</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Live system-level event stream across businesses</p>
+</div>
+<span class="w-2.5 h-2.5 rounded-full bg-secondary animate-ping" title="Streaming events active"></span>
+</div>
+<!-- Normal Activity Stream -->
+<div class="flex flex-col relative before:absolute before:left-4 before:top-2 before:bottom-2 before:w-0.5 before:bg-surface-container-high space-y-4" id="activity-feed-populated">
+<!-- Event 1 -->
+<div class="relative flex items-start gap-3 pl-1">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center shrink-0 ring-4 ring-surface-container-lowest z-10 shadow-sm">
+<span class="material-symbols-outlined text-[16px]">store</span>
+</div>
+<div class="flex flex-col min-w-0 pt-0.5">
+<div class="flex items-center justify-between gap-2">
+<span class="font-label-md text-label-md font-semibold text-on-surface">New business registered</span>
+<span class="font-body-sm text-body-sm text-outline shrink-0">18m ago</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Urban Edge Barbershop created by Marcus Vance</p>
+</div>
+</div>
+<!-- Event 2 -->
+<div class="relative flex items-start gap-3 pl-1">
+<div class="w-8 h-8 rounded-full bg-tertiary-container text-on-tertiary flex items-center justify-center shrink-0 ring-4 ring-surface-container-lowest z-10 shadow-sm">
+<span class="material-symbols-outlined text-[16px]">event_available</span>
+</div>
+<div class="flex flex-col min-w-0 pt-0.5">
+<div class="flex items-center justify-between gap-2">
+<span class="font-label-md text-label-md font-semibold text-on-surface">Appointment volume milestone</span>
+<span class="font-body-sm text-body-sm text-outline shrink-0">1h ago</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">BookFlow crossed 12,600 cumulative platform bookings</p>
+</div>
+</div>
+<!-- Event 3 -->
+<div class="relative flex items-start gap-3 pl-1">
+<div class="w-8 h-8 rounded-full bg-secondary text-on-secondary flex items-center justify-center shrink-0 ring-4 ring-surface-container-lowest z-10 shadow-sm">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+</div>
+<div class="flex flex-col min-w-0 pt-0.5">
+<div class="flex items-center justify-between gap-2">
+<span class="font-label-md text-label-md font-semibold text-on-surface">Business status updated</span>
+<span class="font-body-sm text-body-sm text-outline shrink-0">2h ago</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Prime Auto Detail published public booking link</p>
+</div>
+</div>
+<!-- Event 4 -->
+<div class="relative flex items-start gap-3 pl-1">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center shrink-0 ring-4 ring-surface-container-lowest z-10 shadow-sm">
+<span class="material-symbols-outlined text-[16px]">person_add</span>
+</div>
+<div class="flex flex-col min-w-0 pt-0.5">
+<div class="flex items-center justify-between gap-2">
+<span class="font-label-md text-label-md font-semibold text-on-surface">Guest customer recorded</span>
+<span class="font-body-sm text-body-sm text-outline shrink-0">3h ago</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">New client booking recorded for Wellness Point Studio</p>
+</div>
+</div>
+<!-- Event 5 -->
+<div class="relative flex items-start gap-3 pl-1">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center shrink-0 ring-4 ring-surface-container-lowest z-10 shadow-sm">
+<span class="material-symbols-outlined text-[16px]">storefront</span>
+</div>
+<div class="flex flex-col min-w-0 pt-0.5">
+<div class="flex items-center justify-between gap-2">
+<span class="font-label-md text-label-md font-semibold text-on-surface">New business registered</span>
+<span class="font-body-sm text-body-sm text-outline shrink-0">4h ago</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Prime Auto Detail registered on platform</p>
+</div>
+</div>
+<!-- Event 6 -->
+<div class="relative flex items-start gap-3 pl-1">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center shrink-0 ring-4 ring-surface-container-lowest z-10 shadow-sm">
+<span class="material-symbols-outlined text-[16px]">app_registration</span>
+</div>
+<div class="flex flex-col min-w-0 pt-0.5">
+<div class="flex items-center justify-between gap-2">
+<span class="font-label-md text-label-md font-semibold text-on-surface">New business registered</span>
+<span class="font-body-sm text-body-sm text-outline shrink-0">Yesterday</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Wellness Point Studio onboarded</p>
+</div>
+</div>
+</div>
+<!-- Empty State Container (Toggled via Prototype controller) -->
+<div class="hidden flex-col items-center justify-center py-12 px-4 text-center rounded-xl bg-surface-container-low" id="activity-feed-empty">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest text-outline flex items-center justify-center mb-3">
+<span class="material-symbols-outlined text-[26px]">notifications_paused</span>
+</div>
+<p class="font-headline-sm text-headline-sm font-semibold text-on-surface">No recent platform activity</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-xs mt-1">No platform activity recorded in this period. As businesses and bookings are created, real-time events appear here.</p>
+</div>
+<a class="mt-2 w-full py-2.5 rounded-lg bg-surface-container-low hover:bg-surface-container-high text-on-surface font-label-md text-label-md font-medium transition-colors flex items-center justify-center gap-1.5" data-path="platform-activity" href="#">
+<span class="">View Full Activity Stream</span>
+<span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</a>
+</section>
+</div>
+<!-- Administrative Context & Boundary Callout -->
+<footer class="w-full rounded-xl bg-surface-container-low p-4 shadow-sm flex items-start gap-3.5">
+<div class="w-8 h-8 rounded-lg bg-surface-container-highest text-primary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[20px]">policy</span>
+</div>
+<div class="flex flex-col sm:flex-row sm:items-center justify-between w-full gap-2">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Platform Administration Scope</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+            The Platform Administrator monitors aggregate business registration, platform volume, and system health. Business management, customer appointments, and service catalogs remain strictly operated by individual business owners.
+          </p>
+</div>
+<span class="shrink-0 font-label-sm text-label-sm px-2.5 py-1 rounded bg-surface-container-highest text-on-surface-variant font-mono">
+          READ_ONLY_TENANT_ISOLATION
+        </span>
+</div>
+</footer>
+</div>
+</div>
+<script>
+  // Interactive prototype state switcher
+  function switchState(stateName) {
+    const defaultView = document.getElementById('view-content');
+    const loadingView = document.getElementById('view-loading');
+    const errorBanner = document.getElementById('state-error-banner');
+    const feedPopulated = document.getElementById('activity-feed-populated');
+    const feedEmpty = document.getElementById('activity-feed-empty');
+    
+    // Update tab pills
+    document.querySelectorAll('.state-pill').forEach(btn => {
+      btn.setAttribute('aria-selected', 'false');
+      btn.className = 'state-pill px-3 py-1 rounded font-label-sm text-label-sm font-semibold text-on-surface-variant hover:text-on-surface transition-all flex items-center gap-1.5';
+    });
+    
+    const activeBtn = document.querySelector(`[data-state-btn="${stateName}"]`);
+    if (activeBtn) {
+      activeBtn.setAttribute('aria-selected', 'true');
+      activeBtn.className = 'state-pill px-3 py-1 rounded font-label-sm text-label-sm font-semibold bg-surface-container-lowest text-primary shadow-sm transition-all flex items-center gap-1.5';
+    }
+
+    if (stateName === 'loading') {
+      defaultView.classList.add('hidden');
+      loadingView.classList.remove('hidden');
+      loadingView.classList.add('flex');
+      errorBanner.classList.add('hidden');
+    } else if (stateName === 'error') {
+      defaultView.classList.remove('hidden');
+      loadingView.classList.add('hidden');
+      loadingView.classList.remove('flex');
+      errorBanner.classList.remove('hidden');
+      feedPopulated.classList.remove('hidden');
+      feedEmpty.classList.add('hidden');
+    } else if (stateName === 'empty') {
+      defaultView.classList.remove('hidden');
+      loadingView.classList.add('hidden');
+      loadingView.classList.remove('flex');
+      errorBanner.classList.add('hidden');
+      feedPopulated.classList.add('hidden');
+      feedEmpty.classList.remove('hidden');
+      feedEmpty.classList.add('flex');
+    } else {
+      // Default
+      defaultView.classList.remove('hidden');
+      loadingView.classList.add('hidden');
+      loadingView.classList.remove('flex');
+      errorBanner.classList.add('hidden');
+      feedPopulated.classList.remove('hidden');
+      feedEmpty.classList.add('hidden');
+      feedEmpty.classList.remove('flex');
+    }
+  }
+</script></div></main></div>
+
+</body></html>

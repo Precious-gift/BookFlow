@@ -1,0 +1,533 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_dashboard" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "outline-variant": "#c3c6d7", "tertiary-fixed": "#dde1ff", "secondary-fixed-dim": "#6bd8cb", "surface-dim": "#cbdbf5", "inverse-surface": "#213145", "primary-container": "#2563eb", "surface-container-high": "#dce9ff", "on-tertiary-fixed": "#001453", "inverse-on-surface": "#eaf1ff", "error-container": "#ffdad6", "on-primary-fixed-variant": "#003ea8", "surface-bright": "#f8f9ff", "secondary-container": "#86f2e4", "surface": "#f8f9ff", "outline": "#737686", "surface-container": "#e5eeff", "tertiary-fixed-dim": "#b8c4ff", "primary-fixed": "#dbe1ff", "on-error-container": "#93000a", "on-primary-fixed": "#00174b", "surface-container-highest": "#d3e4fe", "on-primary-container": "#eeefff", "on-background": "#0b1c30", "on-tertiary": "#ffffff", "tertiary-container": "#4865d4", "error": "#ba1a1a", "primary": "#004ac6", "on-secondary-fixed": "#00201d", "tertiary": "#2c4bb9", "on-error": "#ffffff", "on-tertiary-fixed-variant": "#173bab", "on-secondary": "#ffffff", "on-surface-variant": "#434655", "on-tertiary-container": "#eff0ff", "on-secondary-container": "#006f66", "on-primary": "#ffffff", "surface-container-low": "#eff4ff", "surface-variant": "#d3e4fe", "surface-container-lowest": "#ffffff", "secondary-fixed": "#89f5e7", "background": "#f8f9ff", "inverse-primary": "#b4c5ff", "on-secondary-fixed-variant": "#005049", "on-surface": "#0b1c30", "secondary": "#006a61", "surface-tint": "#0053db", "primary-fixed-dim": "#b4c5ff" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "gutter": "1.5rem", "space-xs": "0.25rem", "space-xl": "2rem", "gutter-sm": "1rem", "space-md": "1rem", "margin": "2rem", "margin-sm": "1rem", "space-lg": "1.5rem", "space-sm": "0.5rem" }, "fontFamily": { "body-sm": ["Inter"], "body-md": ["Inter"], "label-sm": ["Inter"], "display-lg-mobile": ["Inter"], "label-md": ["Inter"], "headline-lg": ["Inter"], "body-lg": ["Inter"], "headline-lg-mobile": ["Inter"], "headline-sm": ["Inter"], "headline-md": ["Inter"], "display-lg": ["Inter"] }, "fontSize": { "body-sm": ["0.75rem", { "lineHeight": "1.125rem", "letterSpacing": "0.01em", "fontWeight": "400" }], "body-md": ["0.875rem", { "lineHeight": "1.375rem", "letterSpacing": "0em", "fontWeight": "400" }], "label-sm": ["0.75rem", { "lineHeight": "1rem", "letterSpacing": "0.025em", "fontWeight": "600" }], "display-lg-mobile": ["2.25rem", { "lineHeight": "2.75rem", "letterSpacing": "-0.02em", "fontWeight": "700" }], "label-md": ["0.875rem", { "lineHeight": "1.25rem", "letterSpacing": "-0.005em", "fontWeight": "500" }], "headline-lg": ["2rem", { "lineHeight": "2.5rem", "letterSpacing": "-0.02em", "fontWeight": "600" }], "body-lg": ["1.125rem", { "lineHeight": "1.75rem", "letterSpacing": "0em", "fontWeight": "400" }], "headline-lg-mobile": ["1.5rem", { "lineHeight": "2rem", "letterSpacing": "-0.015em", "fontWeight": "600" }], "headline-sm": ["1rem", { "lineHeight": "1.5rem", "letterSpacing": "0em", "fontWeight": "600" }], "headline-md": ["1.25rem", { "lineHeight": "1.75rem", "letterSpacing": "-0.01em", "fontWeight": "600" }], "display-lg": ["3rem", { "lineHeight": "3.5rem", "letterSpacing": "-0.025em", "fontWeight": "700" }] } } } };</script></head><body class="bg-background font-body-md text-body-md text-on-surface"><aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-lowest z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col"><div class="h-16 px-gutter flex items-center gap-space-sm bg-surface-container-lowest"><div class="flex items-center gap-2.5"><div class="flex items-center gap-2"><div class="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center text-white font-bold text-base shadow-xs select-none">B</div><span class="font-bold text-slate-900 text-lg tracking-tight">BookFlow</span></div><span class="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-semibold tracking-wider uppercase bg-slate-100 text-slate-600 border border-slate-200/80 select-none">ADMIN</span></div></div><div class="px-gutter-sm pt-space-md"><div class="px-space-sm pb-space-xs font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Operations Core</div><nav class="flex flex-col gap-space-xs" data-active-classes="bg-primary-container text-on-primary-container font-headline-sm"><a class="flex items-center gap-space-sm px-space-sm py-space-sm rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="admin-dashboard" href="#"><span class="material-symbols-outlined text-[20px]">dashboard</span><span class="">Admin Dashboard</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-sm rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="businesses" href="#"><span class="material-symbols-outlined text-[20px]">store</span><span class="">Businesses</span></a><a aria-current="page" class="flex items-center gap-space-sm px-space-sm py-space-sm rounded-lg transition-all bg-primary-container text-on-primary-container font-headline-sm" data-path="platform-activity" href="#"><span class="material-symbols-outlined text-[20px]">monitoring</span><span class="">Platform Activity</span></a></nav></div></div><div class="p-gutter-sm bg-surface-container-lowest"><div class="p-space-sm rounded-xl bg-surface-container-low mb-space-sm flex items-center gap-space-sm"><div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary-container text-[18px]">shield_person</span></div><div class="flex flex-col min-w-0 flex-1"><span class="font-label-sm text-label-sm text-on-surface font-semibold truncate">Admin Account</span><span class="font-body-sm text-body-sm text-on-surface-variant truncate">admin@bookflow.internal</span></div></div><a class="flex items-center justify-between w-full px-space-sm py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-label-md text-label-md" data-path="logout" href="#"><span class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[20px]">logout</span><span class="">Log Out</span></span><span class="material-symbols-outlined text-[16px]">chevron_right</span></a></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-margin"><div class="flex items-center gap-space-sm"><span class="font-label-md text-label-md text-on-surface-variant">System Administration</span><span class="font-body-sm text-body-sm text-outline-variant">/</span><span class="font-headline-sm text-headline-sm text-on-surface">Platform Admin</span></div><div class="flex items-center gap-gutter"><div class="flex items-center gap-space-xs bg-surface-container-low px-space-sm py-space-xs rounded-lg shadow-[0_1px_8px_rgba(0,0,0,0.02)]"><span class="flex h-2 w-2 rounded-full bg-secondary"></span><span class="font-label-sm text-label-sm text-on-surface-variant">Simulation Mode:</span><button class="font-label-sm text-label-sm bg-surface-container-lowest text-on-surface font-semibold px-space-xs py-0.5 rounded shadow-[0_1px_8px_rgba(0,0,0,0.04)] hover:bg-surface-container-high transition-colors" type="button">Production Sync</button><button class="font-label-sm text-label-sm text-on-surface-variant px-space-xs py-0.5 rounded hover:bg-surface-container-high hover:text-on-surface transition-colors" type="button">Trace Mode</button></div><div class="flex items-center gap-space-md"><button class="p-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-16 bg-background px-margin"><div class="flex flex-col w-full pb-16">
+<!-- Top Prototype Simulation State Control -->
+<div class="w-full bg-surface-container-low px-gutter py-space-sm rounded-xl mb-space-lg flex flex-wrap items-center justify-between gap-space-sm shadow-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px] text-tertiary">tune</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Prototype State Switcher:</span>
+</div>
+<div class="inline-flex p-1 bg-surface-container-highest rounded-lg gap-1" id="state-toggle-group">
+<button class="px-space-sm py-1 rounded-md font-label-sm text-label-sm font-semibold transition-all bg-surface text-primary shadow-sm" id="btn-state-default" onclick="setViewState('default')" type="button">Populated Analytics</button>
+<button class="px-space-sm py-1 rounded-md font-label-sm text-label-sm font-medium transition-all text-on-surface-variant hover:text-on-surface" id="btn-state-skeleton" onclick="setViewState('skeleton')" type="button">Loading Skeleton</button>
+<button class="px-space-sm py-1 rounded-md font-label-sm text-label-sm font-medium transition-all text-on-surface-variant hover:text-on-surface" id="btn-state-empty" onclick="setViewState('empty')" type="button">Empty State</button>
+<button class="px-space-sm py-1 rounded-md font-label-sm text-label-sm font-medium transition-all text-on-surface-variant hover:text-on-surface" id="btn-state-error" onclick="setViewState('error')" type="button">Error State</button>
+</div>
+</div>
+<!-- Page Header & Global Filtering Controls -->
+<header class="flex flex-col gap-space-sm mb-space-xl">
+<div class="flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary font-semibold bg-primary-fixed/50 px-space-xs py-0.5 rounded">System-Wide Usage Metrics</span>
+<span class="text-outline-variant font-body-sm text-body-sm">•</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Live Production Aggregation</span>
+</div>
+<div class="inline-flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-surface-container font-label-sm text-label-sm text-on-surface-variant">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+        Representative Prototype Data
+      </div>
+</div>
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-md pt-space-xs">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Platform Analytics</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-0.5 max-w-2xl">Monitor aggregate customer account volume, platform booking cadence, and operational business usage across all registered tenants.</p>
+</div>
+<!-- Controls bar: Time Range & Filter -->
+<div class="flex flex-wrap items-center gap-space-sm">
+<div class="inline-flex p-1 bg-surface-container rounded-lg">
+<button class="px-space-sm py-1.5 font-label-sm text-label-sm rounded text-on-surface-variant hover:text-on-surface transition-colors" type="button">Last 7 Days</button>
+<button class="px-space-sm py-1.5 font-label-sm text-label-sm rounded bg-primary text-on-primary font-semibold shadow-sm transition-all" type="button">Last 30 Days</button>
+<button class="px-space-sm py-1.5 font-label-sm text-label-sm rounded text-on-surface-variant hover:text-on-surface transition-colors" type="button">Last 90 Days</button>
+</div>
+<div class="relative inline-block text-left">
+<select class="appearance-none bg-surface-container-lowest text-on-surface font-label-md text-label-md py-2 pl-space-sm pr-8 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary cursor-pointer">
+<option selected="">All Business Categories</option>
+<option>Barbershop &amp; Men's Grooming</option>
+<option>Hair &amp; Styling</option>
+<option>Wellness &amp; Massage</option>
+<option>Auto Care &amp; Detailing</option>
+<option>Private Tutoring</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-2.5 pointer-events-none text-on-surface-variant text-[18px]">expand_more</span>
+</div>
+</div>
+</div>
+</header>
+<!-- VIEW CONTAINER: DEFAULT POPULATED -->
+<div class="flex flex-col gap-space-xl" id="view-default">
+<!-- SECTION 1: CORE PLATFORM SUMMARY METRICS -->
+<section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Card 1 -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Platform Customers</span>
+<span class="font-display-lg text-display-lg text-on-surface mt-space-xs font-bold leading-none">4,286</span>
+</div>
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">group</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs mt-space-md pt-space-sm bg-surface-container-low/50 -mx-space-lg -mb-space-lg px-space-lg pb-space-md rounded-b-xl">
+<span class="material-symbols-outlined text-secondary text-[16px]">trending_up</span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">+348</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">in selected 30-day window</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Active Businesses</span>
+<span class="font-display-lg text-display-lg text-on-surface mt-space-xs font-bold leading-none">117</span>
+</div>
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[22px]">storefront</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs mt-space-md pt-space-sm bg-surface-container-low/50 -mx-space-lg -mb-space-lg px-space-lg pb-space-md rounded-b-xl">
+<span class="material-symbols-outlined text-primary text-[16px]">domain_verification</span>
+<span class="font-label-sm text-label-sm text-primary font-semibold">91.4%</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">of 128 registered businesses</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Total Appointments</span>
+<span class="font-display-lg text-display-lg text-on-surface mt-space-xs font-bold leading-none">12,640</span>
+</div>
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-[22px]">event_available</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs mt-space-md pt-space-sm bg-surface-container-low/50 -mx-space-lg -mb-space-lg px-space-lg pb-space-md rounded-b-xl">
+<span class="material-symbols-outlined text-on-surface-variant text-[16px]">check_circle</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Cumulative bookings recorded</span>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Active Services</span>
+<span class="font-display-lg text-display-lg text-on-surface mt-space-xs font-bold leading-none">342</span>
+</div>
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[22px]">auto_awesome</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs mt-space-md pt-space-sm bg-surface-container-low/50 -mx-space-lg -mb-space-lg px-space-lg pb-space-md rounded-b-xl">
+<span class="material-symbols-outlined text-secondary text-[16px]">sell</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Across all active catalogs</span>
+</div>
+</div>
+</section>
+<!-- SECTION 2: PRIMARY CHARTS (2-COLUMN GRID) -->
+<section class="grid grid-cols-1 lg:grid-cols-2 gap-gutter">
+<!-- Chart Card A: Customer Growth Area Chart -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-start justify-between">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Customer Growth</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Cumulative platform customer accounts over the last 30 days</p>
+</div>
+<div class="text-right">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">4,286</span>
+<span class="inline-flex items-center text-secondary font-label-sm text-label-sm ml-1.5">
+<span class="material-symbols-outlined text-[14px]">arrow_upward</span> +8.8%
+              </span>
+</div>
+</div>
+<!-- Interactive Area Chart SVG -->
+<div class="relative w-full mt-space-lg h-60 select-none">
+<svg aria-label="Customer Growth Area Chart" class="w-full h-full overflow-visible" preserveAspectRatio="none" viewBox="0 0 500 200">
+<defs>
+<linearGradient id="customerGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#2563eb" stop-opacity="0.28"></stop>
+<stop offset="100%" stop-color="#2563eb" stop-opacity="0.0"></stop>
+</linearGradient>
+</defs>
+<!-- Grid lines -->
+<line opacity="0.4" stroke="#c3c6d7" stroke-dasharray="3 3" stroke-width="0.75" x1="0" x2="500" y1="30" y2="30"></line>
+<line opacity="0.4" stroke="#c3c6d7" stroke-dasharray="3 3" stroke-width="0.75" x1="0" x2="500" y1="80" y2="80"></line>
+<line opacity="0.4" stroke="#c3c6d7" stroke-dasharray="3 3" stroke-width="0.75" x1="0" x2="500" y1="130" y2="130"></line>
+<line opacity="0.8" stroke="#c3c6d7" stroke-width="1" x1="0" x2="500" y1="180" y2="180"></line>
+<!-- Fill Area -->
+<path d="M 0 170 Q 70 162 100 152 T 200 130 T 300 102 T 400 58 T 500 24 L 500 180 L 0 180 Z" fill="url(#customerGradient)"></path>
+<!-- Stroke Line -->
+<path d="M 0 170 Q 70 162 100 152 T 200 130 T 300 102 T 400 58 T 500 24" fill="none" stroke="#2563eb" stroke-linecap="round" stroke-width="2.5"></path>
+<!-- Interactive Points with CSS hover glow -->
+<circle class="hover:r-5 transition-all cursor-pointer" cx="0" cy="170" fill="#2563eb" r="3.5"><title>Oct 1: 3,938 customers</title></circle>
+<circle class="hover:r-5 transition-all cursor-pointer" cx="100" cy="152" fill="#2563eb" r="3.5"><title>Oct 8: 3,995 customers</title></circle>
+<circle class="hover:r-5 transition-all cursor-pointer" cx="200" cy="130" fill="#2563eb" r="3.5"><title>Oct 15: 4,052 customers</title></circle>
+<circle class="hover:r-6 transition-all cursor-pointer" cx="300" cy="102" fill="#2563eb" r="4"><title>Oct 22: 4,120 customers</title></circle>
+<circle class="hover:r-6 transition-all cursor-pointer" cx="400" cy="58" fill="#2563eb" r="4"><title>Oct 29: 4,214 customers</title></circle>
+<circle class="hover:r-6 transition-all cursor-pointer" cx="500" cy="24" fill="#004ac6" r="5" stroke="#ffffff" stroke-width="2"><title>Nov 4: 4,286 customers</title></circle>
+</svg>
+</div>
+<!-- Axis Labels -->
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant pt-space-xs">
+<span class="">Oct 1</span>
+<span class="">Oct 8</span>
+<span class="">Oct 15</span>
+<span class="">Oct 22</span>
+<span class="">Oct 29</span>
+<span class="">Nov 4</span>
+</div>
+</div>
+<div class="mt-space-md pt-space-sm bg-surface-container-low rounded-lg p-space-sm flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[18px]">info</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-snug">Average <span class="font-semibold text-on-surface">+11.6 new customer records</span> created daily across platform businesses. No predictive modeling applied.</p>
+</div>
+</div>
+<!-- Chart Card B: Weekly Appointment Activity Bar Chart -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-start justify-between">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Appointment Activity</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Bookings recorded per week over the last 30 days</p>
+</div>
+<div class="text-right">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">2,840</span>
+<span class="block font-body-sm text-body-sm text-on-surface-variant">Last 30 Days</span>
+</div>
+</div>
+<!-- Weekly Column Bar Chart -->
+<div class="relative w-full mt-space-lg h-60 select-none">
+<svg aria-label="Appointment Activity Bar Chart" class="w-full h-full overflow-visible" preserveAspectRatio="none" viewBox="0 0 500 200">
+<!-- Grid lines -->
+<line opacity="0.4" stroke="#c3c6d7" stroke-dasharray="3 3" stroke-width="0.75" x1="0" x2="500" y1="40" y2="40"></line>
+<line opacity="0.4" stroke="#c3c6d7" stroke-dasharray="3 3" stroke-width="0.75" x1="0" x2="500" y1="90" y2="90"></line>
+<line opacity="0.4" stroke="#c3c6d7" stroke-dasharray="3 3" stroke-width="0.75" x1="0" x2="500" y1="140" y2="140"></line>
+<line opacity="0.8" stroke="#c3c6d7" stroke-width="1" x1="0" x2="500" y1="190" y2="190"></line>
+<!-- Bar 1: Oct 8 (640 appts -> h = 128) -->
+<g class="cursor-pointer group">
+<rect class="opacity-80 group-hover:opacity-100 transition-opacity" fill="#2563eb" height="128" rx="4" width="45" x="45" y="62"></rect>
+<text class="text-[12px] font-semibold fill-current text-on-surface font-label-sm" text-anchor="middle" x="67.5" y="52">640</text>
+<title>Week of Oct 8: 640 appointments</title>
+</g>
+<!-- Bar 2: Oct 15 (695 appts -> h = 139) -->
+<g class="cursor-pointer group">
+<rect class="opacity-85 group-hover:opacity-100 transition-opacity" fill="#2563eb" height="139" rx="4" width="45" x="170" y="51"></rect>
+<text class="text-[12px] font-semibold fill-current text-on-surface font-label-sm" text-anchor="middle" x="192.5" y="41">695</text>
+<title>Week of Oct 15: 695 appointments</title>
+</g>
+<!-- Bar 3: Oct 22 (745 appts -> h = 149) -->
+<g class="cursor-pointer group">
+<rect class="opacity-90 group-hover:opacity-100 transition-opacity" fill="#2563eb" height="149" rx="4" width="45" x="295" y="41"></rect>
+<text class="text-[12px] font-semibold fill-current text-on-surface font-label-sm" text-anchor="middle" x="317.5" y="31">745</text>
+<title>Week of Oct 22: 745 appointments</title>
+</g>
+<!-- Bar 4: Oct 29 (760 appts -> h = 152) -->
+<g class="cursor-pointer group">
+<rect class="opacity-100 group-hover:fill-primary-container transition-colors" fill="#004ac6" height="152" rx="4" width="45" x="420" y="38"></rect>
+<text class="text-[12px] font-bold fill-current text-on-surface font-label-sm" text-anchor="middle" x="442.5" y="28">760</text>
+<title>Week of Oct 29: 760 appointments</title>
+</g>
+</svg>
+</div>
+<!-- Axis Labels -->
+<div class="grid grid-cols-4 text-center font-label-sm text-label-sm text-on-surface-variant pt-space-xs">
+<span class="">Week of Oct 8</span>
+<span class="">Week of Oct 15</span>
+<span class="">Week of Oct 22</span>
+<span class="">Week of Oct 29</span>
+</div>
+</div>
+<!-- Appointment Status Legend Breakdown -->
+<div class="mt-space-md pt-space-sm flex flex-wrap items-center justify-between gap-space-xs bg-surface-container-low rounded-lg p-space-sm">
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm text-on-surface">Completed: <strong class="font-bold">78%</strong></span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+<span class="font-label-sm text-label-sm text-on-surface">Confirmed: <strong class="font-bold">16%</strong></span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-outline"></span>
+<span class="font-label-sm text-label-sm text-on-surface">Pending: <strong class="font-bold">4%</strong></span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-error"></span>
+<span class="font-label-sm text-label-sm text-on-surface">Cancelled: <strong class="font-bold">2%</strong></span>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 3: PLATFORM USAGE & DISTRIBUTION (2-COLUMN) -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Card C: Active Business Usage (5 Cols) -->
+<div class="lg:col-span-5 p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-xs">
+<h2 class="font-headline-md text-headline-md text-on-surface">Active Business Usage</h2>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-secondary-fixed/30 text-on-secondary-fixed font-semibold">117 / 128 Online</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Platform adoption across active single-operator business profiles</p>
+<!-- Adoption Trend Sparkline Block -->
+<div class="mt-space-md p-space-md rounded-xl bg-surface-container-low flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase font-semibold">30-Day Active Tenant Trajectory</span>
+<span class="font-label-sm text-label-sm text-secondary font-bold">+12.5%</span>
+</div>
+<div class="h-16 w-full">
+<svg class="w-full h-full" preserveAspectRatio="none" viewBox="0 0 300 60">
+<path d="M 0 50 L 50 48 L 100 42 L 150 36 L 200 24 L 250 18 L 300 10" fill="none" stroke="#006a61" stroke-linecap="round" stroke-width="2.5"></path>
+<circle cx="300" cy="10" fill="#006a61" r="4"></circle>
+</svg>
+</div>
+<div class="flex justify-between font-body-sm text-body-sm text-on-surface-variant">
+<span class="">Oct 1: 104 Tenants</span>
+<span class="font-semibold text-on-surface">Nov 4: 117 Tenants</span>
+</div>
+</div>
+<!-- Breakdown stat chips -->
+<div class="mt-space-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between p-space-sm rounded-lg bg-surface hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[18px] text-primary">today</span>
+<span class="font-body-md text-body-md text-on-surface">Daily active scheduling</span>
+</div>
+<span class="font-label-md text-label-md font-bold text-on-surface">89 businesses</span>
+</div>
+<div class="flex items-center justify-between p-space-sm rounded-lg bg-surface hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[18px] text-tertiary">date_range</span>
+<span class="font-body-md text-body-md text-on-surface">Weekly active scheduling</span>
+</div>
+<span class="font-label-md text-label-md font-bold text-on-surface">117 businesses</span>
+</div>
+<div class="flex items-center justify-between p-space-sm rounded-lg bg-surface hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[18px] text-secondary">update</span>
+<span class="font-body-md text-body-md text-on-surface">Catalog updates this month</span>
+</div>
+<span class="font-label-md text-label-md font-bold text-on-surface">42 businesses</span>
+</div>
+</div>
+</div>
+<div class="mt-space-md pt-space-xs text-center">
+<span class="font-body-sm text-body-sm text-outline">Strictly aggregate platform activity. No individual user credentials exposed.</span>
+</div>
+</div>
+<!-- Card D: Customer Distribution by Business (7 Cols) -->
+<div class="lg:col-span-7 p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-xs">
+<h2 class="font-headline-md text-headline-md text-on-surface">Customer Distribution by Business</h2>
+<span class="font-body-sm text-body-sm text-on-surface-variant font-medium">Top 6 of 117</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">Aggregated platform customer accounts registered per tenant profile</p>
+<div class="flex flex-col gap-space-sm">
+<!-- Row 1 -->
+<div class="flex flex-col gap-1 p-space-xs rounded-lg hover:bg-surface-container-low transition-colors">
+<div class="flex items-center justify-between font-label-md text-label-md">
+<span class="text-on-surface font-semibold">1. Lumina Hair Lounge <span class="font-body-sm text-body-sm text-on-surface-variant font-normal">(Barbershop &amp; Styling)</span></span>
+<span class="text-primary font-bold">131 Customers</span>
+</div>
+<div class="w-full bg-surface-container-high h-2.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full transition-all duration-500" style="width: 100%;"></div>
+</div>
+</div>
+<!-- Row 2 -->
+<div class="flex flex-col gap-1 p-space-xs rounded-lg hover:bg-surface-container-low transition-colors">
+<div class="flex items-center justify-between font-label-md text-label-md">
+<span class="text-on-surface font-semibold">2. Urban Edge Barbershop <span class="font-body-sm text-body-sm text-on-surface-variant font-normal">(Men's Grooming)</span></span>
+<span class="text-primary font-bold">126 Customers</span>
+</div>
+<div class="w-full bg-surface-container-high h-2.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full transition-all duration-500" style="width: 96.1%;"></div>
+</div>
+</div>
+<!-- Row 3 -->
+<div class="flex flex-col gap-1 p-space-xs rounded-lg hover:bg-surface-container-low transition-colors">
+<div class="flex items-center justify-between font-label-md text-label-md">
+<span class="text-on-surface font-semibold">3. The Fade Room <span class="font-body-sm text-body-sm text-on-surface-variant font-normal">(Men's Grooming)</span></span>
+<span class="text-primary font-bold">110 Customers</span>
+</div>
+<div class="w-full bg-surface-container-high h-2.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full transition-all duration-500" style="width: 83.9%;"></div>
+</div>
+</div>
+<!-- Row 4 -->
+<div class="flex flex-col gap-1 p-space-xs rounded-lg hover:bg-surface-container-low transition-colors">
+<div class="flex items-center justify-between font-label-md text-label-md">
+<span class="text-on-surface font-semibold">4. Wellness Point Studio <span class="font-body-sm text-body-sm text-on-surface-variant font-normal">(Wellness &amp; Massage)</span></span>
+<span class="text-primary font-bold">92 Customers</span>
+</div>
+<div class="w-full bg-surface-container-high h-2.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full transition-all duration-500" style="width: 70.2%;"></div>
+</div>
+</div>
+<!-- Row 5 -->
+<div class="flex flex-col gap-1 p-space-xs rounded-lg hover:bg-surface-container-low transition-colors">
+<div class="flex items-center justify-between font-label-md text-label-md">
+<span class="text-on-surface font-semibold">5. Haven Mind &amp; Wellness <span class="font-body-sm text-body-sm text-on-surface-variant font-normal">(Consulting)</span></span>
+<span class="text-primary font-bold">78 Customers</span>
+</div>
+<div class="w-full bg-surface-container-high h-2.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full transition-all duration-500" style="width: 59.5%;"></div>
+</div>
+</div>
+<!-- Row 6 -->
+<div class="flex flex-col gap-1 p-space-xs rounded-lg hover:bg-surface-container-low transition-colors">
+<div class="flex items-center justify-between font-label-md text-label-md">
+<span class="text-on-surface font-semibold">6. Precision Cycles Workshop <span class="font-body-sm text-body-sm text-on-surface-variant font-normal">(Solo Repair)</span></span>
+<span class="text-primary font-bold">64 Customers</span>
+</div>
+<div class="w-full bg-surface-container-high h-2.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full transition-all duration-500" style="width: 48.8%;"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-space-md p-space-sm bg-surface-container-low rounded-lg flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[18px] text-outline">verified_user</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Aggregated platform volume metrics. No private customer information or personal CRM notes are exposed.</span>
+</div>
+</div>
+</section>
+<!-- SECTION 4: RECENT PLATFORM ACTIVITY (AUDIT FEED) -->
+<section class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col">
+<div class="flex items-center justify-between mb-space-md">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Recent Platform Activity</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Live platform-level event stream across registered businesses</p>
+</div>
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-secondary font-semibold">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span> Stream Active
+        </span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter-sm">
+<!-- Event 1 -->
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col justify-between">
+<div class="flex items-start gap-space-sm">
+<span class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[16px]">domain_add</span>
+</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">New business registered</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5 leading-snug">Urban Edge Barbershop created by Marcus Vance</p>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-outline mt-space-sm self-end">18m ago</span>
+</div>
+<!-- Event 2 -->
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col justify-between">
+<div class="flex items-start gap-space-sm">
+<span class="w-8 h-8 rounded-full bg-secondary text-on-secondary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[16px]">event</span>
+</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Appointment scheduled</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5 leading-snug">New customer booking created at Lumina Hair Lounge</p>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-outline mt-space-sm self-end">2h ago</span>
+</div>
+<!-- Event 3 -->
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col justify-between">
+<div class="flex items-start gap-space-sm">
+<span class="w-8 h-8 rounded-full bg-tertiary-container text-on-tertiary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[16px]">person_add</span>
+</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">New customer recorded</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5 leading-snug">First-time client record created at Wellness Point Studio</p>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-outline mt-space-sm self-end">3h ago</span>
+</div>
+<!-- Event 4 -->
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col justify-between">
+<div class="flex items-start gap-space-sm">
+<span class="w-8 h-8 rounded-full bg-surface-container-highest text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[16px]">inventory_2</span>
+</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Catalog updated</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5 leading-snug">1 new service item added at Prime Auto Detail</p>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-outline mt-space-sm self-end">5h ago</span>
+</div>
+</div>
+</section>
+</div>
+<!-- VIEW CONTAINER: SKELETON (Hidden by default) -->
+<div class="hidden flex-col gap-space-xl animate-pulse" id="view-skeleton">
+<!-- 4 KPI Cards Skeleton -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<div class="h-36 rounded-xl bg-surface-container-high/60"></div>
+<div class="h-36 rounded-xl bg-surface-container-high/60"></div>
+<div class="h-36 rounded-xl bg-surface-container-high/60"></div>
+<div class="h-36 rounded-xl bg-surface-container-high/60"></div>
+</div>
+<!-- 2 Charts Skeleton -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-gutter">
+<div class="h-80 rounded-xl bg-surface-container-high/60"></div>
+<div class="h-80 rounded-xl bg-surface-container-high/60"></div>
+</div>
+<!-- Distribution & Sparkline Skeleton -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<div class="lg:col-span-5 h-72 rounded-xl bg-surface-container-high/60"></div>
+<div class="lg:col-span-7 h-72 rounded-xl bg-surface-container-high/60"></div>
+</div>
+</div>
+<!-- VIEW CONTAINER: EMPTY STATE (Hidden by default) -->
+<div class="hidden flex-col items-center justify-center p-space-xl bg-surface-container-lowest rounded-2xl shadow-sm text-center my-space-lg" id="view-empty">
+<div class="w-16 h-16 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant mb-space-md">
+<span class="material-symbols-outlined text-[36px]">query_stats</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-space-xs">No usage data available yet</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md mb-space-lg">Platform analytics will populate automatically as registered businesses and customers begin scheduling appointments on BookFlow.</p>
+<button class="px-space-lg py-2.5 rounded-lg bg-primary text-on-primary font-label-md text-label-md font-semibold hover:bg-primary/90 transition-all shadow-sm" onclick="setViewState('default')" type="button">
+      Refresh Analytics
+    </button>
+</div>
+<!-- VIEW CONTAINER: ERROR STATE (Hidden by default) -->
+<div class="hidden flex-col items-center justify-center p-space-xl bg-surface-container-lowest rounded-2xl shadow-sm text-center my-space-lg" id="view-error">
+<div class="w-16 h-16 rounded-full bg-error-container text-on-error-container flex items-center justify-center mb-space-md">
+<span class="material-symbols-outlined text-[36px]">error_outline</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-space-xs">Unable to load platform analytics</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md mb-space-lg">A system error occurred while retrieving aggregate metrics across registered platform businesses. Please retry.</p>
+<button class="px-space-lg py-2.5 rounded-lg bg-primary text-on-primary font-label-md text-label-md font-semibold hover:bg-primary/90 transition-all shadow-sm flex items-center gap-space-xs" onclick="setViewState('default')" type="button">
+<span class="material-symbols-outlined text-[18px]">refresh</span> Try Again
+    </button>
+</div>
+</div>
+<script>
+  function setViewState(state) {
+    const states = ['default', 'skeleton', 'empty', 'error'];
+    states.forEach(s => {
+      const container = document.getElementById('view-' + s);
+      const btn = document.getElementById('btn-state-' + s);
+      if (container) {
+        if (s === state) {
+          container.classList.remove('hidden');
+          if (s === 'skeleton') container.classList.add('flex');
+          if (s === 'default') container.classList.add('flex');
+          if (s === 'empty') container.classList.add('flex');
+          if (s === 'error') container.classList.add('flex');
+        } else {
+          container.classList.add('hidden');
+          container.classList.remove('flex');
+        }
+      }
+      if (btn) {
+        if (s === state) {
+          btn.className = "px-space-sm py-1 rounded-md font-label-sm text-label-sm font-semibold transition-all bg-surface text-primary shadow-sm";
+        } else {
+          btn.className = "px-space-sm py-1 rounded-md font-label-sm text-label-sm font-medium transition-all text-on-surface-variant hover:text-on-surface";
+        }
+      }
+    });
+  }
+</script></main></div>
+
+</body></html>

@@ -1,0 +1,511 @@
+<!DOCTYPE html><html lang="en" style=""><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_dashboard" name="shell-type"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"primary-fixed-dim":"#b4c5ff","surface-container":"#e5eeff","primary-container":"#2563eb","secondary":"#006a61","outline-variant":"#c3c6d7","background":"#f8f9ff","inverse-primary":"#b4c5ff","surface-variant":"#d3e4fe","on-secondary-container":"#006f66","on-primary-fixed":"#00174b","on-tertiary-fixed":"#001453","secondary-container":"#86f2e4","on-tertiary-fixed-variant":"#173bab","outline":"#737686","surface-tint":"#0053db","on-primary-fixed-variant":"#003ea8","on-secondary-fixed":"#00201d","surface":"#f8f9ff","tertiary-fixed":"#dde1ff","on-tertiary-container":"#eff0ff","surface-container-lowest":"#ffffff","surface-container-high":"#dce9ff","surface-dim":"#cbdbf5","primary-fixed":"#dbe1ff","secondary-fixed-dim":"#6bd8cb","on-primary":"#ffffff","surface-bright":"#f8f9ff","error":"#ba1a1a","on-surface-variant":"#434655","tertiary-fixed-dim":"#b8c4ff","on-tertiary":"#ffffff","on-secondary-fixed-variant":"#005049","on-error":"#ffffff","inverse-surface":"#213145","on-surface":"#0b1c30","on-error-container":"#93000a","surface-container-low":"#eff4ff","on-secondary":"#ffffff","error-container":"#ffdad6","on-primary-container":"#eeefff","tertiary-container":"#4865d4","surface-container-highest":"#d3e4fe","primary":"#004ac6","tertiary":"#2c4bb9","secondary-fixed":"#89f5e7","on-background":"#0b1c30","inverse-on-surface":"#eaf1ff"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-xl":"2rem","space-xs":"0.25rem","space-lg":"1.5rem","space-md":"1rem","margin-sm":"1rem","gutter":"1.5rem","space-sm":"0.5rem","margin":"2rem","gutter-sm":"1rem"},"fontFamily":{"display-lg":["Inter"],"label-md":["Inter"],"headline-lg":["Inter"],"body-md":["Inter"],"display-lg-mobile":["Inter"],"headline-lg-mobile":["Inter"],"headline-sm":["Inter"],"body-lg":["Inter"],"headline-md":["Inter"],"label-sm":["Inter"],"body-sm":["Inter"]},"fontSize":{"display-lg":["3rem",{"lineHeight":"3.5rem","letterSpacing":"-0.025em","fontWeight":"700"}],"label-md":["0.875rem",{"lineHeight":"1.25rem","letterSpacing":"-0.005em","fontWeight":"500"}],"headline-lg":["2rem",{"lineHeight":"2.5rem","letterSpacing":"-0.02em","fontWeight":"600"}],"body-md":["0.875rem",{"lineHeight":"1.375rem","letterSpacing":"0em","fontWeight":"400"}],"display-lg-mobile":["2.25rem",{"lineHeight":"2.75rem","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-lg-mobile":["1.5rem",{"lineHeight":"2rem","letterSpacing":"-0.015em","fontWeight":"600"}],"headline-sm":["1rem",{"lineHeight":"1.5rem","letterSpacing":"0em","fontWeight":"600"}],"body-lg":["1.125rem",{"lineHeight":"1.75rem","letterSpacing":"0em","fontWeight":"400"}],"headline-md":["1.25rem",{"lineHeight":"1.75rem","letterSpacing":"-0.01em","fontWeight":"600"}],"label-sm":["0.75rem",{"lineHeight":"1rem","letterSpacing":"0.025em","fontWeight":"600"}],"body-sm":["0.75rem",{"lineHeight":"1.125rem","letterSpacing":"0.01em","fontWeight":"400"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-lowest z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col"><div class="h-16 px-space-lg flex items-center justify-between bg-surface-container-lowest"><div class="flex items-center gap-2.5"><div class="flex items-center gap-2"><div class="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center text-white font-bold text-base shadow-xs select-none">B</div><span class="font-bold text-slate-900 text-lg tracking-tight">BookFlow</span></div><span class="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-semibold tracking-wider uppercase bg-slate-100 text-slate-600 border border-slate-200/80 select-none">ADMIN</span></div></div><div class="px-space-md py-space-sm"><span class="px-space-sm font-label-sm text-label-sm uppercase tracking-wider text-outline">Core System</span></div><nav class="flex flex-col gap-space-xs px-space-md" data-active-classes="bg-primary-container text-on-primary-container font-medium rounded-lg shadow-sm"><a class="flex items-center gap-3 px-3 py-2.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="admin-dashboard" href="#"><span class="material-symbols-outlined text-[20px]">dashboard</span><span class="">Admin Dashboard</span></a><a class="flex items-center gap-3 px-3 py-2.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="businesses" href="#"><span class="material-symbols-outlined text-[20px]">store</span><span class="">Businesses</span></a><a class="flex items-center gap-3 px-3 py-2.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="platform-activity" href="#"><span class="material-symbols-outlined text-[20px]">analytics</span><span class="">Platform Activity</span></a></nav></div><div class="p-space-md bg-surface-container-lowest"><div class="p-space-sm rounded-lg bg-surface-container-low flex flex-col gap-space-sm"><div class="flex items-center justify-between"><div class="flex items-center gap-2 overflow-hidden"><div class="w-8 h-8 rounded-full bg-inverse-surface flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-inverse-on-surface text-[18px]">shield_person</span></div><div class="flex flex-col min-w-0"><span class="font-label-md text-label-md text-on-surface font-semibold truncate leading-tight">Platform Admin</span><span class="font-body-sm text-body-sm text-outline truncate leading-tight">admin@bookflow.internal</span></div></div></div><div class="flex items-center justify-between pt-space-xs"><span class="px-2 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm font-semibold">System Operator</span><a class="text-outline hover:text-error transition-colors flex items-center justify-center p-1 rounded hover:bg-error-container hover:text-on-error-container" data-path="admin-logout" href="#" title="End session"><span class="material-symbols-outlined text-[18px]">logout</span></a></div></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-xl z-40 flex items-center justify-between px-8 shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex items-center gap-space-md"><div class="flex items-center gap-2"><span class="font-label-md text-label-md text-outline font-normal">System Administration</span><span class="text-outline-variant font-label-sm text-label-sm">/</span><span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Platform Admin</span></div></div><div class="flex items-center gap-space-md"><div class="relative group"><button class="flex items-center gap-2 focus:outline-none"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><span class="material-symbols-outlined text-[16px] text-outline group-hover:text-on-surface transition-colors">arrow_drop_down</span></button><div class="absolute right-0 top-full mt-2 w-56 bg-surface-container-lowest rounded-xl shadow-[0_4px_16px_rgba(0,0,0,0.08)] py-2 hidden group-hover:block transition-all z-50"><div class="px-4 py-2"><p class="font-label-sm text-label-sm text-outline font-semibold uppercase tracking-wider">Administrator Session</p><p class="font-label-md text-label-md text-on-surface font-semibold truncate">admin@bookflow.internal</p></div><div class="h-px bg-surface-container-high my-1"></div><a class="flex items-center gap-2 px-4 py-2 font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="admin-account" href="#"><span class="material-symbols-outlined text-[18px]">admin_panel_settings</span><span class="">Admin Account</span></a><a class="flex items-center gap-2 px-4 py-2 font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="platform-documentation" href="#"><span class="material-symbols-outlined text-[18px]">menu_book</span><span class="">Platform Documentation</span></a><div class="h-px bg-surface-container-high my-1"></div><a class="flex items-center gap-2 px-4 py-2 font-label-md text-label-md text-error hover:bg-error-container hover:text-on-error-container transition-colors" data-path="admin-logout" href="#"><span class="material-symbols-outlined text-[18px]">logout</span><span class="">Log Out</span></a></div></div></div></header><main class="relative pt-16 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- Interactive Prototype State Switcher -->
+<div class="w-full bg-surface-container-low px-8 py-3.5 flex flex-wrap items-center justify-between gap-4 shadow-sm">
+<div class="flex items-center gap-3">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-primary text-on-primary font-label-sm text-label-sm uppercase tracking-wider font-semibold">
+<span class="material-symbols-outlined text-[14px]">tune</span> Stage 7.5.3
+      </span>
+<span class="font-label-md text-label-md text-on-surface font-semibold tracking-tight">Platform Admin Inspection Simulation</span>
+</div>
+<div class="flex items-center gap-1.5 p-1 rounded-lg bg-surface-container-lowest shadow-sm" id="prototype-tabs">
+<button class="px-3 py-1.5 rounded font-label-md text-label-md transition-all font-semibold bg-primary text-on-primary shadow-sm flex items-center gap-1.5" id="btn-state-default" onclick="setInspectionState('default')">
+<span class="material-symbols-outlined text-[16px]">visibility</span> Populated
+      </button>
+<button class="px-3 py-1.5 rounded font-label-md text-label-md transition-all font-medium text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low flex items-center gap-1.5" id="btn-state-loading" onclick="setInspectionState('loading')">
+<span class="material-symbols-outlined text-[16px]">hourglass_top</span> Skeleton
+      </button>
+<button class="px-3 py-1.5 rounded font-label-md text-label-md transition-all font-medium text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low flex items-center gap-1.5" id="btn-state-error" onclick="setInspectionState('error')">
+<span class="material-symbols-outlined text-[16px]">error</span> Error State
+      </button>
+<button class="px-3 py-1.5 rounded font-label-md text-label-md transition-all font-medium text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low flex items-center gap-1.5" id="btn-state-notfound" onclick="setInspectionState('notfound')">
+<span class="material-symbols-outlined text-[16px]">search_off</span> 404 Not Found
+      </button>
+</div>
+</div>
+<!-- STATE: DEFAULT POPULATED VIEW -->
+<div class="w-full flex flex-col p-8 gap-8" id="view-default">
+<!-- Top Action Bar & Breadcrumbs -->
+<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center gap-2">
+<a class="inline-flex items-center gap-1 text-primary hover:text-tertiary font-label-md text-label-md font-semibold transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]">arrow_back</span> Back to Businesses
+          </a>
+<span class="text-outline font-label-sm text-label-sm">/</span>
+<span class="font-label-md text-label-md text-outline font-normal">Registered Entity</span>
+<span class="text-outline font-label-sm text-label-sm">/</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">Urban Edge Barbershop</span>
+</div>
+<div class="flex items-center gap-3 pt-1">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Urban Edge Barbershop</h1>
+<span class="px-2.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary"></span> Active Platform Tenant
+          </span>
+</div>
+<p class="font-body-md text-body-md text-outline">Business details, catalog configuration, and recorded platform activity.</p>
+</div>
+<!-- Scope Boundary Badge -->
+<div class="flex items-center gap-2 px-3.5 py-2 rounded-lg bg-surface-container-low self-start sm:self-auto">
+<span class="material-symbols-outlined text-outline text-[18px]">lock</span>
+<span class="font-label-sm text-label-sm text-outline font-semibold uppercase tracking-wider">Read-Only Administrative View</span>
+</div>
+</div>
+<!-- Hero Identity Card -->
+<div class="w-full bg-surface-container-lowest rounded-xl p-6 shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-6 relative overflow-hidden">
+<div class="absolute -right-16 -top-16 w-56 h-56 bg-primary/5 rounded-full blur-2xl pointer-events-none"></div>
+<div class="flex items-center gap-5 relative z-10">
+<!-- Monogram / Brand Icon -->
+<div class="w-16 h-16 rounded-xl bg-gradient-to-tr from-primary to-primary-container flex items-center justify-center text-on-primary font-headline-md text-headline-md font-bold tracking-tight shadow-md shrink-0">
+          UE
+        </div>
+<div class="flex flex-col gap-1 min-w-0">
+<div class="flex items-center gap-2.5 flex-wrap">
+<span class="font-headline-md text-headline-md text-on-surface font-semibold">Urban Edge Barbershop</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm font-medium">Tenant ID: bzn_094a2f8b</span>
+</div>
+<div class="flex items-center gap-4 text-outline font-body-sm text-body-sm flex-wrap">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">category</span> Barbershop &amp; Men's Grooming
+            </span>
+<span class="">•</span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">calendar_today</span> Registered Sep 28, 2026
+            </span>
+<span class="">•</span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">pin_drop</span> San Francisco, CA
+            </span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3 w-full md:w-auto relative z-10 justify-end">
+<a class="w-full md:w-auto inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-surface-container-low text-on-surface hover:bg-surface-container transition-all font-label-md text-label-md font-medium shadow-sm" href="https://bookflow.me/b/urban-edge-barbershop" rel="noopener noreferrer" target="_blank">
+<span class="">View Public Page</span>
+<span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</a>
+</div>
+</div>
+<!-- Main 2-Column Responsive Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- LEFT COLUMN: Profile & Catalog & Working Hours (7 Cols) -->
+<div class="lg:col-span-7 flex flex-col gap-8">
+<!-- 1. Read-Only Business Profile -->
+<div class="w-full bg-surface-container-lowest rounded-xl p-6 shadow-sm flex flex-col gap-6">
+<div class="flex items-center justify-between pb-3 border-b-0">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-lg bg-surface-container-low flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">storefront</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Business Profile</h2>
+</div>
+<span class="font-label-sm text-label-sm text-outline uppercase font-semibold">Master Records</span>
+</div>
+<!-- Structured Key-Value List -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="p-3.5 rounded-lg bg-surface-container-low flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-outline uppercase font-medium">Public Business Name</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">Urban Edge Barbershop</span>
+</div>
+<div class="p-3.5 rounded-lg bg-surface-container-low flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-outline uppercase font-medium">Industry Classification</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">Barbershop &amp; Men's Grooming</span>
+</div>
+<div class="p-3.5 rounded-lg bg-surface-container-low flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-outline uppercase font-medium">Contact Phone</span>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-outline">call</span>
+<span class="font-label-md text-label-md text-on-surface font-medium">+1 (555) 234-5678</span>
+</div>
+</div>
+<div class="p-3.5 rounded-lg bg-surface-container-low flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-outline uppercase font-medium">Contact Email</span>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-outline">mail</span>
+<span class="font-label-md text-label-md text-on-surface font-medium truncate">contact@urbanedge.example.com</span>
+</div>
+</div>
+<div class="sm:col-span-2 p-3.5 rounded-lg bg-surface-container-low flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-outline uppercase font-medium">Physical Location Address</span>
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-[18px] text-outline mt-0.5">location_on</span>
+<span class="font-label-md text-label-md text-on-surface font-medium">1422 Market Street, Suite 4B, San Francisco, CA 94102</span>
+</div>
+</div>
+<div class="sm:col-span-2 p-3.5 rounded-lg bg-surface-container-low flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-outline uppercase font-medium">Public Bio &amp; Overview</span>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                Premier modern barbershop offering precision cuts, beard sculpting, and traditional hot towel grooming in downtown San Francisco. Serving clients since 2026 with bespoke personal care services.
+              </p>
+</div>
+<div class="p-3.5 rounded-lg bg-surface-container-low flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-outline uppercase font-medium">Operating Currency</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">USD ($ - United States Dollar)</span>
+</div>
+<div class="p-3.5 rounded-lg bg-surface-container-low flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-outline uppercase font-medium">Timezone</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">America/Los_Angeles (PST)</span>
+</div>
+</div>
+</div>
+<!-- 2. Read-Only Active Services Catalog -->
+<div class="w-full bg-surface-container-lowest rounded-xl p-6 shadow-sm flex flex-col gap-6">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-lg bg-surface-container-low flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">content_cut</span>
+</div>
+<div class="flex items-center gap-2">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Configured Services</h2>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm font-semibold">3 Active</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-outline">Public Catalog</span>
+</div>
+<div class="flex flex-col gap-3">
+<!-- Service Item 1 -->
+<div class="p-4 rounded-xl bg-surface-container-low flex items-center justify-between hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-3.5">
+<div class="w-10 h-10 rounded-lg bg-primary-container/10 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">face</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Men's Precision Cut</span>
+<div class="flex items-center gap-2 text-outline font-body-sm text-body-sm">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">schedule</span> 45 mins
+                    </span>
+<span class="">•</span>
+<span class="font-semibold text-on-surface font-label-sm text-label-sm">$45.00 USD</span>
+</div>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold">Active</span>
+</div>
+<!-- Service Item 2 -->
+<div class="p-4 rounded-xl bg-surface-container-low flex items-center justify-between hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-3.5">
+<div class="w-10 h-10 rounded-lg bg-primary-container/10 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">spa</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Beard Sculpt &amp; Hot Towel</span>
+<div class="flex items-center gap-2 text-outline font-body-sm text-body-sm">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">schedule</span> 30 mins
+                    </span>
+<span class="">•</span>
+<span class="font-semibold text-on-surface font-label-sm text-label-sm">$28.00 USD</span>
+</div>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold">Active</span>
+</div>
+<!-- Service Item 3 -->
+<div class="p-4 rounded-xl bg-surface-container-low flex items-center justify-between hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-3.5">
+<div class="w-10 h-10 rounded-lg bg-primary-container/10 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">stars</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Full Executive Treatment</span>
+<div class="flex items-center gap-2 text-outline font-body-sm text-body-sm">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">schedule</span> 75 mins
+                    </span>
+<span class="">•</span>
+<span class="font-semibold text-on-surface font-label-sm text-label-sm">$70.00 USD</span>
+</div>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold">Active</span>
+</div>
+</div>
+<!-- Explicit Read-Only System Notice -->
+<div class="flex items-start gap-2.5 p-3 rounded-lg bg-surface text-outline font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[18px] text-outline mt-0.5">info</span>
+<span class="">Services and booking durations are maintained independently by the business owner via the BookFlow Owner Portal. Platform administrators have inspection-only authorization.</span>
+</div>
+</div>
+<!-- 3. Working Hours Schedule (Read-Only) -->
+<div class="w-full bg-surface-container-lowest rounded-xl p-6 shadow-sm flex flex-col gap-6">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-lg bg-surface-container-low flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">calendar_month</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Operating Hours</h2>
+</div>
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-label-sm font-medium">Standard Weekly</span>
+</div>
+<div class="flex flex-col divide-y-0 gap-2">
+<div class="flex items-center justify-between py-2 px-3 rounded-lg bg-surface-container-low">
+<span class="font-label-md text-label-md text-on-surface font-medium">Monday – Friday</span>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">9:00 AM – 6:00 PM</span>
+</div>
+</div>
+<div class="flex items-center justify-between py-2 px-3 rounded-lg bg-surface-container-low">
+<span class="font-label-md text-label-md text-on-surface font-medium">Saturday</span>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">10:00 AM – 4:00 PM</span>
+</div>
+</div>
+<div class="flex items-center justify-between py-2 px-3 rounded-lg bg-surface-container-low">
+<span class="font-label-md text-label-md text-outline font-medium">Sunday</span>
+<span class="font-label-md text-label-md text-outline font-semibold">Closed</span>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN: Metrics, Owner Account, Public Link & Activity (5 Cols) -->
+<div class="lg:col-span-5 flex flex-col gap-8">
+<!-- 1. Platform Usage & Activity Summary (No Financial Metrics) -->
+<div class="w-full bg-surface-container-lowest rounded-xl p-6 shadow-sm flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Usage Aggregates</h2>
+<span class="material-symbols-outlined text-outline text-[18px]">query_stats</span>
+</div>
+<div class="grid grid-cols-3 gap-3">
+<div class="p-3.5 rounded-xl bg-surface-container-low flex flex-col gap-1">
+<span class="font-body-sm text-body-sm text-outline font-medium">Total Clients</span>
+<span class="font-headline-md text-headline-md text-on-surface font-bold">126</span>
+<span class="font-label-sm text-label-sm text-secondary font-medium">Recorded</span>
+</div>
+<div class="p-3.5 rounded-xl bg-surface-container-low flex flex-col gap-1">
+<span class="font-body-sm text-body-sm text-outline font-medium">Appointments</span>
+<span class="font-headline-md text-headline-md text-on-surface font-bold">342</span>
+<span class="font-label-sm text-label-sm text-primary font-medium">All-time</span>
+</div>
+<div class="p-3.5 rounded-xl bg-surface-container-low flex flex-col gap-1">
+<span class="font-body-sm text-body-sm text-outline font-medium">Catalog Size</span>
+<span class="font-headline-md text-headline-md text-on-surface font-bold">3</span>
+<span class="font-label-sm text-label-sm text-secondary font-medium">Active list</span>
+</div>
+</div>
+<!-- Micro Activity Sparkline SVG Chart -->
+<div class="mt-2 p-3 rounded-xl bg-surface-container-low flex flex-col gap-2">
+<div class="flex items-center justify-between text-outline font-label-sm text-label-sm">
+<span class="font-medium text-on-surface-variant">Booking Velocity (Last 14 Days)</span>
+<span class="text-secondary font-semibold">+18.4%</span>
+</div>
+<div class="w-full h-12 flex items-end">
+<svg class="w-full h-full text-primary" fill="none" preserveAspectRatio="none" viewBox="0 0 240 40">
+<path d="M0 32 L20 28 L40 30 L60 22 L80 25 L100 18 L120 20 L140 12 L160 16 L180 8 L200 14 L220 5 L240 2" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
+<path d="M0 32 L20 28 L40 30 L60 22 L80 25 L100 18 L120 20 L140 12 L160 16 L180 8 L200 14 L220 5 L240 2 L240 40 L0 40 Z" fill="currentColor" fill-opacity="0.08"></path>
+</svg>
+</div>
+</div>
+</div>
+<!-- 2. Business Owner Account Info -->
+<div class="w-full bg-surface-container-lowest rounded-xl p-6 shadow-sm flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-surface-container-low flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">person</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Account Owner</h2>
+</div>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm font-semibold">Verified</span>
+</div>
+<div class="p-4 rounded-xl bg-surface-container-low flex flex-col gap-3">
+<div class="flex items-center gap-3">
+<div class="w-11 h-11 rounded-full bg-inverse-surface text-inverse-on-surface flex items-center justify-center font-headline-sm text-headline-sm font-semibold">
+                MV
+              </div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-bold truncate">Marcus Vance</span>
+<span class="font-body-sm text-body-sm text-outline truncate">marcus.vance@example.com</span>
+</div>
+</div>
+<div class="pt-2 flex items-center justify-between border-t-0 font-label-sm text-label-sm">
+<span class="text-outline">Account Role:</span>
+<span class="text-on-surface font-semibold">Primary Business Owner</span>
+</div>
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="text-outline">Owner Account Status:</span>
+<span class="text-secondary font-semibold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Active &amp; Authenticated
+              </span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-outline">
+            Administrative policy prevents inspection of owner credentials, auth tokens, or payment settlement accounts.
+          </p>
+</div>
+<!-- 3. Public Booking URL & Direct Link -->
+<div class="w-full bg-surface-container-lowest rounded-xl p-6 shadow-sm flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Public Booking Interface</h2>
+<span class="px-2 py-0.5 rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold">Live</span>
+</div>
+<div class="p-3.5 rounded-xl bg-surface-container-low flex flex-col gap-2">
+<span class="font-label-sm text-label-sm text-outline uppercase font-medium">Canonical Public URL</span>
+<div class="flex items-center justify-between gap-2 overflow-hidden">
+<code class="font-mono text-body-sm text-primary font-semibold truncate">bookflow.me/b/urban-edge-barbershop</code>
+<button class="p-1 rounded text-outline hover:text-on-surface transition-colors" onclick="navigator.clipboard.writeText('https://bookflow.me/b/urban-edge-barbershop');" title="Copy public link">
+<span class="material-symbols-outlined text-[18px]">content_copy</span>
+</button>
+</div>
+</div>
+<a class="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-primary text-on-primary hover:bg-tertiary transition-colors font-label-md text-label-md font-semibold shadow-sm" href="https://bookflow.me/b/urban-edge-barbershop" rel="noopener noreferrer" target="_blank">
+<span class="">Open Customer Booking View</span>
+<span class="material-symbols-outlined text-[18px]">launch</span>
+</a>
+</div>
+<!-- 4. Recent Platform Activity Timeline -->
+<div class="w-full bg-surface-container-lowest rounded-xl p-6 shadow-sm flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Platform Event Log</h2>
+<span class="font-label-sm text-label-sm text-outline">Audit Trail</span>
+</div>
+<div class="relative pl-6 flex flex-col gap-5 before:content-[''] before:absolute before:left-2 before:top-2 before:bottom-2 before:w-0.5 before:bg-surface-container-high">
+<!-- Event 1 -->
+<div class="relative flex flex-col gap-1">
+<span class="absolute -left-6 top-1 w-3 h-3 rounded-full bg-primary ring-4 ring-surface-container-lowest"></span>
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Appointment Scheduled</span>
+<span class="font-body-sm text-body-sm text-outline">Today, 10:42 AM</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Guest booked <span class="font-semibold text-on-surface">Men's Precision Cut</span> via public web flow.</p>
+</div>
+<!-- Event 2 -->
+<div class="relative flex flex-col gap-1">
+<span class="absolute -left-6 top-1 w-3 h-3 rounded-full bg-secondary ring-4 ring-surface-container-lowest"></span>
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface font-semibold">New Customer Recorded</span>
+<span class="font-body-sm text-body-sm text-outline">Today, 9:30 AM</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">First-time client profile created through appointment check-in.</p>
+</div>
+<!-- Event 3 -->
+<div class="relative flex flex-col gap-1">
+<span class="absolute -left-6 top-1 w-3 h-3 rounded-full bg-outline ring-4 ring-surface-container-lowest"></span>
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Appointment Completed</span>
+<span class="font-body-sm text-body-sm text-outline">Yesterday</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Booking record <span class="font-mono text-outline font-semibold">#BK-8821</span> marked as attended.</p>
+</div>
+<!-- Event 4 -->
+<div class="relative flex flex-col gap-1">
+<span class="absolute -left-6 top-1 w-3 h-3 rounded-full bg-primary-fixed-dim ring-4 ring-surface-container-lowest"></span>
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Tenant Provisioned</span>
+<span class="font-body-sm text-body-sm text-outline">Sep 28, 2026</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Business entity registered on BookFlow cloud infrastructure.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- STATE: LOADING SKELETON -->
+<div class="hidden w-full flex-col p-8 gap-8 animate-pulse" id="view-loading">
+<!-- Header Skeleton -->
+<div class="flex flex-col gap-2">
+<div class="h-4 w-48 bg-surface-container-high rounded"></div>
+<div class="h-8 w-80 bg-surface-container-high rounded mt-2"></div>
+<div class="h-4 w-96 bg-surface-container-high rounded"></div>
+</div>
+<!-- Hero Card Skeleton -->
+<div class="w-full h-32 bg-surface-container-lowest rounded-xl p-6 shadow-sm flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-xl bg-surface-container-high"></div>
+<div class="flex flex-col gap-2">
+<div class="h-6 w-56 bg-surface-container-high rounded"></div>
+<div class="h-4 w-80 bg-surface-container-high rounded"></div>
+</div>
+</div>
+<div class="h-10 w-36 bg-surface-container-high rounded-lg"></div>
+</div>
+<!-- 2-Column Content Skeletons -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<div class="lg:col-span-7 flex flex-col gap-6">
+<div class="w-full h-72 bg-surface-container-lowest rounded-xl p-6 shadow-sm"></div>
+<div class="w-full h-64 bg-surface-container-lowest rounded-xl p-6 shadow-sm"></div>
+</div>
+<div class="lg:col-span-5 flex flex-col gap-6">
+<div class="w-full h-48 bg-surface-container-lowest rounded-xl p-6 shadow-sm"></div>
+<div class="w-full h-56 bg-surface-container-lowest rounded-xl p-6 shadow-sm"></div>
+</div>
+</div>
+</div>
+<!-- STATE: ERROR STATE -->
+<div class="hidden w-full flex-col items-center justify-center p-16 min-h-[60vh]" id="view-error">
+<div class="max-w-md w-full bg-surface-container-lowest rounded-2xl p-8 shadow-sm flex flex-col items-center text-center gap-4">
+<div class="w-16 h-16 rounded-full bg-error-container text-error flex items-center justify-center">
+<span class="material-symbols-outlined text-[32px]">sync_problem</span>
+</div>
+<div class="flex flex-col gap-1">
+<h2 class="font-headline-md text-headline-md text-on-surface font-semibold">Unable to load business details</h2>
+<p class="font-body-md text-body-md text-outline">An error occurred while communicating with the BookFlow tenant database.</p>
+</div>
+<div class="flex items-center gap-3 pt-3">
+<button class="px-5 py-2.5 rounded-lg bg-primary text-on-primary font-label-md text-label-md font-semibold hover:bg-tertiary transition-colors shadow-sm flex items-center gap-2" onclick="setInspectionState('default')">
+<span class="material-symbols-outlined text-[18px]">refresh</span> Try Again
+        </button>
+<button class="px-4 py-2.5 rounded-lg bg-surface-container-low text-on-surface font-label-md text-label-md font-semibold hover:bg-surface-container transition-colors" onclick="setInspectionState('default')">
+          Dismiss
+        </button>
+</div>
+</div>
+</div>
+<!-- STATE: 404 NOT FOUND STATE -->
+<div class="hidden w-full flex-col items-center justify-center p-16 min-h-[60vh]" id="view-notfound">
+<div class="max-w-md w-full bg-surface-container-lowest rounded-2xl p-8 shadow-sm flex flex-col items-center text-center gap-4">
+<div class="w-16 h-16 rounded-full bg-surface-container-high text-outline flex items-center justify-center">
+<span class="material-symbols-outlined text-[32px]">domain_disabled</span>
+</div>
+<div class="flex flex-col gap-1">
+<h2 class="font-headline-md text-headline-md text-on-surface font-semibold">Business not found</h2>
+<p class="font-body-md text-body-md text-outline">The business entity you are looking for could not be found or has been decommissioned from the platform registry.</p>
+</div>
+<div class="pt-3">
+<button class="px-5 py-2.5 rounded-lg bg-primary text-on-primary font-label-md text-label-md font-semibold hover:bg-tertiary transition-colors shadow-sm flex items-center gap-2" onclick="setInspectionState('default')">
+<span class="material-symbols-outlined text-[18px]">arrow_back</span> Return to Business Directory
+        </button>
+</div>
+</div>
+</div>
+<!-- Embedded Vanilla JS for State Switching -->
+<script>
+    function setInspectionState(state) {
+      // Hide all states
+      ['default', 'loading', 'error', 'notfound'].forEach(s => {
+        const el = document.getElementById('view-' + s);
+        if (el) {
+          el.classList.add('hidden');
+          el.classList.remove('flex');
+        }
+        
+        // Reset tab styles
+        const btn = document.getElementById('btn-state-' + s);
+        if (btn) {
+          btn.className = "px-3 py-1.5 rounded font-label-md text-label-md transition-all font-medium text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low flex items-center gap-1.5";
+        }
+      });
+
+      // Show selected state
+      const target = document.getElementById('view-' + state);
+      if (target) {
+        target.classList.remove('hidden');
+        target.classList.add('flex');
+      }
+
+      // Highlight active tab
+      const activeBtn = document.getElementById('btn-state-' + state);
+      if (activeBtn) {
+        activeBtn.className = "px-3 py-1.5 rounded font-label-md text-label-md transition-all font-semibold bg-primary text-on-primary shadow-sm flex items-center gap-1.5";
+      }
+    }
+  </script>
+</div></main></div>
+
+
+</body></html>

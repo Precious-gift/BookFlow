@@ -1,0 +1,405 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_dashboard" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"on-primary-fixed-variant":"#003ea8","on-surface":"#0b1c30","inverse-on-surface":"#eaf1ff","on-primary-fixed":"#00174b","on-secondary":"#ffffff","inverse-surface":"#213145","on-tertiary-container":"#eff0ff","on-tertiary":"#ffffff","tertiary-fixed-dim":"#b8c4ff","surface-container-highest":"#d3e4fe","primary-fixed":"#dbe1ff","surface-container-lowest":"#ffffff","tertiary-container":"#4865d4","surface-container-low":"#eff4ff","secondary":"#006a61","outline":"#737686","surface-tint":"#0053db","error-container":"#ffdad6","background":"#f8f9ff","primary-fixed-dim":"#b4c5ff","tertiary-fixed":"#dde1ff","surface-bright":"#f8f9ff","surface-container":"#e5eeff","secondary-container":"#86f2e4","outline-variant":"#c3c6d7","on-primary":"#ffffff","on-surface-variant":"#434655","on-secondary-container":"#006f66","on-tertiary-fixed":"#001453","on-error":"#ffffff","error":"#ba1a1a","on-tertiary-fixed-variant":"#173bab","surface-container-high":"#dce9ff","on-error-container":"#93000a","on-secondary-fixed-variant":"#005049","inverse-primary":"#b4c5ff","on-background":"#0b1c30","on-primary-container":"#eeefff","tertiary":"#2c4bb9","secondary-fixed-dim":"#6bd8cb","surface-dim":"#cbdbf5","surface":"#f8f9ff","secondary-fixed":"#89f5e7","on-secondary-fixed":"#00201d","surface-variant":"#d3e4fe","primary-container":"#2563eb","primary":"#004ac6"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-md":"1rem","space-lg":"1.5rem","margin":"2rem","margin-sm":"1rem","space-sm":"0.5rem","space-xl":"2rem","space-xs":"0.25rem","gutter-sm":"1rem","gutter":"1.5rem"},"fontFamily":{"display-lg-mobile":["Inter"],"headline-md":["Inter"],"display-lg":["Inter"],"label-md":["Inter"],"body-lg":["Inter"],"headline-lg-mobile":["Inter"],"body-md":["Inter"],"headline-sm":["Inter"],"headline-lg":["Inter"],"label-sm":["Inter"],"body-sm":["Inter"]},"fontSize":{"display-lg-mobile":["2.25rem",{"lineHeight":"2.75rem","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-md":["1.25rem",{"lineHeight":"1.75rem","letterSpacing":"-0.01em","fontWeight":"600"}],"display-lg":["3rem",{"lineHeight":"3.5rem","letterSpacing":"-0.025em","fontWeight":"700"}],"label-md":["0.875rem",{"lineHeight":"1.25rem","letterSpacing":"-0.005em","fontWeight":"500"}],"body-lg":["1.125rem",{"lineHeight":"1.75rem","letterSpacing":"0em","fontWeight":"400"}],"headline-lg-mobile":["1.5rem",{"lineHeight":"2rem","letterSpacing":"-0.015em","fontWeight":"600"}],"body-md":["0.875rem",{"lineHeight":"1.375rem","letterSpacing":"0em","fontWeight":"400"}],"headline-sm":["1rem",{"lineHeight":"1.5rem","letterSpacing":"0em","fontWeight":"600"}],"headline-lg":["2rem",{"lineHeight":"2.5rem","letterSpacing":"-0.02em","fontWeight":"600"}],"label-sm":["0.75rem",{"lineHeight":"1rem","letterSpacing":"0.025em","fontWeight":"600"}],"body-sm":["0.75rem",{"lineHeight":"1.125rem","letterSpacing":"0.01em","fontWeight":"400"}]}}}}</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-64 bg-surface-container-low shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between"><div class="flex flex-col"><div class="h-16 px-space-lg flex items-center justify-between gap-space-sm"><div class="flex items-center gap-2.5"><div class="flex items-center gap-2"><div class="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center text-white font-bold text-base shadow-xs select-none">B</div><span class="font-bold text-slate-900 text-lg tracking-tight">BookFlow</span></div><span class="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-semibold tracking-wider uppercase bg-slate-100 text-slate-600 border border-slate-200/80 select-none">ADMIN</span></div></div><nav class="flex flex-col gap-space-xs px-space-sm mt-space-md" data-active-classes="bg-primary-container text-on-primary font-semibold shadow-sm"><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="admin-dashboard" href="#"><span class="material-symbols-outlined text-[20px]">dashboard</span><span class="font-label-md text-label-md">Dashboard</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="platform-businesses-directory" href="#"><span class="material-symbols-outlined text-[20px]">storefront</span><span class="font-label-md text-label-md">Businesses</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="platform-analytics" href="#"><span class="material-symbols-outlined text-[20px]">monitoring</span><span class="font-label-md text-label-md">Platform Activity</span></a></nav></div><div class="p-space-sm m-space-sm rounded-xl bg-surface-container"><div class="flex items-center gap-space-sm p-space-xs"><div class="relative"><div class="w-9 h-9 rounded-full bg-primary flex items-center justify-center text-on-primary"><span class="material-symbols-outlined text-[20px]">admin_panel_settings</span></div><span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-secondary ring-2 ring-surface-container"></span></div><div class="flex flex-col min-w-0 flex-1"><span class="font-label-md text-label-md text-on-surface truncate font-semibold">Admin Account</span><span class="font-body-sm text-body-sm text-on-surface-variant truncate">marcus.vance@bookflow.example</span></div></div><div class="mt-space-sm pt-space-xs flex items-center justify-between px-space-xs"><span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-secondary font-medium"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>Operator</span><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-error transition-colors flex items-center gap-1" data-path="admin-logout" href="#"><span class="material-symbols-outlined text-[16px]">logout</span>Log Out</a></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-gutter"><div class="flex items-center gap-space-xs font-label-md text-label-md"><span class="text-on-surface-variant font-medium">System Administration</span><span class="text-outline-variant font-body-sm text-body-sm">/</span><span class="text-on-surface font-semibold">Portal Console</span></div><div class="flex items-center gap-space-md"><div class="relative group"><button class="flex items-center gap-space-sm p-space-xs rounded-full hover:bg-surface-container-high transition-colors focus:outline-none" type="button"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><span class="font-label-md text-label-md text-on-surface font-medium pr-space-xs hidden md:inline">Admin Account</span><span class="material-symbols-outlined text-on-surface-variant text-[18px]">expand_more</span></button><div class="absolute right-0 mt-space-xs w-56 rounded-xl bg-surface-container-lowest shadow-[0_4px_6px_-1px_rgba(15,23,42,0.07),0_2px_4px_-2px_rgba(15,23,42,0.05)] py-space-xs opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all"><div class="px-space-md py-space-xs border-b border-surface-container-high"><p class="font-label-sm text-label-sm text-on-surface-variant">Signed in as</p><p class="font-label-md text-label-md text-on-surface truncate font-semibold">marcus.vance@bookflow.example</p></div><a class="flex items-center gap-space-sm px-space-md py-space-sm font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="admin-profile" href="#"><span class="material-symbols-outlined text-[18px]">badge</span>Admin Profile</a><a class="flex items-center gap-space-sm px-space-md py-space-sm font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="account-security" href="#"><span class="material-symbols-outlined text-[18px]">security</span>Account &amp; Security</a><div class="h-px bg-surface-container-high my-space-xs"></div><a class="flex items-center gap-space-sm px-space-md py-space-sm font-label-md text-label-md text-error hover:bg-error-container hover:text-on-error-container transition-colors" data-path="admin-logout" href="#"><span class="material-symbols-outlined text-[18px]">logout</span>Log Out</a></div></div></div></header><main class="w-full pt-16 bg-surface"><div class="flex flex-col w-full">
+<!-- Prototype State Controller & Mode Switcher -->
+<aside aria-label="Prototype state switcher" class="w-full bg-surface-container-high/60 backdrop-blur-md px-gutter py-space-sm border-b border-outline-variant/30 flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm flex-wrap">
+<div class="flex items-center gap-1.5 text-on-surface-variant mr-space-xs">
+<span class="material-symbols-outlined text-[18px] text-primary">science</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider font-bold">Interactive State</span>
+</div>
+<div class="inline-flex p-0.5 rounded-lg bg-surface-container-highest/80 text-on-surface-variant font-label-sm text-label-sm">
+<button class="state-pill px-space-sm py-1 rounded-md transition-all font-semibold bg-surface-container-lowest text-primary shadow-sm" id="btn-state-default" onclick="setScreenState('default')" type="button">
+          Default (Editing)
+        </button>
+<button class="state-pill px-space-sm py-1 rounded-md transition-all font-medium hover:text-on-surface" id="btn-state-saving" onclick="setScreenState('saving')" type="button">
+          Saving / Loading
+        </button>
+<button class="state-pill px-space-sm py-1 rounded-md transition-all font-medium hover:text-on-surface" id="btn-state-error" onclick="setScreenState('validation-error')" type="button">
+          Validation Error
+        </button>
+<button class="state-pill px-space-sm py-1 rounded-md transition-all font-medium hover:text-on-surface" id="btn-state-success" onclick="setScreenState('save-success')" type="button">
+          Save Success
+        </button>
+<button class="state-pill px-space-sm py-1 rounded-md transition-all font-medium hover:text-on-surface" id="btn-state-apierror" onclick="setScreenState('save-error')" type="button">
+          Save Error
+        </button>
+<button class="state-pill px-space-sm py-1 rounded-md transition-all font-medium hover:text-on-surface" id="btn-state-unsaved" onclick="setScreenState('unsaved-dialog')" type="button">
+          Unsaved Changes Dialog
+        </button>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="px-space-xs py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-semibold tracking-wide flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+        Representative Prototype Data
+      </span>
+</div>
+</aside>
+<!-- Notification Banner Container -->
+<div class="w-full px-gutter pt-space-lg max-w-5xl mx-auto flex flex-col gap-space-sm">
+<!-- Success Banner -->
+<div class="hidden transition-all duration-300 rounded-xl bg-secondary-fixed/40 p-space-md shadow-sm flex items-start gap-space-sm text-on-surface" id="banner-success">
+<div class="w-8 h-8 rounded-full bg-secondary text-on-secondary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+</div>
+<div class="flex flex-col flex-1">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm text-secondary font-semibold">Profile updated successfully</span>
+<button class="text-on-surface-variant hover:text-on-surface" onclick="hideBanner('banner-success')" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-0.5">Your administrative display name and avatar sync has completed across internal directory nodes.</p>
+</div>
+</div>
+<!-- Error Banner -->
+<div class="hidden transition-all duration-300 rounded-xl bg-error-container p-space-md shadow-sm flex items-start gap-space-sm text-on-error-container" id="banner-error">
+<div class="w-8 h-8 rounded-full bg-error text-on-error flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px]">error</span>
+</div>
+<div class="flex flex-col flex-1">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm text-error font-semibold">Unable to update your profile</span>
+<button class="text-on-error-container hover:opacity-80" onclick="hideBanner('banner-error')" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<p class="font-body-md text-body-md text-on-error-container/90 mt-0.5">The platform sync request encountered a temporary network timeout. Check your connectivity and try again.</p>
+</div>
+</div>
+</div>
+<!-- Main Body Workspace -->
+<div class="w-full px-gutter py-space-lg max-w-5xl mx-auto flex flex-col gap-space-xl">
+<!-- Header Block & Breadcrumb Navigation -->
+<header class="flex flex-col gap-space-xs">
+<nav aria-label="Breadcrumbs" class="flex items-center gap-space-xs font-label-md text-label-md text-on-surface-variant">
+<a class="hover:text-primary transition-colors flex items-center gap-1 font-medium" href="#">
+<span class="material-symbols-outlined text-[16px]">domain</span>Platform Admin
+        </a>
+<span class="text-outline-variant font-normal">/</span>
+<a class="hover:text-primary transition-colors font-medium" href="#">Admin Profile</a>
+<span class="text-outline-variant font-normal">/</span>
+<span aria-current="page" class="text-on-surface font-semibold">Edit Profile</span>
+</nav>
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md mt-space-xs">
+<div class="flex flex-col">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight font-bold">Edit Admin Profile</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-1">Update your administrator profile identity and public operator persona.</p>
+</div>
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm bg-surface-container px-space-md py-space-xs rounded-lg">
+<span class="material-symbols-outlined text-[16px] text-primary">verified_user</span>
+<span class="">Security Clearance: <strong class="text-on-surface font-semibold">Level 1 Operations</strong></span>
+</div>
+</div>
+</header>
+<!-- Main Editorial Form Form Surface -->
+<form class="flex flex-col gap-space-lg" id="profile-edit-form" onsubmit="event.preventDefault(); triggerSaveSequence();">
+<div class="w-full rounded-2xl bg-surface-container-lowest shadow-sm p-space-xl flex flex-col gap-space-xl">
+<!-- Section 1: Profile Avatar / Identity Staging -->
+<section class="flex flex-col gap-space-md">
+<div class="flex flex-col gap-0.5">
+<h2 class="font-headline-md text-headline-md text-on-surface tracking-tight">Profile Picture</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Your operator avatar appears in audit logs, system broadcasts, and platform moderation workflows.</p>
+</div>
+<div class="p-space-lg rounded-xl bg-surface-container-low flex flex-col md:flex-row items-center gap-space-xl">
+<!-- Current Photo Container with visual anchor -->
+<div class="relative group shrink-0">
+<div class="w-20 h-20 rounded-2xl bg-primary text-on-primary font-headline-lg text-headline-lg font-bold flex items-center justify-center shadow-md overflow-hidden ring-4 ring-surface-container-lowest" id="avatar-container">
+<!-- Fallback Monogram Default -->
+<span class="tracking-tight select-none" id="avatar-monogram">MV</span>
+<!-- Image Tag placeholder for uploaded picture state -->
+<img class="w-full h-full object-cover hidden" data-alt="Close up professional portrait of Marcus Vance, senior platform software administrator, smiling warmly against a clean modern office background with blue ambient studio lighting." id="avatar-image" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgOWjLlvHX294Gl5VYQSwwmAUfyZrmzaggdGqh7yAF10-KTr0HEPQJEjCdpSO4Zcn4VsmzT-HfCvgHUvs-u4SjN0pMGC-1X47NsTaeOIeIQi1fxtIyuwUyMJf_AhwO16Ote53fbjwGGkEC7lXLw1UUv9VvwwuV88d5w4zA5ZMuIWifiDJhET83rYibDGaMouh2FVgJdqC8CE-PRi4K_OnPRHouk0tUSbNsut2_0XlE6Eu6nd__nT-j8g">
+</div>
+<span class="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-secondary text-on-secondary flex items-center justify-center ring-2 ring-surface-container-lowest" title="Verified Staff Icon">
+<span class="material-symbols-outlined text-[14px]">shield_person</span>
+</span>
+</div>
+<!-- Upload Controls & File Constraints -->
+<div class="flex flex-col flex-1 items-start gap-space-sm text-center md:text-left">
+<div class="flex flex-wrap items-center gap-space-sm">
+<button class="px-space-md py-2 rounded-lg bg-surface-container-lowest text-on-surface font-label-md text-label-md font-semibold hover:bg-surface-container shadow-sm hover:shadow transition-all flex items-center gap-1.5 focus:outline-none focus:ring-2 focus:ring-primary" onclick="simulateImageSelect()" type="button">
+<span class="material-symbols-outlined text-[18px] text-primary">photo_camera</span>
+                  Change Picture
+                </button>
+<button class="px-space-md py-2 rounded-lg text-error hover:bg-error-container/60 font-label-md text-label-md font-medium transition-colors flex items-center gap-1" id="btn-remove-pic" onclick="removeSelectedImage()" type="button">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+                  Remove
+                </button>
+<span class="hidden px-2.5 py-1 rounded-md bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold items-center gap-1 animate-fadeIn" id="pic-selection-badge">
+<span class="material-symbols-outlined text-[14px]">check</span> New photo staged
+                </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-outline">info</span>
+                JPG, PNG or SVG. Recommended square dimension: 400 × 400px (Max 4MB).
+              </p>
+</div>
+</div>
+</section>
+<div class="h-px w-full bg-surface-container-high"></div>
+<!-- Section 2: Display Name Input (Editable Field) -->
+<section class="flex flex-col gap-space-md">
+<div class="flex flex-col gap-0.5">
+<label class="font-headline-md text-headline-md text-on-surface flex items-center gap-1.5" for="admin-display-name">
+              Display Name <span aria-hidden="true" class="text-error font-bold">*</span>
+</label>
+<p class="font-body-md text-body-md text-on-surface-variant">The human name visible to business operators, technicians, and in platform activity threads.</p>
+</div>
+<div class="max-w-xl flex flex-col gap-1.5">
+<div class="relative">
+<input aria-describedby="display-name-help display-name-error" class="w-full h-11 px-space-md pl-11 rounded-lg bg-surface-container-low text-on-surface font-body-lg text-body-lg placeholder:text-outline focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary shadow-inner transition-all" id="admin-display-name" oninput="handleNameInput(this)" placeholder="Enter full display name" required="" type="text" value="Marcus Vance">
+<span class="material-symbols-outlined absolute left-3.5 top-3 text-on-surface-variant text-[20px] pointer-events-none">badge</span>
+</div>
+<!-- Validation Feedback Area -->
+<div class="hidden text-error font-body-sm text-body-sm flex items-center gap-1 pt-0.5" id="display-name-error">
+<span class="material-symbols-outlined text-[16px]">error</span>
+<span class="">Display name is required and cannot be empty.</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5 flex items-center gap-1" id="display-name-help">
+<span class="material-symbols-outlined text-[14px]">visibility</span>
+              Visible across administrative event streams, approval manifests, and system logs.
+            </p>
+</div>
+</section>
+<div class="h-px w-full bg-surface-container-high"></div>
+<!-- Section 3: Read-Only System Identity Details -->
+<section class="flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex flex-col gap-0.5">
+<h2 class="font-headline-md text-headline-md text-on-surface tracking-tight">Security &amp; Account Architecture</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Core operator credentials and privilege matrices are segregated from general profile edits.</p>
+</div>
+<span class="hidden md:inline-flex items-center gap-1 font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2 py-1 rounded">
+<span class="material-symbols-outlined text-[14px]">lock</span> Read-Only Attributes
+            </span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<!-- Email Item Card -->
+<div class="p-space-lg rounded-xl bg-surface-container-low flex flex-col justify-between gap-space-md">
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase font-bold text-on-surface-variant tracking-wider">Primary Email</span>
+<span class="material-symbols-outlined text-[16px] text-outline">lock</span>
+</div>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold truncate mt-1">marcus.vance@bookflow.example</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Email modifications require full multi-factor authentication re-verification.</p>
+</div>
+<a class="inline-flex items-center gap-1 text-primary font-label-sm text-label-sm font-semibold hover:underline" href="#" onclick="alert('Redirecting to Account &amp; Security settings'); return false;">
+                Go to Account &amp; Security <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</a>
+</div>
+<!-- Role Card -->
+<div class="p-space-lg rounded-xl bg-surface-container-low flex flex-col justify-between gap-space-md">
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase font-bold text-on-surface-variant tracking-wider">Administrative Role</span>
+<span class="material-symbols-outlined text-[16px] text-outline">verified</span>
+</div>
+<div class="flex items-center gap-1.5 mt-1">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Platform Administrator</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Full platform operator privileges. Role assignment is managed at the root cluster configuration.</p>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px] text-secondary">shield</span>
+                Root Clearance Granted
+              </div>
+</div>
+<!-- Account Standing Card -->
+<div class="p-space-lg rounded-xl bg-surface-container-low flex flex-col justify-between gap-space-md">
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase font-bold text-on-surface-variant tracking-wider">System State</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Active
+                  </span>
+</div>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold mt-1">Good Standing</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Session token verified. Active in directory zone US-EAST-01.</p>
+</div>
+<div class="text-outline font-label-sm text-label-sm">
+                Last authenticated: Today, 08:42 AM
+              </div>
+</div>
+</div>
+</section>
+<!-- Section 4: Form Actions Bar -->
+<footer class="pt-space-md flex flex-col sm:flex-row items-center justify-between gap-space-md">
+<div class="flex items-center gap-2 text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[16px] text-outline">history</span>
+<span class="">Unsaved modifications will be lost if you leave this session.</span>
+</div>
+<div class="flex items-center gap-space-sm w-full sm:w-auto">
+<button class="w-full sm:w-auto px-space-lg py-2.5 rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors font-label-md text-label-md font-semibold flex items-center justify-center gap-1.5 focus:outline-none focus:ring-2 focus:ring-outline" id="btn-cancel" onclick="showUnsavedDialog()" type="button">
+              Cancel
+            </button>
+<button class="w-full sm:w-auto px-space-xl py-2.5 rounded-lg bg-primary text-on-primary hover:bg-primary-container transition-all font-label-md text-label-md font-semibold shadow-md hover:shadow-lg flex items-center justify-center gap-2 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary" id="btn-save" type="submit">
+<span class="hidden material-symbols-outlined text-[18px] animate-spin" id="save-spinner">progress_activity</span>
+<span id="save-btn-text" class="">Save Changes</span>
+</button>
+</div>
+</footer>
+</div>
+</form>
+</div>
+<!-- Interactive Unsaved Changes Modal Dialog Backdrop & Sheet -->
+<div class="fixed inset-0 z-50 flex items-center justify-center p-gutter bg-on-surface/40 backdrop-blur-sm hidden transition-opacity duration-200" id="unsaved-modal">
+<div aria-labelledby="modal-title" aria-modal="true" class="w-full max-w-md rounded-2xl bg-surface-container-lowest shadow-2xl p-space-xl flex flex-col gap-space-lg transform transition-all animate-scaleUp" role="dialog">
+<div class="flex items-start gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-error-container text-on-error-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[24px]">warning</span>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="font-headline-md text-headline-md text-on-surface font-bold" id="modal-title">Discard unsaved changes?</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">You have edited administrator profile details. If you leave this page now, your changes will be discarded immediately.</p>
+</div>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-low flex items-center gap-2 text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[16px] text-outline">info</span>
+<span class="">Pending modification: Display Name change</span>
+</div>
+<div class="flex items-center justify-end gap-space-sm pt-space-xs">
+<button class="px-space-md py-2 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md font-semibold hover:bg-surface-container-high transition-colors focus:outline-none focus:ring-2 focus:ring-outline" onclick="closeUnsavedDialog()" type="button">
+          Keep Editing
+        </button>
+<button class="px-space-md py-2 rounded-lg bg-error text-on-error font-label-md text-label-md font-semibold hover:opacity-90 transition-opacity shadow-sm flex items-center gap-1.5 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-error" onclick="confirmDiscard()" type="button">
+<span class="material-symbols-outlined text-[16px]">delete_forever</span>
+          Discard Changes
+        </button>
+</div>
+</div>
+</div>
+</div>
+<script>
+  let initialValue = "Marcus Vance";
+  let hasImageStaged = false;
+
+  function setActivePill(stateId) {
+    document.querySelectorAll('.state-pill').forEach(btn => {
+      btn.className = "state-pill px-space-sm py-1 rounded-md transition-all font-medium hover:text-on-surface text-on-surface-variant";
+    });
+    const target = document.getElementById(stateId);
+    if (target) {
+      target.className = "state-pill px-space-sm py-1 rounded-md transition-all font-semibold bg-surface-container-lowest text-primary shadow-sm";
+    }
+  }
+
+  function setScreenState(state) {
+    const bannerSuccess = document.getElementById('banner-success');
+    const bannerError = document.getElementById('banner-error');
+    const nameInput = document.getElementById('admin-display-name');
+    const nameError = document.getElementById('display-name-error');
+    const modal = document.getElementById('unsaved-modal');
+    const saveSpinner = document.getElementById('save-spinner');
+    const saveBtnText = document.getElementById('save-btn-text');
+    const saveBtn = document.getElementById('btn-save');
+
+    // Reset base states
+    bannerSuccess.classList.add('hidden');
+    bannerError.classList.add('hidden');
+    modal.classList.add('hidden');
+    nameError.classList.add('hidden');
+    nameInput.classList.remove('ring-2', 'ring-error');
+    saveSpinner.classList.add('hidden');
+    saveBtnText.textContent = "Save Changes";
+    saveBtn.disabled = false;
+
+    if (state === 'default') {
+      setActivePill('btn-state-default');
+      nameInput.value = initialValue;
+    } else if (state === 'saving') {
+      setActivePill('btn-state-saving');
+      saveSpinner.classList.remove('hidden');
+      saveBtnText.textContent = "Saving...";
+      saveBtn.disabled = true;
+    } else if (state === 'validation-error') {
+      setActivePill('btn-state-error');
+      nameInput.value = "";
+      nameInput.classList.add('ring-2', 'ring-error');
+      nameError.classList.remove('hidden');
+      nameInput.focus();
+    } else if (state === 'save-success') {
+      setActivePill('btn-state-success');
+      bannerSuccess.classList.remove('hidden');
+      bannerSuccess.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    } else if (state === 'save-error') {
+      setActivePill('btn-state-apierror');
+      bannerError.classList.remove('hidden');
+      bannerError.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    } else if (state === 'unsaved-dialog') {
+      setActivePill('btn-state-unsaved');
+      modal.classList.remove('hidden');
+    }
+  }
+
+  function handleNameInput(input) {
+    const nameError = document.getElementById('display-name-error');
+    if (input.value.trim() === '') {
+      input.classList.add('ring-2', 'ring-error');
+      nameError.classList.remove('hidden');
+    } else {
+      input.classList.remove('ring-2', 'ring-error');
+      nameError.classList.add('hidden');
+    }
+  }
+
+  function triggerSaveSequence() {
+    const nameInput = document.getElementById('admin-display-name');
+    if (nameInput.value.trim() === '') {
+      setScreenState('validation-error');
+      return;
+    }
+    setScreenState('saving');
+    setTimeout(() => {
+      setScreenState('save-success');
+    }, 1000);
+  }
+
+  function simulateImageSelect() {
+    const avatarMonogram = document.getElementById('avatar-monogram');
+    const avatarImage = document.getElementById('avatar-image');
+    const badge = document.getElementById('pic-selection-badge');
+    avatarMonogram.classList.add('hidden');
+    avatarImage.classList.remove('hidden');
+    badge.classList.remove('hidden');
+    badge.classList.add('inline-flex');
+    hasImageStaged = true;
+  }
+
+  function removeSelectedImage() {
+    const avatarMonogram = document.getElementById('avatar-monogram');
+    const avatarImage = document.getElementById('avatar-image');
+    const badge = document.getElementById('pic-selection-badge');
+    avatarMonogram.classList.remove('hidden');
+    avatarImage.classList.add('hidden');
+    badge.classList.add('hidden');
+    badge.classList.remove('inline-flex');
+    hasImageStaged = false;
+  }
+
+  function showUnsavedDialog() {
+    document.getElementById('unsaved-modal').classList.remove('hidden');
+    setActivePill('btn-state-unsaved');
+  }
+
+  function closeUnsavedDialog() {
+    document.getElementById('unsaved-modal').classList.add('hidden');
+    setActivePill('btn-state-default');
+  }
+
+  function confirmDiscard() {
+    document.getElementById('unsaved-modal').classList.add('hidden');
+    document.getElementById('admin-display-name').value = initialValue;
+    removeSelectedImage();
+    setActivePill('btn-state-default');
+    alert("Navigating back to Admin Profile Overview (Stage 7.5.6.1)...");
+  }
+
+  function hideBanner(bannerId) {
+    document.getElementById(bannerId).classList.add('hidden');
+  }
+</script></main></div>
+
+
+</body></html>

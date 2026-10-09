@@ -1,0 +1,460 @@
+<!DOCTYPE html><html lang="en" style=""><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_standard" name="shell-type"><title>BookFlow - Public Booking</title><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "inverse-on-surface": "#eaf1ff", "outline-variant": "#c3c6d7", "primary": "#004ac6", "on-tertiary-fixed-variant": "#173bab", "on-surface-variant": "#434655", "primary-fixed": "#dbe1ff", "surface-container-low": "#eff4ff", "inverse-surface": "#213145", "on-primary-fixed-variant": "#003ea8", "secondary-container": "#86f2e4", "background": "#f8f9ff", "surface-dim": "#cbdbf5", "outline": "#737686", "on-error-container": "#93000a", "secondary-fixed-dim": "#6bd8cb", "on-primary-container": "#eeefff", "on-surface": "#0b1c30", "error-container": "#ffdad6", "on-primary": "#ffffff", "tertiary": "#2c4bb9", "on-secondary-fixed-variant": "#005049", "tertiary-fixed-dim": "#b8c4ff", "primary-fixed-dim": "#b4c5ff", "secondary": "#006a61", "inverse-primary": "#b4c5ff", "surface-container-lowest": "#ffffff", "error": "#ba1a1a", "surface-container-high": "#dce9ff", "on-tertiary-fixed": "#001453", "surface-variant": "#d3e4fe", "tertiary-container": "#4865d4", "surface": "#f8f9ff", "primary-container": "#2563eb", "surface-container": "#e5eeff", "on-secondary-fixed": "#00201d", "on-secondary": "#ffffff", "on-secondary-container": "#006f66", "tertiary-fixed": "#dde1ff", "secondary-fixed": "#89f5e7", "on-error": "#ffffff", "surface-tint": "#0053db", "surface-container-highest": "#d3e4fe", "surface-bright": "#f8f9ff", "on-background": "#0b1c30", "on-tertiary": "#ffffff", "on-primary-fixed": "#00174b", "on-tertiary-container": "#eff0ff" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-xl": "2rem", "gutter-sm": "1rem", "margin-sm": "1rem", "space-md": "1rem", "space-lg": "1.5rem", "gutter": "1.5rem", "margin": "2rem", "space-sm": "0.5rem", "space-xs": "0.25rem" }, "fontFamily": { "body-md": ["Inter"], "headline-lg-mobile": ["Inter"], "body-lg": ["Inter"], "display-lg": ["Inter"], "body-sm": ["Inter"], "headline-sm": ["Inter"], "label-md": ["Inter"], "display-lg-mobile": ["Inter"], "label-sm": ["Inter"], "headline-md": ["Inter"], "headline-lg": ["Inter"] }, "fontSize": { "body-md": ["0.875rem", { "lineHeight": "1.375rem", "letterSpacing": "0em", "fontWeight": "400" }], "headline-lg-mobile": ["1.5rem", { "lineHeight": "2rem", "letterSpacing": "-0.015em", "fontWeight": "600" }], "body-lg": ["1.125rem", { "lineHeight": "1.75rem", "letterSpacing": "0em", "fontWeight": "400" }], "display-lg": ["3rem", { "lineHeight": "3.5rem", "letterSpacing": "-0.025em", "fontWeight": "700" }], "body-sm": ["0.75rem", { "lineHeight": "1.125rem", "letterSpacing": "0.01em", "fontWeight": "400" }], "headline-sm": ["1rem", { "lineHeight": "1.5rem", "letterSpacing": "0em", "fontWeight": "600" }], "label-md": ["0.875rem", { "lineHeight": "1.25rem", "letterSpacing": "-0.005em", "fontWeight": "500" }], "display-lg-mobile": ["2.25rem", { "lineHeight": "2.75rem", "letterSpacing": "-0.02em", "fontWeight": "700" }], "label-sm": ["0.75rem", { "lineHeight": "1rem", "letterSpacing": "0.025em", "fontWeight": "600" }], "headline-md": ["1.25rem", { "lineHeight": "1.75rem", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-lg": ["2rem", { "lineHeight": "2.5rem", "letterSpacing": "-0.02em", "fontWeight": "600" }] } } } };</script></head><body class="bg-surface font-body-md text-on-surface antialiased min-h-screen flex flex-col justify-between"><header class="bg-white border-b border-slate-200 sticky top-0 z-30">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <div class="w-9 h-9 rounded-lg bg-blue-600 text-white flex items-center justify-center font-bold text-base shadow-xs">V</div>
+      <div class="flex flex-col">
+        <span class="text-base font-semibold text-slate-900 leading-tight">Vance Hair Studio</span>
+        <span class="text-xs text-slate-500">Licensed Barber &amp; Stylist</span>
+      </div>
+    </div>
+    <div class="flex items-center gap-2 text-xs text-slate-400">
+      <span class="">Powered by BookFlow</span>
+    </div>
+  </div>
+</header><main class="w-full flex-1 bg-surface"><div class="flex flex-col w-full">
+<div class="max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col gap-y-6">
+<!-- Prototype Interactive State Switcher -->
+<section class="w-full bg-surface-container-low rounded-xl p-4 shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-xl">tune</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">QA State Controls</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant hidden sm:inline">• Test field validation &amp; network responses</span>
+</div>
+<div class="flex flex-wrap items-center gap-2">
+<button class="px-3 py-1.5 rounded-lg font-label-sm text-label-sm transition-all duration-150 bg-primary text-on-primary shadow-sm font-medium" id="btn-state-valid" onclick="setState('valid')" type="button">
+          Default Valid
+        </button>
+<button class="px-3 py-1.5 rounded-lg font-label-sm text-label-sm transition-all duration-150 bg-surface-container text-on-surface hover:bg-surface-variant" id="btn-state-required_err" onclick="setState('required_err')" type="button">
+          Required Missing
+        </button>
+<button class="px-3 py-1.5 rounded-lg font-label-sm text-label-sm transition-all duration-150 bg-surface-container text-on-surface hover:bg-surface-variant" id="btn-state-format_err" onclick="setState('format_err')" type="button">
+          Format Errors
+        </button>
+<button class="px-3 py-1.5 rounded-lg font-label-sm text-label-sm transition-all duration-150 bg-surface-container text-on-surface hover:bg-surface-variant" id="btn-state-loading" onclick="setState('loading')" type="button">
+          Loading
+        </button>
+<button class="px-3 py-1.5 rounded-lg font-label-sm text-label-sm transition-all duration-150 bg-surface-container text-on-surface hover:bg-surface-variant" id="btn-state-network_err" onclick="setState('network_err')" type="button">
+          Network Error
+        </button>
+</div>
+</section>
+<!-- Network Alert Banner (Hidden by default) -->
+<div class="hidden w-full bg-error-container text-on-error-container rounded-xl p-4 shadow-sm flex items-center justify-between gap-4" id="network-alert-banner">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-error text-2xl">error</span>
+<div>
+<p class="font-label-md text-label-md font-semibold text-error">Unable to continue, please try again</p>
+<p class="font-body-sm text-body-sm opacity-90">Our real-time scheduling engine encountered a network timeout. Your appointment slot remains reserved.</p>
+</div>
+</div>
+<button class="text-error hover:opacity-75 p-1 rounded-lg" onclick="setState('valid')" type="button">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<!-- Business Context & Trust Header -->
+<header class="w-full bg-surface-container-lowest rounded-xl p-6 sm:p-8 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-6">
+<div class="flex items-start sm:items-center gap-5">
+<div class="relative w-16 h-16 sm:w-20 sm:h-20 rounded-xl overflow-hidden shadow-sm flex-shrink-0 bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Close up architectural portrait of modern high-end barber studio interior with bespoke walnut cabinetry, leather chairs, and subtle ambient warm lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeTZZFNbF86UVX-TI8_sCWsJ5ylXRSuzffYt276ZeI1pfPq9FJKDAA_BR8OLWZ3IySD2VFN10bJfRBx3r2mcVEEUZ9SAhBhdHGP8zcTmo-FkzK_7nNoYkLfIu3JXIOolutbBafQBW-75glMBsFhKltf5vN8yW39n6whXuyBDwCExVyxeXWfYA1-8HKlUUOX55V6VuGm_x_3pZ--Y0PrQqP1K3ayQfKFIE9zKp3cLEwEreDpQ5U8cI5NA">
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex flex-wrap items-center gap-2">
+<h1 class="font-headline-md text-headline-md text-on-surface tracking-tight font-semibold">Vance Hair Studio</h1>
+<span class="inline-flex items-center gap-1 bg-surface-container-low text-primary px-2.5 py-0.5 rounded-full font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+              Verified Partner
+            </span>
+</div>
+<div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-on-surface-variant font-body-sm text-body-sm">
+<span class="inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-outline">badge</span>
+              Marcus Vance (Master Barber)
+            </span>
+<span class="text-outline-variant">•</span>
+<span class="inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-outline">location_on</span>
+              482 Jackson St, San Francisco, CA
+            </span>
+</div>
+</div>
+</div>
+<div class="flex items-center">
+<div class="inline-flex items-center gap-2.5 bg-surface-container-low px-4 py-2 rounded-full">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary animate-pulse"></span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Direct Real-Time Booking</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Instant hold • Zero credentials required</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Stepper Component -->
+<nav aria-label="Booking Progress" class="w-full bg-surface-container-lowest rounded-xl p-4 sm:p-5 shadow-sm overflow-x-auto">
+  <ol class="flex items-center justify-between min-w-[620px] sm:min-w-0">
+    <!-- Step 1: Completed -->
+    <li class="flex items-center gap-3 flex-1">
+      <div class="w-8 h-8 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-label-sm text-label-sm font-semibold shadow-sm flex-shrink-0">
+        <span class="material-symbols-outlined text-[18px]">check</span>
+      </div>
+      <div class="flex flex-col">
+        <span class="font-label-sm text-label-sm text-on-surface font-semibold">1. Service</span>
+        <span class="font-body-sm text-body-sm text-on-surface-variant">Selected</span>
+      </div>
+      <div class="h-0.5 bg-primary-container flex-1 mx-2"></div>
+    </li>
+    <!-- Step 2: Completed -->
+    <li class="flex items-center gap-3 flex-1">
+      <div class="w-8 h-8 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-label-sm text-label-sm font-semibold shadow-sm flex-shrink-0">
+        <span class="material-symbols-outlined text-[18px]">check</span>
+      </div>
+      <div class="flex flex-col">
+        <span class="font-label-sm text-label-sm text-on-surface font-semibold">2. Date &amp; Time</span>
+        <span class="font-body-sm text-body-sm text-on-surface-variant">Reserved</span>
+      </div>
+      <div class="h-0.5 bg-primary-container flex-1 mx-2"></div>
+    </li>
+    <!-- Step 3: Active (Customer Information) -->
+    <li class="flex items-center gap-3 flex-1">
+      <div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-sm text-label-sm font-bold shadow-md flex-shrink-0 ring-4 ring-primary-fixed">
+        3
+      </div>
+      <div class="flex flex-col">
+        <span class="font-label-sm text-label-sm text-primary font-bold">3. Customer Information</span>
+        <span class="font-body-sm text-body-sm text-primary font-medium">In Progress</span>
+      </div>
+      <div class="h-0.5 bg-surface-container-highest flex-1 mx-2"></div>
+    </li>
+    <!-- Step 4: Upcoming (Review & Confirm) -->
+    <li class="flex items-center gap-3 flex-1">
+      <div class="w-8 h-8 rounded-full bg-surface-container text-on-surface-variant flex items-center justify-center font-label-sm text-label-sm font-semibold flex-shrink-0">
+        4
+      </div>
+      <div class="flex flex-col opacity-60">
+        <span class="font-label-sm text-label-sm text-on-surface">4. Review &amp; Confirm</span>
+        <span class="font-body-sm text-body-sm text-on-surface-variant">Upcoming</span>
+      </div>
+      <div class="h-0.5 bg-surface-container-highest flex-1 mx-2"></div>
+    </li>
+    <!-- Step 5: Upcoming (Booking Request Received) -->
+    <li class="flex items-center gap-3">
+      <div class="w-8 h-8 rounded-full bg-surface-container text-on-surface-variant flex items-center justify-center font-label-sm text-label-sm font-semibold flex-shrink-0">
+        5
+      </div>
+      <div class="flex flex-col opacity-60">
+        <span class="font-label-sm text-label-sm text-on-surface">5. Booking Request Received</span>
+        <span class="font-body-sm text-body-sm text-on-surface-variant">Upcoming</span>
+      </div>
+    </li>
+  </ol>
+</nav>
+<!-- Two-Column Form and Summary Workspace -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Main Column: Client Details Form (7 cols) -->
+<section class="lg:col-span-7 flex flex-col gap-6">
+<div class="bg-surface-container-lowest rounded-xl p-6 sm:p-8 shadow-sm flex flex-col gap-6">
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-md text-headline-md text-on-surface font-semibold tracking-tight">Customer Information</h2>
+
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Please enter your primary details. Vance Hair Studio uses these to coordinate schedule updates and confirm your chair on arrival.
+            </p>
+</div>
+<!-- Customer Form -->
+<form class="flex flex-col gap-5" id="contact-form" novalidate="" onsubmit="event.preventDefault(); handleSubmit();">
+<!-- Field 1: Full Name -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface font-medium flex items-center justify-between" for="client_full_name">
+<span class="">Full Name <span class="text-error font-bold">*</span></span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Official record</span>
+</label>
+<div class="relative">
+<input autocomplete="name" class="w-full h-11 px-3.5 rounded-lg bg-surface text-on-surface placeholder:text-outline text-body-md font-body-md shadow-sm transition-all outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary focus:ring-offset-1" id="client_full_name" name="fullName" placeholder="e.g. Elena Rostova" required="" type="text" value="Elena Rostova">
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant" id="name-helper">Full name as it should appear on the studio appointment schedule.</p>
+<p class="hidden font-body-sm text-body-sm text-error flex items-center gap-1" id="name-error">
+<span class="material-symbols-outlined text-[16px]">error</span>
+<span id="name-error-text" class="">Please enter your full name to proceed with booking.</span>
+</p>
+</div>
+<!-- Field 2: Phone Number -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface font-medium flex items-center justify-between" for="client_phone">
+<span class="">Phone Number <span class="text-error font-bold">*</span></span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">SMS confirmation</span>
+</label>
+<div class="relative">
+<input autocomplete="tel" class="w-full h-11 px-3.5 rounded-lg bg-surface text-on-surface placeholder:text-outline text-body-md font-body-md shadow-sm transition-all outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary focus:ring-offset-1" id="client_phone" name="phoneNumber" placeholder="e.g. (415) 555-0198" required="" type="tel" value="(415) 555-0198">
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant" id="phone-helper">Direct mobile line for Marcus Vance to send scheduling notices and appointment arrival notes.</p>
+<p class="hidden font-body-sm text-body-sm text-error flex items-center gap-1" id="phone-error">
+<span class="material-symbols-outlined text-[16px]">error</span>
+<span id="phone-error-text" class="">Please provide a valid 10-digit mobile number for appointment coordination.</span>
+</p>
+</div>
+<!-- Field 3: Email (Optional) -->
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<label class="font-label-sm text-label-sm text-on-surface font-medium" for="client_email">
+                  Email Address
+                </label>
+<span class="font-body-sm text-body-sm text-on-surface-variant bg-surface-container px-2 py-0.5 rounded">Optional</span>
+</div>
+<div class="relative">
+<input autocomplete="email" class="w-full h-11 px-3.5 rounded-lg bg-surface text-on-surface placeholder:text-outline text-body-md font-body-md shadow-sm transition-all outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary focus:ring-offset-1" id="client_email" name="emailAddress" placeholder="e.g. client@example.com" type="email" value="elena.rostova@example.com">
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant" id="email-helper">Optional: Provide if you would like digital calendar invites (.ics) and appointment reminders.</p>
+<p class="hidden font-body-sm text-body-sm text-error flex items-center gap-1" id="email-error">
+<span class="material-symbols-outlined text-[16px]">error</span>
+<span id="email-error-text" class="">Please provide a valid email format (e.g. name@domain.com) or leave this field empty.</span>
+</p>
+</div>
+<!-- Guest Privacy Notice -->
+<div class="rounded-xl bg-surface-container-low p-4 flex items-start gap-3 mt-1"><span class="material-symbols-outlined text-secondary text-2xl flex-shrink-0">shield</span>
+<div class="flex flex-col gap-0.5">
+<p class="font-label-sm text-label-sm font-semibold text-on-surface">Privacy Guarantee</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                  Your contact information is used strictly by Vance Hair Studio to fulfill this appointment. No account or password required.
+                </p>
+</div></div>
+<!-- Form Navigation Action Buttons -->
+<div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 mt-2">
+<button class="w-full sm:w-auto px-5 py-2.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md font-medium transition-colors flex items-center justify-center gap-2" onclick="window.history.back()" type="button"><span class="material-symbols-outlined text-[18px]">arrow_back</span> Back to Date &amp; Time</button>
+<button class="w-full sm:w-auto min-w-[210px] px-6 py-2.5 rounded-lg bg-primary hover:bg-on-tertiary-fixed-variant active:bg-primary-container text-on-primary font-label-md text-label-md font-semibold transition-all shadow-md flex items-center justify-center gap-2" id="submit-btn" type="submit">
+<span id="btn-text" class="">Continue to Review</span>
+<span class="material-symbols-outlined text-[18px]" id="btn-icon">arrow_forward</span>
+<span class="hidden animate-spin h-4 w-4 border-2 border-on-primary border-t-transparent rounded-full" id="btn-spinner"></span>
+</button>
+</div>
+</form>
+</div>
+<!-- Studio Operational Note -->
+<div class="bg-surface-container-lowest rounded-xl p-5 shadow-sm flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-xl">event_available</span>
+</div>
+<div class="flex flex-col">
+<p class="font-label-sm text-label-sm font-semibold text-on-surface">Chair Reservation Held</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              This appointment slot is temporarily locked for the next <span class="font-semibold text-on-surface">08:42</span> minutes to prevent double-booking.
+            </p>
+</div>
+</div>
+</section>
+<!-- Side Column: Booking Summary Card (5 cols) -->
+<aside class="lg:col-span-5 flex flex-col gap-6">
+<div class="bg-surface-container-lowest rounded-xl p-6 sm:p-7 shadow-sm flex flex-col gap-6 sticky top-24">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight">Booking Summary</h3>
+<span class="font-label-sm text-label-sm text-secondary bg-surface-container-low px-2 py-0.5 rounded-md font-medium">Step 3 of 5</span>
+</div>
+<!-- Summary Items -->
+<div class="flex flex-col gap-5">
+<!-- Service Info -->
+<div class="flex items-start justify-between gap-4 bg-surface-container-low p-4 rounded-xl">
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Selected Service</span>
+<p class="font-headline-sm text-headline-sm text-on-surface font-semibold">Signature Precision Haircut</p>
+<div class="flex items-center gap-2 text-on-surface-variant font-body-sm text-body-sm">
+<span class="inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">schedule</span>
+                    45 minutes
+                  </span>
+<span class="">•</span>
+<span class="">Consultation &amp; styling</span>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-headline-md text-headline-md font-bold text-primary">$45.00</span>
+
+</div>
+</div>
+<!-- Specialist -->
+<div class="flex items-center gap-3.5 px-1">
+<div class="w-11 h-11 rounded-full overflow-hidden bg-surface-container flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Professional studio headshot portrait of Marcus Vance, experienced master barber dressed in minimalist dark apron smiling warmly." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSU32nzYaShm6aOQW8bEsXjehv4Y1XsCZCCVTWJOMgUlfmGVAHPpYuPbmEdF9qDY0mLyC-Zo9OD-TWc7gNEjrH3nmejeZN5XBdSOhk14ydXg89zfNfxeEmn9oE6ZlfEmz2iyxTPRh9aNe_Q648FIkRu1QTEWtWKAsjZIu5HvJ7QzfTcSiUtMU3aUBUUPnUT5ndE7PS5qZ68uQv3LH2bEbwPrLZ708tvA6Plq1g3946deI9lLHyYp4gzg">
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Assigned Professional</span>
+<p class="font-label-md text-label-md text-on-surface font-semibold">Marcus Vance</p>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Founder &amp; Master Stylist</span>
+</div>
+</div>
+<!-- Date & Time Slot -->
+<div class="flex items-start gap-3.5 px-1">
+<div class="w-10 h-10 rounded-lg bg-surface-container text-primary flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-xl">calendar_today</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Reserved Date &amp; Time</span>
+<p class="font-label-md text-label-md text-on-surface font-semibold">Thursday, October 24, 2024</p>
+<span class="font-body-md text-body-md text-primary font-medium">10:15 AM – 11:00 AM (PDT)</span>
+</div>
+</div>
+<!-- Location -->
+<div class="flex items-start gap-3.5 px-1">
+<div class="w-10 h-10 rounded-lg bg-surface-container text-primary flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-xl">store</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Studio Location</span>
+<p class="font-label-md text-label-md text-on-surface font-semibold">Vance Hair Studio</p>
+<span class="font-body-sm text-body-sm text-on-surface-variant">482 Jackson St, San Francisco, CA 94111</span>
+<span class="font-body-sm text-body-sm text-secondary mt-0.5">Financial District / Jackson Square</span>
+</div>
+</div>
+</div>
+<!-- Explanatory Footnote (Informational only, no advance payment) -->
+
+<!-- Studio Policy Summary Mini -->
+<div class="flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm pt-2">
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">check_circle</span>
+              Free cancellation up to 2 hrs prior
+            </span>
+<span class="font-medium text-primary hover:underline cursor-pointer">Policy</span>
+</div>
+</div>
+</aside>
+</div>
+</div>
+</div>
+<script>
+  function setState(state) {
+    const nameInput = document.getElementById('client_full_name');
+    const phoneInput = document.getElementById('client_phone');
+    const emailInput = document.getElementById('client_email');
+
+    const nameError = document.getElementById('name-error');
+    const phoneError = document.getElementById('phone-error');
+    const emailError = document.getElementById('email-error');
+
+    const nameErrorText = document.getElementById('name-error-text');
+    const phoneErrorText = document.getElementById('phone-error-text');
+    const emailErrorText = document.getElementById('email-error-text');
+
+    const nameHelper = document.getElementById('name-helper');
+    const phoneHelper = document.getElementById('phone-helper');
+    const emailHelper = document.getElementById('email-helper');
+
+    const submitBtn = document.getElementById('submit-btn');
+    const btnText = document.getElementById('btn-text');
+    const btnIcon = document.getElementById('btn-icon');
+    const btnSpinner = document.getElementById('btn-spinner');
+
+    const networkAlert = document.getElementById('network-alert-banner');
+
+    // Update active tab buttons
+    const states = ['valid', 'required_err', 'format_err', 'loading', 'network_err'];
+    states.forEach(s => {
+      const b = document.getElementById('btn-state-' + s);
+      if (b) {
+        if (s === state) {
+          b.className = 'px-3 py-1.5 rounded-lg font-label-sm text-label-sm transition-all duration-150 bg-primary text-on-primary shadow-sm font-medium';
+        } else {
+          b.className = 'px-3 py-1.5 rounded-lg font-label-sm text-label-sm transition-all duration-150 bg-surface-container text-on-surface hover:bg-surface-variant';
+        }
+      }
+    });
+
+    // Reset default form styles
+    [nameInput, phoneInput, emailInput].forEach(inp => {
+      inp.classList.remove('bg-error-container', 'text-on-error-container', 'ring-2', 'ring-error');
+      inp.classList.add('bg-surface');
+      inp.disabled = false;
+    });
+
+    nameError.classList.add('hidden');
+    phoneError.classList.add('hidden');
+    emailError.classList.add('hidden');
+
+    nameHelper.classList.remove('hidden');
+    phoneHelper.classList.remove('hidden');
+    emailHelper.classList.remove('hidden');
+
+    networkAlert.classList.add('hidden');
+
+    submitBtn.disabled = false;
+    btnText.textContent = 'Continue to Review';
+    btnIcon.classList.remove('hidden');
+    btnSpinner.classList.add('hidden');
+
+    if (state === 'valid') {
+      nameInput.value = 'Elena Rostova';
+      phoneInput.value = '(415) 555-0198';
+      emailInput.value = 'elena.rostova@example.com';
+    } 
+    else if (state === 'required_err') {
+      nameInput.value = '';
+      phoneInput.value = '';
+      emailInput.value = 'elena.rostova@example.com';
+
+      nameInput.classList.add('bg-error-container', 'ring-2', 'ring-error');
+      phoneInput.classList.add('bg-error-container', 'ring-2', 'ring-error');
+
+      nameError.classList.remove('hidden');
+      nameErrorText.textContent = 'Full name is required for appointment booking.';
+      nameHelper.classList.add('hidden');
+
+      phoneError.classList.remove('hidden');
+      phoneErrorText.textContent = 'A phone number is required so Marcus Vance can confirm your chair.';
+      phoneHelper.classList.add('hidden');
+    } 
+    else if (state === 'format_err') {
+      nameInput.value = 'Elena Rostova';
+      phoneInput.value = 'abc-1234';
+      emailInput.value = 'elena.rostova-at-example';
+
+      phoneInput.classList.add('bg-error-container', 'ring-2', 'ring-error');
+      emailInput.classList.add('bg-error-container', 'ring-2', 'ring-error');
+
+      phoneError.classList.remove('hidden');
+      phoneErrorText.textContent = 'Please enter a valid telephone format like (415) 555-0198.';
+      phoneHelper.classList.add('hidden');
+
+      emailError.classList.remove('hidden');
+      emailErrorText.textContent = 'Please enter a valid email address format (e.g., name@domain.com).';
+      emailHelper.classList.add('hidden');
+    } 
+    else if (state === 'loading') {
+      nameInput.value = 'Elena Rostova';
+      phoneInput.value = '(415) 555-0198';
+      emailInput.value = 'elena.rostova@example.com';
+
+      nameInput.disabled = true;
+      phoneInput.disabled = true;
+      emailInput.disabled = true;
+
+      submitBtn.disabled = true;
+      btnText.textContent = 'Validating Slot...';
+      btnIcon.classList.add('hidden');
+      btnSpinner.classList.remove('hidden');
+    } 
+    else if (state === 'network_err') {
+      nameInput.value = 'Elena Rostova';
+      phoneInput.value = '(415) 555-0198';
+      emailInput.value = 'elena.rostova@example.com';
+      networkAlert.classList.remove('hidden');
+    }
+  }
+
+  function handleSubmit() {
+    setState('loading');
+    setTimeout(() => {
+      // Return back to valid after simulation
+      setState('valid');
+    }, 1800);
+  }
+</script></main><footer class="w-full bg-surface-container-low py-8 shadow-[0_-1px_8px_rgba(0,0,0,0.02)] mt-auto"><div class="max-w-6xl mx-auto px-6 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-space-sm text-center sm:text-left"><p class="font-body-sm text-body-sm text-on-surface-variant">Powered by <span class="font-label-sm text-label-sm text-on-surface font-semibold">BookFlow</span> • Secure online booking for independent businesses</p><p class="font-body-sm text-body-sm text-on-surface-variant">San Francisco, CA</p></div></footer>
+
+
+
+
+
+
+</body></html>

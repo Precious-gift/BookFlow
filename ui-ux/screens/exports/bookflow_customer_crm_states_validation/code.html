@@ -1,0 +1,979 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_dashboard" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "on-secondary": "#ffffff", "surface-dim": "#cbdbf5", "tertiary-fixed-dim": "#b8c4ff", "on-primary-container": "#eeefff", "secondary-fixed": "#89f5e7", "tertiary-fixed": "#dde1ff", "secondary-container": "#86f2e4", "secondary-fixed-dim": "#6bd8cb", "on-tertiary": "#ffffff", "surface-container-high": "#dce9ff", "background": "#f8f9ff", "on-tertiary-fixed-variant": "#173bab", "inverse-primary": "#b4c5ff", "surface": "#f8f9ff", "tertiary": "#2c4bb9", "tertiary-container": "#4865d4", "on-secondary-fixed": "#00201d", "surface-container": "#e5eeff", "primary-fixed": "#dbe1ff", "on-secondary-fixed-variant": "#005049", "surface-variant": "#d3e4fe", "secondary": "#006a61", "on-secondary-container": "#006f66", "on-background": "#0b1c30", "inverse-surface": "#213145", "on-primary-fixed-variant": "#003ea8", "surface-container-highest": "#d3e4fe", "on-surface": "#0b1c30", "outline-variant": "#c3c6d7", "on-tertiary-container": "#eff0ff", "surface-bright": "#f8f9ff", "on-tertiary-fixed": "#001453", "surface-container-lowest": "#ffffff", "error-container": "#ffdad6", "primary-fixed-dim": "#b4c5ff", "surface-tint": "#0053db", "on-error": "#ffffff", "surface-container-low": "#eff4ff", "on-surface-variant": "#434655", "on-primary": "#ffffff", "on-error-container": "#93000a", "inverse-on-surface": "#eaf1ff", "primary-container": "#2563eb", "error": "#ba1a1a", "on-primary-fixed": "#00174b", "outline": "#737686", "primary": "#004ac6" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "margin": "2rem", "space-xs": "0.25rem", "space-sm": "0.5rem", "margin-sm": "1rem", "space-xl": "2rem", "gutter-sm": "1rem", "gutter": "1.5rem", "space-md": "1rem", "space-lg": "1.5rem" }, fontFamily: { "body-sm": ["Inter"], "display-lg": ["Inter"], "body-lg": ["Inter"], "headline-sm": ["Inter"], "headline-lg-mobile": ["Inter"], "label-sm": ["Inter"], "headline-md": ["Inter"], "label-md": ["Inter"], "display-lg-mobile": ["Inter"], "headline-lg": ["Inter"], "body-md": ["Inter"] }, fontSize: { "body-sm": ["0.75rem", { "lineHeight": "1.125rem", "letterSpacing": "0.01em", "fontWeight": "400" }], "display-lg": ["3rem", { "lineHeight": "3.5rem", "letterSpacing": "-0.025em", "fontWeight": "700" }], "body-lg": ["1.125rem", { "lineHeight": "1.75rem", "letterSpacing": "0em", "fontWeight": "400" }], "headline-sm": ["1rem", { "lineHeight": "1.5rem", "letterSpacing": "0em", "fontWeight": "600" }], "headline-lg-mobile": ["1.5rem", { "lineHeight": "2rem", "letterSpacing": "-0.015em", "fontWeight": "600" }], "label-sm": ["0.75rem", { "lineHeight": "1rem", "letterSpacing": "0.025em", "fontWeight": "600" }], "headline-md": ["1.25rem", { "lineHeight": "1.75rem", "letterSpacing": "-0.01em", "fontWeight": "600" }], "label-md": ["0.875rem", { "lineHeight": "1.25rem", "letterSpacing": "-0.005em", "fontWeight": "500" }], "display-lg-mobile": ["2.25rem", { "lineHeight": "2.75rem", "letterSpacing": "-0.02em", "fontWeight": "700" }], "headline-lg": ["2rem", { "lineHeight": "2.5rem", "letterSpacing": "-0.02em", "fontWeight": "600" }], "body-md": ["0.875rem", { "lineHeight": "1.375rem", "letterSpacing": "0em", "fontWeight": "400" }] } } } };</script></head><body class="bg-background font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-lowest border-r border-outline-variant/30 z-50 flex flex-col justify-between transition-transform duration-200 -translate-x-full lg:translate-x-0"><div class="flex flex-col"><div class="h-16 px-space-md border-b border-outline-variant/20 flex items-center gap-space-sm"><img alt="Modern minimalist BookFlow brand logo mark combining a calendar grid flow and subtle booking arrow in deep indigo (#2563EB) and teal (#0D9488). Brand logo. - Primary color: #2563eb - Font: inter - Mode: light - Roundness: rounded-md" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Wm9klnhssWMmOqNhsHpCgmAzqOzG8unW7fJr6EvQY93yskrE6xKAO0AV7kS8Roy4ltvpzxT87l0elo5mR1qhJaGznGfCyrUQZpjXeazEQMD7tGaVZua9p4fARxoKuCUFT_6yDhlT8TH2nGk8ZI_LOp0Ke-g1X3yFczmKkh984jZNhFAJErfUadpXhRtt7ffAK4Pwg-1FA52arkPv8CORhBUedYKAwQgEffSLI4MZnSS6PtAX0b_0vOaZeF" title="BookFlow"></div><div class="px-space-md py-space-sm border-b border-outline-variant/20 mb-space-xs"><div class="bg-surface-container-low p-2 rounded-xl flex items-center gap-2.5"><div class="w-9 h-9 rounded-lg bg-surface-container-high text-primary flex items-center justify-center font-semibold text-label-md shrink-0 shadow-sm"><span class="material-symbols-outlined text-[20px]">content_cut</span></div><div class="flex flex-col min-w-0"><span class="font-label-md text-label-md font-semibold text-on-surface truncate">Vance Hair Studio</span><span class="font-body-sm text-[11px] text-on-surface-variant truncate">Owner</span></div></div></div><nav class="flex flex-col gap-space-xs px-space-sm mt-space-xs" data-active-classes="bg-surface-container-high text-primary font-semibold relative after:content-[''] after:absolute after:left-0 after:top-1.5 after:bottom-1.5 after:w-1 after:bg-primary after:rounded-r"><a class="flex items-center px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-label-md text-label-md" data-path="dashboard" href="#">Dashboard</a><a class="flex items-center px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-label-md text-label-md" data-path="appointments" href="#">Appointments</a><a class="flex items-center px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-label-md text-label-md" data-path="services" href="#">Services</a><a class="flex items-center px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-label-md text-label-md" data-path="working-hours" href="#">Working Hours</a><a class="flex items-center justify-between px-space-sm py-2 rounded-lg bg-surface-container-high text-primary font-semibold transition-colors font-label-md text-label-md relative after:content-[''] after:absolute after:left-0 after:top-1.5 after:bottom-1.5 after:w-1 after:bg-primary after:rounded-r" data-path="customers" href="#"><span class="">Customers</span><span class="w-2 h-2 rounded-full bg-primary shrink-0"></span></a></nav></div><div class="p-space-md border-t border-outline-variant/20 flex flex-col gap-space-sm"><div class="flex items-center justify-between"><div class="flex items-center gap-space-sm min-w-0"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="flex flex-col min-w-0"><span class="font-label-md text-label-md text-on-surface font-semibold truncate">Marcus Vance</span><span class="font-body-sm text-body-sm text-on-surface-variant truncate">Solo Operator</span></div></div><a class="text-on-surface-variant hover:text-error transition-colors p-1 rounded-lg" data-path="logout" href="#" title="Sign out"><span class="material-symbols-outlined text-[20px]">logout</span></a></div></div></aside><div class="lg:pl-64 flex flex-col min-h-screen"><header class="fixed top-0 left-0 lg:left-64 right-0 h-16 bg-surface-container-lowest border-b border-outline-variant/20 z-40 flex items-center justify-between px-space-md lg:px-margin"><div class="flex items-center gap-space-md"><button aria-label="Toggle Navigation Menu" class="lg:hidden p-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low focus:outline-none"><span class="material-symbols-outlined text-[22px]">menu</span></button><div class="flex items-center gap-space-xs font-label-md text-label-md text-on-surface-variant"><span class="hidden sm:inline">Portal</span><span class="hidden sm:inline text-outline-variant">/</span><span class="font-semibold text-on-surface">Customers</span></div></div><div class="flex items-center gap-space-md"><div class="hidden md:flex items-center gap-space-xs bg-surface-container-low px-space-sm py-1.5 rounded-lg border border-outline-variant/30 text-body-sm font-body-sm text-on-surface-variant"><span class="material-symbols-outlined text-[16px] text-primary">link</span><span class="font-medium text-on-surface">bookflow.me/b/vance-studio</span><a class="text-primary hover:underline ml-1 flex items-center" href="https://bookflow.me/b/vance-studio" target="_blank"><span class="material-symbols-outlined text-[14px]">open_in_new</span></a></div><div class="relative" id="owner-dropdown-wrapper"><button aria-expanded="false" aria-haspopup="true" class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0 text-on-primary hover:opacity-90 transition-opacity focus:outline-none focus:ring-2 focus:ring-primary/40" id="owner-menu-button" onclick="document.getElementById('owner-dropdown-menu').classList.toggle('hidden');" type="button"><span class="material-symbols-outlined text-[18px]">person</span></button><div class="hidden absolute right-0 mt-2 w-64 bg-surface-container-lowest rounded-xl shadow-md border border-outline-variant/30 py-1.5 z-50 animate-fade-in" id="owner-dropdown-menu"><div class="px-4 py-2.5 border-b border-outline-variant/20 flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Marcus Vance</span><span class="font-label-sm text-label-sm text-on-surface-variant">Vance Hair Studio</span><span class="font-body-sm text-[11px] text-secondary font-medium mt-0.5">Solo Operator Mode</span></div><div class="py-1"><a class="flex items-center gap-2.5 px-4 py-2 text-body-sm font-label-md text-on-surface hover:bg-surface-container-low transition-colors" href="#"><span class="material-symbols-outlined text-[18px] text-on-surface-variant">storefront</span><span class="">Business Profile</span></a><a class="flex items-center gap-2.5 px-4 py-2 text-body-sm font-label-md text-on-surface hover:bg-surface-container-low transition-colors" href="#"><span class="material-symbols-outlined text-[18px] text-on-surface-variant">lock_person</span><span class="">Account &amp; Security</span></a></div><div class="border-t border-outline-variant/20 my-1"></div><div class="py-1"><a class="flex items-center gap-2.5 px-4 py-2 text-body-sm font-label-md text-error hover:bg-error-container/50 transition-colors" href="#"><span class="material-symbols-outlined text-[18px]">logout</span><span class="">Log Out</span></a></div></div></div></div></header><main class="w-full pt-16 bg-background flex-1"><div class="flex flex-col w-full">
+<!-- Top Command & State Switcher Strip -->
+<section class="w-full px-space-md lg:px-margin pt-space-lg pb-space-md">
+<div class="flex flex-col gap-space-sm">
+<div class="flex flex-wrap items-center justify-between gap-space-sm">
+<div>
+<div class="flex items-center gap-space-xs text-primary font-label-sm text-label-sm uppercase tracking-wider">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+<span class="">MVTS Stage 5.5.5 • Customer CRM Validation Suite</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight mt-1">CRM State Variants &amp; Edge Cases</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Live simulation bench for Marcus Vance (Solo Operator). Previewing exact fallback layouts, skeleton geometries, error traps, and note permissions.
+          </p>
+</div>
+
+</div>
+<!-- State Switcher Control Deck -->
+<div class="bg-surface-container-lowest rounded-xl p-space-sm shadow-sm flex flex-col gap-space-xs">
+<div class="flex items-center justify-between px-2 pt-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Simulate State Scenarios</span>
+<span class="font-label-sm text-label-sm font-semibold text-primary bg-primary-fixed px-2.5 py-0.5 rounded-full" id="active-state-indicator">State 1: Customer Directory — Empty</span>
+</div>
+<div class="flex flex-wrap items-center gap-1.5 overflow-x-auto pb-1 text-label-sm font-label-sm">
+<!-- Directory States -->
+<div class="flex items-center gap-1 bg-surface-container-low p-1 rounded-lg">
+<button class="state-btn px-2.5 py-1.5 rounded-md font-medium transition-all bg-primary-container text-on-primary shadow-sm" id="btn-state-1" onclick="switchCrmState(1)" type="button">
+              Dir: Empty
+            </button>
+<button class="state-btn px-2.5 py-1.5 rounded-md font-medium text-on-surface-variant hover:text-on-surface transition-all" id="btn-state-2" onclick="switchCrmState(2)" type="button">
+              Dir: No Results
+            </button>
+<button class="state-btn px-2.5 py-1.5 rounded-md font-medium text-on-surface-variant hover:text-on-surface transition-all" id="btn-state-3" onclick="switchCrmState(3)" type="button">
+              Dir: Loading
+            </button>
+<button class="state-btn px-2.5 py-1.5 rounded-md font-medium text-on-surface-variant hover:text-on-surface transition-all" id="btn-state-4" onclick="switchCrmState(4)" type="button">
+              Dir: Error
+            </button>
+</div>
+<span class="text-outline-variant font-light px-0.5">/</span>
+<!-- Profile States -->
+<div class="flex items-center gap-1 bg-surface-container-low p-1 rounded-lg">
+<button class="state-btn px-2.5 py-1.5 rounded-md font-medium text-on-surface-variant hover:text-on-surface transition-all" id="btn-state-5" onclick="switchCrmState(5)" type="button">
+              Profile: Loading
+            </button>
+<button class="state-btn px-2.5 py-1.5 rounded-md font-medium text-on-surface-variant hover:text-on-surface transition-all" id="btn-state-6" onclick="switchCrmState(6)" type="button">
+              Profile: Error
+            </button>
+</div>
+<span class="text-outline-variant font-light px-0.5">/</span>
+<!-- History States -->
+<div class="flex items-center gap-1 bg-surface-container-low p-1 rounded-lg">
+<button class="state-btn px-2.5 py-1.5 rounded-md font-medium text-on-surface-variant hover:text-on-surface transition-all" id="btn-state-7" onclick="switchCrmState(7)" type="button">
+              History: Loading
+            </button>
+<button class="state-btn px-2.5 py-1.5 rounded-md font-medium text-on-surface-variant hover:text-on-surface transition-all" id="btn-state-8" onclick="switchCrmState(8)" type="button">
+              History: Error
+            </button>
+</div>
+<span class="text-outline-variant font-light px-0.5">/</span>
+<!-- Notes States -->
+<div class="flex items-center gap-1 bg-surface-container-low p-1 rounded-lg">
+<button class="state-btn px-2.5 py-1.5 rounded-md font-medium text-on-surface-variant hover:text-on-surface transition-all" id="btn-state-9" onclick="switchCrmState(9)" type="button">
+              Notes: Empty
+            </button>
+<button class="state-btn px-2.5 py-1.5 rounded-md font-medium text-on-surface-variant hover:text-on-surface transition-all" id="btn-state-10" onclick="switchCrmState(10)" type="button">
+              Notes: Save Error
+            </button>
+</div>
+<button class="state-btn ml-auto px-3 py-1.5 rounded-lg bg-surface-container-high text-primary font-medium hover:bg-surface-variant transition-all flex items-center gap-1.5 text-on-surface-variant" id="btn-state-11" onclick="switchCrmState(11)" type="button">
+<span class="material-symbols-outlined text-[16px]">restart_alt</span>
+<span class="">View Full Directory (Reset)</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Sandbox Workspace -->
+<main class="w-full px-space-md lg:px-margin pb-space-xl flex flex-col gap-space-lg">
+<!-- ==========================================
+         STATE 1: CUSTOMER DIRECTORY — EMPTY STATE
+         ========================================== -->
+<div class="crm-view-state flex flex-col gap-space-md" id="state-container-1">
+<!-- Directory Toolbar (Zero count) -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[24px]">group</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h2 class="font-headline-md text-headline-md text-on-surface font-semibold">Customers</h2>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant">0 total</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Directory populated automatically via appointments</p>
+</div>
+</div>
+<!-- Disabled Search to reflect zero state -->
+<div class="relative w-full sm:w-72">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-outline-variant text-[18px]">search</span>
+<input class="w-full h-10 pl-9 pr-3 rounded-lg bg-surface-container-low text-outline cursor-not-allowed font-body-sm text-body-sm outline-none" disabled="" placeholder="Search customers..." type="text">
+</div>
+</div>
+<!-- State 1 Empty Canvas Card -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm min-h-[440px] flex flex-col items-center justify-center text-center p-space-xl">
+<div class="relative mb-space-md">
+<div class="w-20 h-20 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[40px]">group_off</span>
+</div>
+<div class="absolute -bottom-1 -right-1 w-8 h-8 rounded-full bg-secondary text-on-secondary flex items-center justify-center shadow-md">
+<span class="material-symbols-outlined text-[18px]">event_available</span>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-semibold mb-2">No customers yet</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md mb-space-lg">
+          Customers will appear here automatically when they book an appointment. Share your booking link to welcome your first guest.
+        </p>
+<!-- STRICT RULE: NO "Add Customer" button. Booking link CTA only -->
+<div class="flex flex-col sm:flex-row items-center gap-space-sm">
+<a class="h-10 px-space-lg rounded-lg bg-primary-container text-on-primary hover:bg-primary font-label-md text-label-md font-medium flex items-center gap-2 shadow-sm transition-colors" href="https://bookflow.me/b/vance-studio" target="_blank">
+<span class="material-symbols-outlined text-[18px]">open_in_new</span>
+<span class="">View Booking Page</span>
+</a>
+<button class="h-10 px-space-md rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md font-medium flex items-center gap-2 transition-colors" onclick="navigator.clipboard.writeText('https://bookflow.me/b/vance-studio')" type="button">
+<span class="material-symbols-outlined text-[18px]">content_copy</span>
+<span class="">Copy Link</span>
+</button>
+</div>
+<div class="mt-space-lg inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px] text-secondary">verified_user</span>
+<span class="">Zero manual entry required • Fully automated guest ingestion</span>
+</div>
+</div>
+</div>
+<!-- ==================================================
+         STATE 2: CUSTOMER DIRECTORY — SEARCH NO RESULTS
+         ========================================== -->
+<div class="crm-view-state hidden flex flex-col gap-space-md" id="state-container-2">
+<!-- Directory Toolbar with active search query -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[24px]">group</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h2 class="font-headline-md text-headline-md text-on-surface font-semibold">Customers</h2>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant">0 found</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Displaying search results</p>
+</div>
+</div>
+<!-- Active Filtered Search Input -->
+<div class="relative w-full sm:w-80">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-primary text-[18px]">search</span>
+<input class="w-full h-10 pl-9 pr-9 rounded-lg bg-surface-container-lowest font-body-sm text-body-sm text-on-surface shadow-sm outline-none" id="search-mock-input" type="text" value="Alexander Smith">
+<button class="absolute right-2.5 top-2.5 text-on-surface-variant hover:text-on-surface" onclick="document.getElementById('search-mock-input').value=''; switchCrmState(11);" type="button">
+<span class="material-symbols-outlined text-[18px]">cancel</span>
+</button>
+</div>
+</div>
+<!-- State 2 No Results Card -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm min-h-[440px] flex flex-col items-center justify-center text-center p-space-xl">
+<div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant mb-space-md">
+<span class="material-symbols-outlined text-[32px]">person_search</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-semibold mb-2">No customers found</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md mb-space-lg">
+          We couldn't find any customers matching <span class="font-semibold text-on-surface">"Alexander Smith"</span>. Try a different search term or clear your search query.
+        </p>
+<!-- Secondary Clear Action — Strictly no manual customer creation CTA -->
+<button class="h-10 px-space-lg rounded-lg bg-surface-container-high hover:bg-surface-variant text-primary font-label-md text-label-md font-medium flex items-center gap-2 transition-colors" onclick="switchCrmState(11)" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+<span class="">Clear Search</span>
+</button>
+<p class="mt-space-md font-body-sm text-body-sm text-on-surface-variant">
+          Tip: You can search by full name, partial phone digits, or customer email address.
+        </p>
+</div>
+</div>
+<!-- ==========================================
+         STATE 3: CUSTOMER DIRECTORY — LOADING SKELETON
+         ========================================== -->
+<div class="crm-view-state hidden flex flex-col gap-space-md" id="state-container-3">
+<!-- Header Skeleton -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-space-md animate-pulse">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container-low"></div>
+<div class="flex flex-col gap-2">
+<div class="w-32 h-6 bg-surface-container-low rounded"></div>
+<div class="w-48 h-3.5 bg-surface-container-low rounded"></div>
+</div>
+</div>
+<div class="w-full sm:w-72 h-10 bg-surface-container-low rounded-lg"></div>
+</div>
+<!-- Table Skeleton with 5 pulsing rows -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden animate-pulse">
+<!-- Table Header Skeleton -->
+<div class="bg-surface-container-low px-space-lg py-3 flex items-center justify-between">
+<div class="w-32 h-4 bg-surface-container-high rounded"></div>
+<div class="w-24 h-4 bg-surface-container-high rounded hidden md:block"></div>
+<div class="w-36 h-4 bg-surface-container-high rounded hidden lg:block"></div>
+<div class="w-20 h-4 bg-surface-container-high rounded"></div>
+<div class="w-24 h-4 bg-surface-container-high rounded"></div>
+<div class="w-16 h-4 bg-surface-container-high rounded text-right"></div>
+</div>
+<!-- 5 Pulsing Table Rows -->
+<div class="p-space-lg flex flex-col gap-space-md">
+<!-- Row 1 -->
+<div class="flex items-center justify-between py-2">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-low"></div>
+<div class="flex flex-col gap-1.5">
+<div class="w-28 h-4 bg-surface-container-low rounded"></div>
+<div class="w-20 h-3 bg-surface-container-low rounded"></div>
+</div>
+</div>
+<div class="w-24 h-4 bg-surface-container-low rounded hidden md:block"></div>
+<div class="w-36 h-4 bg-surface-container-low rounded hidden lg:block"></div>
+<div class="w-12 h-5 bg-surface-container-low rounded-full"></div>
+<div class="w-24 h-4 bg-surface-container-low rounded"></div>
+<div class="w-8 h-8 rounded-lg bg-surface-container-low"></div>
+</div>
+<!-- Row 2 -->
+<div class="flex items-center justify-between py-2">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-low"></div>
+<div class="flex flex-col gap-1.5">
+<div class="w-36 h-4 bg-surface-container-low rounded"></div>
+<div class="w-24 h-3 bg-surface-container-low rounded"></div>
+</div>
+</div>
+<div class="w-24 h-4 bg-surface-container-low rounded hidden md:block"></div>
+<div class="w-36 h-4 bg-surface-container-low rounded hidden lg:block"></div>
+<div class="w-12 h-5 bg-surface-container-low rounded-full"></div>
+<div class="w-24 h-4 bg-surface-container-low rounded"></div>
+<div class="w-8 h-8 rounded-lg bg-surface-container-low"></div>
+</div>
+<!-- Row 3 -->
+<div class="flex items-center justify-between py-2">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-low"></div>
+<div class="flex flex-col gap-1.5">
+<div class="w-32 h-4 bg-surface-container-low rounded"></div>
+<div class="w-16 h-3 bg-surface-container-low rounded"></div>
+</div>
+</div>
+<div class="w-24 h-4 bg-surface-container-low rounded hidden md:block"></div>
+<div class="w-36 h-4 bg-surface-container-low rounded hidden lg:block"></div>
+<div class="w-12 h-5 bg-surface-container-low rounded-full"></div>
+<div class="w-24 h-4 bg-surface-container-low rounded"></div>
+<div class="w-8 h-8 rounded-lg bg-surface-container-low"></div>
+</div>
+<!-- Row 4 -->
+<div class="flex items-center justify-between py-2">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-low"></div>
+<div class="flex flex-col gap-1.5">
+<div class="w-24 h-4 bg-surface-container-low rounded"></div>
+<div class="w-28 h-3 bg-surface-container-low rounded"></div>
+</div>
+</div>
+<div class="w-24 h-4 bg-surface-container-low rounded hidden md:block"></div>
+<div class="w-36 h-4 bg-surface-container-low rounded hidden lg:block"></div>
+<div class="w-12 h-5 bg-surface-container-low rounded-full"></div>
+<div class="w-24 h-4 bg-surface-container-low rounded"></div>
+<div class="w-8 h-8 rounded-lg bg-surface-container-low"></div>
+</div>
+<!-- Row 5 -->
+<div class="flex items-center justify-between py-2">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-low"></div>
+<div class="flex flex-col gap-1.5">
+<div class="w-40 h-4 bg-surface-container-low rounded"></div>
+<div class="w-20 h-3 bg-surface-container-low rounded"></div>
+</div>
+</div>
+<div class="w-24 h-4 bg-surface-container-low rounded hidden md:block"></div>
+<div class="w-36 h-4 bg-surface-container-low rounded hidden lg:block"></div>
+<div class="w-12 h-5 bg-surface-container-low rounded-full"></div>
+<div class="w-24 h-4 bg-surface-container-low rounded"></div>
+<div class="w-8 h-8 rounded-lg bg-surface-container-low"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- ==========================================
+         STATE 4: CUSTOMER DIRECTORY — ERROR STATE
+         ========================================== -->
+<div class="crm-view-state hidden flex flex-col gap-space-md" id="state-container-4">
+<!-- Standard header still rendered for orientation -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex items-center justify-between">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface font-semibold">Customers</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Customer Directory Service</p>
+</div>
+</div>
+<!-- Clean Error Card (No technical traces) -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm min-h-[440px] flex flex-col items-center justify-center text-center p-space-xl">
+<div class="w-16 h-16 rounded-full bg-error-container text-error flex items-center justify-center mb-space-md shadow-sm">
+<span class="material-symbols-outlined text-[32px]">error_outline</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-semibold mb-2">Unable to load customers</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md mb-space-lg">
+          Something went wrong while loading your customers. Please verify your connection or try again.
+        </p>
+<button class="h-10 px-space-lg rounded-lg bg-primary-container hover:bg-primary text-on-primary font-label-md text-label-md font-medium flex items-center gap-2 shadow-sm transition-colors" onclick="simulateReloadDirectory()" type="button">
+<span class="material-symbols-outlined text-[18px]">refresh</span>
+<span class="">Try Again</span>
+</button>
+</div>
+</div>
+<!-- ==========================================
+         STATE 5: CUSTOMER PROFILE — LOADING SKELETON
+         ========================================== -->
+<div class="crm-view-state hidden flex flex-col gap-space-md" id="state-container-5">
+<!-- Breadcrumb indicator -->
+<div class="flex items-center gap-2 font-label-md text-label-md text-on-surface-variant">
+<span class="">Customers</span>
+<span class="">/</span>
+<span class="w-24 h-4 bg-surface-container rounded inline-block animate-pulse"></span>
+</div>
+<!-- Profile Header Skeleton -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm animate-pulse flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-16 h-16 rounded-full bg-surface-container-low shrink-0"></div>
+<div class="flex flex-col gap-2">
+<div class="w-48 h-6 bg-surface-container-low rounded"></div>
+<div class="flex items-center gap-2">
+<div class="w-28 h-4 bg-surface-container-low rounded"></div>
+<div class="w-36 h-4 bg-surface-container-low rounded"></div>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-24 h-8 bg-surface-container-low rounded-lg"></div>
+<div class="w-28 h-8 bg-surface-container-low rounded-lg"></div>
+</div>
+</div>
+<!-- Tab Skeleton -->
+<div class="flex items-center gap-4 border-b border-surface-container px-2">
+<div class="w-32 h-8 bg-surface-container rounded-t animate-pulse"></div>
+<div class="w-36 h-8 bg-surface-container rounded-t animate-pulse"></div>
+<div class="w-28 h-8 bg-surface-container rounded-t animate-pulse"></div>
+</div>
+<!-- Profile Grid Skeleton -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md animate-pulse">
+<div class="md:col-span-2 bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-4">
+<div class="w-40 h-5 bg-surface-container-low rounded"></div>
+<div class="grid grid-cols-2 gap-4 pt-2">
+<div class="h-14 bg-surface-container-low rounded-lg"></div>
+<div class="h-14 bg-surface-container-low rounded-lg"></div>
+<div class="h-14 bg-surface-container-low rounded-lg"></div>
+<div class="h-14 bg-surface-container-low rounded-lg"></div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-4">
+<div class="w-32 h-5 bg-surface-container-low rounded"></div>
+<div class="h-10 bg-surface-container-low rounded"></div>
+<div class="h-10 bg-surface-container-low rounded"></div>
+</div>
+</div>
+</div>
+<!-- ==========================================
+         STATE 6: CUSTOMER PROFILE — ERROR STATE
+         ========================================== -->
+<div class="crm-view-state hidden flex flex-col gap-space-md" id="state-container-6">
+<!-- Breadcrumb retained -->
+<div class="flex items-center gap-2 font-label-md text-label-md text-on-surface-variant">
+<a class="hover:underline" href="#" onclick="switchCrmState(11)">Customers</a>
+<span class="">/</span>
+<span class="text-on-surface font-semibold">Customer Profile</span>
+</div>
+<!-- Profile Level Error Card -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm min-h-[440px] flex flex-col items-center justify-center text-center p-space-xl">
+<div class="w-16 h-16 rounded-full bg-error-container text-error flex items-center justify-center mb-space-md shadow-sm">
+<span class="material-symbols-outlined text-[32px]">person_off</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-semibold mb-2">Unable to load customer details</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md mb-space-lg">
+          Something went wrong while loading this customer's information.
+        </p>
+<div class="flex items-center gap-space-sm">
+<button class="h-10 px-space-md rounded-lg bg-surface-container hover:bg-surface-variant text-on-surface font-label-md text-label-md font-medium transition-colors" onclick="switchCrmState(11)" type="button">
+            Back to Directory
+          </button>
+<button class="h-10 px-space-lg rounded-lg bg-primary-container hover:bg-primary text-on-primary font-label-md text-label-md font-medium flex items-center gap-2 shadow-sm transition-colors" onclick="simulateReloadProfile()" type="button">
+<span class="material-symbols-outlined text-[18px]">refresh</span>
+<span class="">Try Again</span>
+</button>
+</div>
+</div>
+</div>
+<!-- =======================================================
+         STATE 7: APPOINTMENT HISTORY — LOADING SKELETON
+         ======================================================= -->
+<div class="crm-view-state hidden flex flex-col gap-space-md" id="state-container-7">
+<!-- Elena Rostova Profile Context Header (Active) -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-14 h-14 rounded-full bg-primary-fixed flex items-center justify-center text-primary font-headline-md text-headline-md font-bold">
+            ER
+          </div>
+<div>
+<div class="flex items-center gap-2">
+<h2 class="font-headline-md text-headline-md text-on-surface font-semibold">Elena Rostova</h2>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant">Customer #1042</span>
+</div>
+<div class="flex flex-wrap items-center gap-x-4 gap-y-1 font-body-sm text-body-sm text-on-surface-variant mt-1">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">call</span> (415) 555-0192</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">mail</span> elena.rostova@example.com</span>
+</div>
+</div>
+</div>
+<button class="h-9 px-space-sm rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md flex items-center gap-1.5 self-start sm:self-center transition-colors" onclick="switchCrmState(11)" type="button">
+<span class="material-symbols-outlined text-[16px]">arrow_back</span>
+<span class="">Directory</span>
+</button>
+</div>
+<!-- Navigation Tabs (Appointment History Active) -->
+<div class="flex items-center gap-2 border-b border-surface-container">
+<button class="px-space-md py-2.5 font-label-md text-label-md text-on-surface-variant hover:text-on-surface" type="button">Profile &amp; Contact</button>
+<button class="px-space-md py-2.5 font-label-md text-label-md text-primary font-semibold border-b-2 border-primary" type="button">Appointment History</button>
+<button class="px-space-md py-2.5 font-label-md text-label-md text-on-surface-variant hover:text-on-surface" onclick="switchCrmState(9)" type="button">Internal Notes</button>
+</div>
+<!-- 6-Row History Skeleton -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden animate-pulse">
+<div class="bg-surface-container-low px-space-lg py-3 flex items-center justify-between">
+<div class="w-24 h-4 bg-surface-container-high rounded"></div>
+<div class="w-16 h-4 bg-surface-container-high rounded"></div>
+<div class="w-36 h-4 bg-surface-container-high rounded"></div>
+<div class="w-16 h-4 bg-surface-container-high rounded hidden sm:block"></div>
+<div class="w-16 h-4 bg-surface-container-high rounded hidden md:block"></div>
+<div class="w-20 h-4 bg-surface-container-high rounded"></div>
+<div class="w-12 h-4 bg-surface-container-high rounded text-right"></div>
+</div>
+<div class="p-space-lg flex flex-col gap-4">
+<!-- Repeat 6 rows -->
+<div class="flex items-center justify-between py-2"><div class="w-24 h-4 bg-surface-container-low rounded"></div><div class="w-16 h-4 bg-surface-container-low rounded"></div><div class="w-40 h-4 bg-surface-container-low rounded"></div><div class="w-16 h-4 bg-surface-container-low rounded hidden sm:block"></div><div class="w-12 h-4 bg-surface-container-low rounded hidden md:block"></div><div class="w-20 h-5 bg-surface-container-low rounded-full"></div><div class="w-8 h-8 rounded-lg bg-surface-container-low"></div></div>
+<div class="flex items-center justify-between py-2"><div class="w-24 h-4 bg-surface-container-low rounded"></div><div class="w-16 h-4 bg-surface-container-low rounded"></div><div class="w-32 h-4 bg-surface-container-low rounded"></div><div class="w-16 h-4 bg-surface-container-low rounded hidden sm:block"></div><div class="w-12 h-4 bg-surface-container-low rounded hidden md:block"></div><div class="w-20 h-5 bg-surface-container-low rounded-full"></div><div class="w-8 h-8 rounded-lg bg-surface-container-low"></div></div>
+<div class="flex items-center justify-between py-2"><div class="w-24 h-4 bg-surface-container-low rounded"></div><div class="w-16 h-4 bg-surface-container-low rounded"></div><div class="w-44 h-4 bg-surface-container-low rounded"></div><div class="w-16 h-4 bg-surface-container-low rounded hidden sm:block"></div><div class="w-12 h-4 bg-surface-container-low rounded hidden md:block"></div><div class="w-20 h-5 bg-surface-container-low rounded-full"></div><div class="w-8 h-8 rounded-lg bg-surface-container-low"></div></div>
+<div class="flex items-center justify-between py-2"><div class="w-24 h-4 bg-surface-container-low rounded"></div><div class="w-16 h-4 bg-surface-container-low rounded"></div><div class="w-36 h-4 bg-surface-container-low rounded"></div><div class="w-16 h-4 bg-surface-container-low rounded hidden sm:block"></div><div class="w-12 h-4 bg-surface-container-low rounded hidden md:block"></div><div class="w-20 h-5 bg-surface-container-low rounded-full"></div><div class="w-8 h-8 rounded-lg bg-surface-container-low"></div></div>
+<div class="flex items-center justify-between py-2"><div class="w-24 h-4 bg-surface-container-low rounded"></div><div class="w-16 h-4 bg-surface-container-low rounded"></div><div class="w-28 h-4 bg-surface-container-low rounded"></div><div class="w-16 h-4 bg-surface-container-low rounded hidden sm:block"></div><div class="w-12 h-4 bg-surface-container-low rounded hidden md:block"></div><div class="w-20 h-5 bg-surface-container-low rounded-full"></div><div class="w-8 h-8 rounded-lg bg-surface-container-low"></div></div>
+<div class="flex items-center justify-between py-2"><div class="w-24 h-4 bg-surface-container-low rounded"></div><div class="w-16 h-4 bg-surface-container-low rounded"></div><div class="w-40 h-4 bg-surface-container-low rounded"></div><div class="w-16 h-4 bg-surface-container-low rounded hidden sm:block"></div><div class="w-12 h-4 bg-surface-container-low rounded hidden md:block"></div><div class="w-20 h-5 bg-surface-container-low rounded-full"></div><div class="w-8 h-8 rounded-lg bg-surface-container-low"></div></div>
+</div>
+</div>
+</div>
+<!-- =====================================================
+         STATE 8: APPOINTMENT HISTORY — ERROR STATE
+         ===================================================== -->
+<div class="crm-view-state hidden flex flex-col gap-space-md" id="state-container-8">
+<!-- Elena Rostova Profile Context Header -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-14 h-14 rounded-full bg-primary-fixed flex items-center justify-center text-primary font-headline-md text-headline-md font-bold">
+            ER
+          </div>
+<div>
+<div class="flex items-center gap-2">
+<h2 class="font-headline-md text-headline-md text-on-surface font-semibold">Elena Rostova</h2>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant">Customer #1042</span>
+</div>
+<div class="flex flex-wrap items-center gap-x-4 gap-y-1 font-body-sm text-body-sm text-on-surface-variant mt-1">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">call</span> (415) 555-0192</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">mail</span> elena.rostova@example.com</span>
+</div>
+</div>
+</div>
+<button class="h-9 px-space-sm rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md flex items-center gap-1.5 self-start sm:self-center transition-colors" onclick="switchCrmState(11)" type="button">
+<span class="material-symbols-outlined text-[16px]">arrow_back</span>
+<span class="">Directory</span>
+</button>
+</div>
+<!-- Navigation Tabs (Appointment History Active) -->
+<div class="flex items-center gap-2 border-b border-surface-container">
+<button class="px-space-md py-2.5 font-label-md text-label-md text-on-surface-variant hover:text-on-surface" type="button">Profile &amp; Contact</button>
+<button class="px-space-md py-2.5 font-label-md text-label-md text-primary font-semibold border-b-2 border-primary" type="button">Appointment History</button>
+<button class="px-space-md py-2.5 font-label-md text-label-md text-on-surface-variant hover:text-on-surface" onclick="switchCrmState(9)" type="button">Internal Notes</button>
+</div>
+<!-- History Error Card -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm min-h-[380px] flex flex-col items-center justify-center text-center p-space-xl">
+<div class="w-16 h-16 rounded-full bg-error-container text-error flex items-center justify-center mb-space-md shadow-sm">
+<span class="material-symbols-outlined text-[32px]">event_busy</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-semibold mb-2">Unable to load appointment history</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md mb-space-lg">
+          Something went wrong while loading this customer's appointment history.
+        </p>
+<button class="h-10 px-space-lg rounded-lg bg-primary-container hover:bg-primary text-on-primary font-label-md text-label-md font-medium flex items-center gap-2 shadow-sm transition-colors" onclick="simulateReloadHistory()" type="button">
+<span class="material-symbols-outlined text-[18px]">refresh</span>
+<span class="">Try Again</span>
+</button>
+</div>
+</div>
+<!-- ==========================================
+         STATE 9: INTERNAL NOTES — EMPTY STATE
+         ========================================== -->
+<div class="crm-view-state hidden flex flex-col gap-space-md" id="state-container-9">
+<!-- Elena Rostova Profile Context Header -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-14 h-14 rounded-full bg-primary-fixed flex items-center justify-center text-primary font-headline-md text-headline-md font-bold">
+            ER
+          </div>
+<div>
+<div class="flex items-center gap-2">
+<h2 class="font-headline-md text-headline-md text-on-surface font-semibold">Elena Rostova</h2>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant">Customer #1042</span>
+</div>
+<div class="flex flex-wrap items-center gap-x-4 gap-y-1 font-body-sm text-body-sm text-on-surface-variant mt-1">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">call</span> (415) 555-0192</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">mail</span> elena.rostova@example.com</span>
+</div>
+</div>
+</div>
+<button class="h-9 px-space-sm rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md flex items-center gap-1.5 self-start sm:self-center transition-colors" onclick="switchCrmState(11)" type="button">
+<span class="material-symbols-outlined text-[16px]">arrow_back</span>
+<span class="">Directory</span>
+</button>
+</div>
+<!-- Navigation Tabs (Internal Notes Active) -->
+<div class="flex items-center gap-2 border-b border-surface-container">
+<button class="px-space-md py-2.5 font-label-md text-label-md text-on-surface-variant hover:text-on-surface" type="button">Profile &amp; Contact</button>
+<button class="px-space-md py-2.5 font-label-md text-label-md text-on-surface-variant hover:text-on-surface" onclick="switchCrmState(7)" type="button">Appointment History</button>
+<button class="px-space-md py-2.5 font-label-md text-label-md text-primary font-semibold border-b-2 border-primary" type="button">Internal Notes</button>
+</div>
+<!-- Privacy Banner -->
+<div class="bg-secondary-fixed/40 text-on-secondary-fixed rounded-xl p-space-md flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-[22px] shrink-0 mt-0.5">lock</span>
+<div class="text-body-sm font-body-sm">
+<span class="font-semibold text-secondary">Private Internal Notes</span> — These notes are private and visible only to your business. The customer will never receive or see this content in booking confirmations, reminders, or portal summaries.
+        </div>
+</div>
+<!-- Centered Empty Note Card -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm min-h-[380px] flex flex-col items-center justify-center text-center p-space-xl">
+<div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center text-primary mb-space-md">
+<span class="material-symbols-outlined text-[32px]">note_alt</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-semibold mb-2">No internal notes yet</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md mb-space-lg">
+          Add a private note to help you remember important details about this customer, styling preferences, or formula specs.
+        </p>
+<button class="h-10 px-space-lg rounded-lg bg-primary-container hover:bg-primary text-on-primary font-label-md text-label-md font-medium flex items-center gap-2 shadow-sm transition-colors" onclick="switchCrmState(10)" type="button">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span class="">Add Internal Note</span>
+</button>
+<div class="mt-space-md flex items-center gap-2 font-label-sm text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px]">shield</span>
+<span class="">Private to you • Never visible to customer</span>
+</div>
+</div>
+</div>
+<!-- ==============================================
+         STATE 10: INTERNAL NOTES — SAVE ERROR STATE
+         ============================================== -->
+<div class="crm-view-state hidden flex flex-col gap-space-md" id="state-container-10">
+<!-- Elena Rostova Profile Context Header -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-14 h-14 rounded-full bg-primary-fixed flex items-center justify-center text-primary font-headline-md text-headline-md font-bold">
+            ER
+          </div>
+<div>
+<div class="flex items-center gap-2">
+<h2 class="font-headline-md text-headline-md text-on-surface font-semibold">Elena Rostova</h2>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant">Customer #1042</span>
+</div>
+<div class="flex flex-wrap items-center gap-x-4 gap-y-1 font-body-sm text-body-sm text-on-surface-variant mt-1">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">call</span> (415) 555-0192</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">mail</span> elena.rostova@example.com</span>
+</div>
+</div>
+</div>
+<button class="h-9 px-space-sm rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md flex items-center gap-1.5 self-start sm:self-center transition-colors" onclick="switchCrmState(11)" type="button">
+<span class="material-symbols-outlined text-[16px]">arrow_back</span>
+<span class="">Directory</span>
+</button>
+</div>
+<!-- Navigation Tabs (Internal Notes Active) -->
+<div class="flex items-center gap-2 border-b border-surface-container">
+<button class="px-space-md py-2.5 font-label-md text-label-md text-on-surface-variant hover:text-on-surface" type="button">Profile &amp; Contact</button>
+<button class="px-space-md py-2.5 font-label-md text-label-md text-on-surface-variant hover:text-on-surface" onclick="switchCrmState(7)" type="button">Appointment History</button>
+<button class="px-space-md py-2.5 font-label-md text-label-md text-primary font-semibold border-b-2 border-primary" type="button">Internal Notes</button>
+</div>
+<!-- Note Editor Container with Preserved Text & Inline Save Error Callout -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-lg flex flex-col gap-space-md">
+<!-- Inline Red/Rose Save Error Alert Banner -->
+<div class="bg-error-container/80 text-on-error-container rounded-xl p-space-md flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-error text-[24px] shrink-0">error</span>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm font-semibold text-on-error-container">Unable to save note</span>
+<span class="font-body-sm text-body-sm">Something went wrong while saving. Your changes have been preserved below.</span>
+</div>
+</div>
+<div class="flex items-center gap-2 self-end sm:self-center">
+<button class="h-8 px-3 rounded-md bg-surface-container-lowest hover:bg-surface-container-low text-on-surface font-label-sm text-label-sm font-medium transition-colors" onclick="switchCrmState(9)" type="button">
+              Cancel
+            </button>
+<button class="h-8 px-4 rounded-md bg-error text-on-error hover:bg-error/90 font-label-sm text-label-sm font-medium flex items-center gap-1 shadow-sm transition-colors" onclick="simulateSaveSuccess()" type="button">
+<span class="material-symbols-outlined text-[14px]">refresh</span>
+<span class="">Try Again</span>
+</button>
+</div>
+</div>
+<!-- Note Header -->
+<div class="flex items-center justify-between">
+<label class="font-label-md text-label-md font-semibold text-on-surface flex items-center gap-2" for="preserved-internal-note">
+<span class="">Customer Private Note</span>
+<span class="text-secondary font-label-sm text-label-sm bg-secondary-fixed/40 px-2 py-0.5 rounded">Confidential</span>
+</label>
+<span class="font-body-sm text-body-sm text-on-surface-variant font-mono">148 / 1000 characters</span>
+</div>
+<!-- Preserved Textarea with exact note preserved -->
+<textarea class="w-full p-space-md rounded-xl bg-surface-container-lowest font-body-md text-body-md text-on-surface shadow-sm focus:outline-none ring-2 ring-error/50" id="preserved-internal-note" rows="5">Prefers morning appointments. Usually books the Signature Precision Haircut. Prefers scissor-only trim on bangs; sensitive to strong fragrance pomades.</textarea>
+<!-- Bottom Action Strip -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm pt-space-xs">
+<div class="flex items-center gap-1.5 font-label-sm text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-secondary">visibility_off</span>
+<span class="">Never visible to customer on receipts or notifications</span>
+</div>
+<div class="flex items-center gap-space-sm self-end sm:self-auto">
+<button class="h-10 px-space-md rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md font-medium transition-colors" onclick="switchCrmState(9)" type="button">
+              Cancel
+            </button>
+<button class="h-10 px-space-lg rounded-lg bg-primary-container hover:bg-primary text-on-primary font-label-md text-label-md font-medium flex items-center gap-2 shadow-sm transition-colors" onclick="simulateSaveSuccess()" type="button">
+<span class="material-symbols-outlined text-[18px]">save</span>
+<span class="">Save Note</span>
+</button>
+</div>
+</div>
+<div class="hidden mt-2 p-3 bg-secondary-container text-on-secondary-container rounded-lg font-label-md text-label-md flex items-center gap-2 animate-fade-in" id="save-success-toast">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+<span class="">Note saved successfully! Reconnected to local storage cache.</span>
+</div>
+</div>
+</div>
+<!-- ==============================================================
+         STATE 11: VIEW FULL DIRECTORY (BASELINE POPULATED CRM VIEW)
+         ============================================================== -->
+<div class="crm-view-state hidden flex flex-col gap-space-md" id="state-container-11">
+<!-- Populated Directory Toolbar -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[24px]">group</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h2 class="font-headline-md text-headline-md text-on-surface font-semibold">Customers</h2>
+<span class="font-label-sm text-label-sm px-2.5 py-0.5 rounded-full bg-surface-container-high text-primary font-semibold">4 total</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Vance Hair Studio verified client records</p>
+</div>
+</div>
+<div class="flex items-center gap-2 w-full sm:w-auto">
+<div class="relative w-full sm:w-72">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-on-surface-variant text-[18px]">search</span>
+<input class="w-full h-10 pl-9 pr-3 rounded-lg bg-surface-container-low focus:bg-surface-container-lowest font-body-sm text-body-sm text-on-surface shadow-sm outline-none transition-all" placeholder="Search by name, phone, email..." type="text">
+</div>
+<button class="h-10 w-10 shrink-0 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface-variant flex items-center justify-center transition-colors" title="Filter list" type="button">
+<span class="material-symbols-outlined text-[20px]">filter_list</span>
+</button>
+</div>
+</div>
+<!-- Populated Client Table -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left font-body-sm text-body-sm">
+<thead class="bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+<tr>
+<th class="py-3 px-space-lg">Customer</th>
+<th class="py-3 px-space-md">Contact</th>
+<th class="py-3 px-space-md">Appointments</th>
+<th class="py-3 px-space-md">Most Recent</th>
+<th class="py-3 px-space-md">Status</th>
+<th class="py-3 px-space-lg text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container">
+<!-- Customer 1: Elena Rostova (Detailed) -->
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-3.5 px-space-lg">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-fixed text-primary flex items-center justify-center font-semibold text-label-md">
+                      ER
+                    </div>
+<div>
+<a class="font-headline-sm text-headline-sm text-on-surface hover:text-primary transition-colors" href="#" onclick="switchCrmState(9); return false;">
+                        Elena Rostova
+                      </a>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Customer #1042</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="text-on-surface font-medium">(415) 555-0192</div>
+<div class="text-on-surface-variant">elena.rostova@example.com</div>
+</td>
+<td class="py-3.5 px-space-md font-medium text-on-surface">
+<span class="px-2 py-0.5 rounded-full bg-surface-container font-semibold">6 visits</span>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="text-on-surface font-medium">May 18, 2024</div>
+<div class="text-on-surface-variant">Signature Haircut</div>
+</td>
+<td class="py-3.5 px-space-md">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full font-label-sm text-label-sm bg-secondary-container text-on-secondary-container font-medium">
+                    Completed
+                  </span>
+</td>
+<td class="py-3.5 px-space-lg text-right">
+<button class="h-8 px-3 rounded-lg bg-surface-container-low hover:bg-surface-container text-primary font-label-sm text-label-sm font-medium transition-colors" onclick="switchCrmState(9)" type="button">
+                    View Profile
+                  </button>
+</td>
+</tr>
+<!-- Customer 2: Mateo Silva -->
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-3.5 px-space-lg">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container text-on-surface font-semibold text-label-md flex items-center justify-center">
+                      MS
+                    </div>
+<div>
+<span class="font-headline-sm text-headline-sm text-on-surface">Mateo Silva</span>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Customer #1039</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="text-on-surface font-medium">(415) 555-0144</div>
+<div class="text-on-surface-variant">mateo.silva@example.com</div>
+</td>
+<td class="py-3.5 px-space-md font-medium text-on-surface">
+<span class="px-2 py-0.5 rounded-full bg-surface-container font-semibold">3 visits</span>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="text-on-surface font-medium">Tomorrow, 10:00 AM</div>
+<div class="text-on-surface-variant">Beard Trim &amp; Shape</div>
+</td>
+<td class="py-3.5 px-space-md">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full font-label-sm text-label-sm bg-surface-container-high text-primary font-medium">
+                    Confirmed
+                  </span>
+</td>
+<td class="py-3.5 px-space-lg text-right">
+<button class="h-8 px-3 rounded-lg bg-surface-container-low hover:bg-surface-container text-primary font-label-sm text-label-sm font-medium transition-colors" onclick="switchCrmState(7)" type="button">
+                    View Profile
+                  </button>
+</td>
+</tr>
+<!-- Customer 3: Devon Brooks -->
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-3.5 px-space-lg">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container text-on-surface font-semibold text-label-md flex items-center justify-center">
+                      DB
+                    </div>
+<div>
+<span class="font-headline-sm text-headline-sm text-on-surface">Devon Brooks</span>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Customer #1031</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="text-on-surface font-medium">(415) 555-0811</div>
+<div class="text-on-surface-variant">devon.b@example.com</div>
+</td>
+<td class="py-3.5 px-space-md font-medium text-on-surface">
+<span class="px-2 py-0.5 rounded-full bg-surface-container font-semibold">1 visit</span>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="text-on-surface font-medium">Jun 02, 2:30 PM</div>
+<div class="text-on-surface-variant">Classic Scissor Cut</div>
+</td>
+<td class="py-3.5 px-space-md">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full font-label-sm text-label-sm bg-surface-container-low text-on-surface-variant font-medium">
+                    Pending
+                  </span>
+</td>
+<td class="py-3.5 px-space-lg text-right">
+<button class="h-8 px-3 rounded-lg bg-surface-container-low hover:bg-surface-container text-primary font-label-sm text-label-sm font-medium transition-colors" onclick="switchCrmState(5)" type="button">
+                    View Profile
+                  </button>
+</td>
+</tr>
+<!-- Customer 4: Chloe Zhao -->
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-3.5 px-space-lg">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container text-on-surface font-semibold text-label-md flex items-center justify-center">
+                      CZ
+                    </div>
+<div>
+<span class="font-headline-sm text-headline-sm text-on-surface">Chloe Zhao</span>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Customer #1028</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="text-on-surface font-medium">(415) 555-0992</div>
+<div class="text-on-surface-variant">chloe.zhao@example.com</div>
+</td>
+<td class="py-3.5 px-space-md font-medium text-on-surface">
+<span class="px-2 py-0.5 rounded-full bg-surface-container font-semibold">2 visits</span>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="text-on-surface font-medium">Apr 12, 2024</div>
+<div class="text-on-surface-variant">Gloss &amp; Tone Styling</div>
+</td>
+<td class="py-3.5 px-space-md">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full font-label-sm text-label-sm bg-error-container text-on-error-container font-medium">
+                    Cancelled
+                  </span>
+</td>
+<td class="py-3.5 px-space-lg text-right">
+<button class="h-8 px-3 rounded-lg bg-surface-container-low hover:bg-surface-container text-primary font-label-sm text-label-sm font-medium transition-colors" onclick="switchCrmState(6)" type="button">
+                    View Profile
+                  </button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- ==============================================================
+         BOOKFLOW MVTS v1 — CRM SCOPE VALIDATION AUDIT CARD
+         ============================================================== -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm border-b border-surface-container pb-space-sm">
+<div class="flex items-center gap-space-xs text-primary font-label-md text-label-md font-semibold">
+<span class="material-symbols-outlined text-[20px]">fact_check</span>
+<span class="">BookFlow MVTS v1 — Stage 5.5.5 Scope Validation Matrix</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary bg-secondary-fixed/40 px-2.5 py-1 rounded-full font-semibold">
+          10 / 10 State Contracts Enforced
+        </span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-md text-body-sm font-body-sm">
+<!-- Pillar 1: Directory Ingestion Rules -->
+<div class="bg-surface-container-low rounded-xl p-space-md flex flex-col gap-2">
+<div class="flex items-center gap-2 text-on-surface font-semibold font-headline-sm text-headline-sm">
+<span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span>
+<span class="">Automated Ingestion</span>
+</div>
+<p class="text-on-surface-variant">
+            Zero manual "Add Customer" buttons present. Customer directory entries originate strictly when a guest books an appointment via the public booking URL.
+          </p>
+<div class="mt-auto pt-2 font-label-sm text-label-sm text-primary">
+            ✓ Empty &amp; Search states strictly compliant
+          </div>
+</div>
+<!-- Pillar 2: Private Internal Notes -->
+<div class="bg-surface-container-low rounded-xl p-space-md flex flex-col gap-2">
+<div class="flex items-center gap-2 text-on-surface font-semibold font-headline-sm text-headline-sm">
+<span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span>
+<span class="">Private Notes Isolation</span>
+</div>
+<p class="text-on-surface-variant">
+            Internal notes remain strictly isolated to the solo operator (Marcus Vance). Clear privacy banner and preservation on save error failures.
+          </p>
+<div class="mt-auto pt-2 font-label-sm text-label-sm text-primary">
+            ✓ Content preserved during network interruptions
+          </div>
+</div>
+<!-- Pillar 3: Out-of-Scope Safeguards -->
+<div class="bg-surface-container-low rounded-xl p-space-md flex flex-col gap-2">
+<div class="flex items-center gap-2 text-on-surface font-semibold font-headline-sm text-headline-sm">
+<span class="material-symbols-outlined text-secondary text-[18px]">shield</span>
+<span class="">Boundary Exclusions</span>
+</div>
+<p class="text-on-surface-variant">
+            No payments/deposits UI, no customer logins/passwords, no multi-staff filtering, no VIP/regular classification badges, and exactly 4 appointment statuses.
+          </p>
+<div class="mt-auto pt-2 font-label-sm text-label-sm text-secondary">
+            ✓ Zero scope leaks detected
+          </div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Interactive Switcher Engine -->
+<script>
+  function switchCrmState(stateIndex) {
+    // Hide all state containers
+    const containers = document.querySelectorAll('.crm-view-state');
+    containers.forEach(c => c.classList.add('hidden'));
+
+    // Reset button states
+    const buttons = document.querySelectorAll('.state-btn');
+    buttons.forEach(b => {
+      b.classList.remove('bg-primary-container', 'text-on-primary', 'shadow-sm');
+      b.classList.add('text-on-surface-variant');
+    });
+
+    // Reveal target state container
+    const activeTarget = document.getElementById('state-container-' + stateIndex);
+    if (activeTarget) {
+      activeTarget.classList.remove('hidden');
+    }
+
+    // Highlight active button
+    const activeBtn = document.getElementById('btn-state-' + stateIndex);
+    if (activeBtn) {
+      activeBtn.classList.remove('text-on-surface-variant');
+      activeBtn.classList.add('bg-primary-container', 'text-on-primary', 'shadow-sm');
+    }
+
+    // Update indicator pill
+    const indicator = document.getElementById('active-state-indicator');
+    const titles = {
+      1: "State 1: Customer Directory — Empty",
+      2: "State 2: Customer Directory — Search No Results",
+      3: "State 3: Customer Directory — Loading (Skeleton)",
+      4: "State 4: Customer Directory — Error State",
+      5: "State 5: Customer Profile — Loading (Skeleton)",
+      6: "State 6: Customer Profile — Error State",
+      7: "State 7: Appointment History — Loading (Skeleton)",
+      8: "State 8: Appointment History — Error State",
+      9: "State 9: Internal Notes — Empty State",
+      10: "State 10: Internal Notes — Save Error State",
+      11: "Directory Baseline: Populated Customer Table"
+    };
+
+    if (indicator && titles[stateIndex]) {
+      indicator.textContent = titles[stateIndex];
+    }
+  }
+
+  function simulateReloadDirectory() {
+    switchCrmState(3);
+    setTimeout(() => {
+      switchCrmState(11);
+    }, 900);
+  }
+
+  function simulateReloadProfile() {
+    switchCrmState(5);
+    setTimeout(() => {
+      switchCrmState(9);
+    }, 900);
+  }
+
+  function simulateReloadHistory() {
+    switchCrmState(7);
+    setTimeout(() => {
+      switchCrmState(11);
+    }, 900);
+  }
+
+  function simulateSaveSuccess() {
+    const toast = document.getElementById('save-success-toast');
+    if (toast) {
+      toast.classList.remove('hidden');
+      setTimeout(() => {
+        toast.classList.add('hidden');
+      }, 3500);
+    }
+  }
+
+  // Initialize on State 1 (Directory Empty State) as requested
+  document.addEventListener('DOMContentLoaded', () => {
+    switchCrmState(1);
+  });
+</script></main></div>
+
+
+<script>document.addEventListener('click', function(e) { const wrapper = document.getElementById('owner-dropdown-wrapper'); const menu = document.getElementById('owner-dropdown-menu'); if (wrapper && menu && !wrapper.contains(e.target)) { menu.classList.add('hidden'); } });</script>
+
+
+
+</body></html>

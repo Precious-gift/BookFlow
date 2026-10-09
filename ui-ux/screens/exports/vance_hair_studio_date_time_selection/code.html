@@ -1,0 +1,620 @@
+<!DOCTYPE html><html lang="en" style=""><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_standard" name="shell-type"><title>BookFlow - Public Booking</title><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "inverse-on-surface": "#eaf1ff", "outline-variant": "#c3c6d7", "primary": "#004ac6", "on-tertiary-fixed-variant": "#173bab", "on-surface-variant": "#434655", "primary-fixed": "#dbe1ff", "surface-container-low": "#eff4ff", "inverse-surface": "#213145", "on-primary-fixed-variant": "#003ea8", "secondary-container": "#86f2e4", "background": "#f8f9ff", "surface-dim": "#cbdbf5", "outline": "#737686", "on-error-container": "#93000a", "secondary-fixed-dim": "#6bd8cb", "on-primary-container": "#eeefff", "on-surface": "#0b1c30", "error-container": "#ffdad6", "on-primary": "#ffffff", "tertiary": "#2c4bb9", "on-secondary-fixed-variant": "#005049", "tertiary-fixed-dim": "#b8c4ff", "primary-fixed-dim": "#b4c5ff", "secondary": "#006a61", "inverse-primary": "#b4c5ff", "surface-container-lowest": "#ffffff", "error": "#ba1a1a", "surface-container-high": "#dce9ff", "on-tertiary-fixed": "#001453", "surface-variant": "#d3e4fe", "tertiary-container": "#4865d4", "surface": "#f8f9ff", "primary-container": "#2563eb", "surface-container": "#e5eeff", "on-secondary-fixed": "#00201d", "on-secondary": "#ffffff", "on-secondary-container": "#006f66", "tertiary-fixed": "#dde1ff", "secondary-fixed": "#89f5e7", "on-error": "#ffffff", "surface-tint": "#0053db", "surface-container-highest": "#d3e4fe", "surface-bright": "#f8f9ff", "on-background": "#0b1c30", "on-tertiary": "#ffffff", "on-primary-fixed": "#00174b", "on-tertiary-container": "#eff0ff" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-xl": "2rem", "gutter-sm": "1rem", "margin-sm": "1rem", "space-md": "1rem", "space-lg": "1.5rem", "gutter": "1.5rem", "margin": "2rem", "space-sm": "0.5rem", "space-xs": "0.25rem" }, "fontFamily": { "body-md": ["Inter"], "headline-lg-mobile": ["Inter"], "body-lg": ["Inter"], "display-lg": ["Inter"], "body-sm": ["Inter"], "headline-sm": ["Inter"], "label-md": ["Inter"], "display-lg-mobile": ["Inter"], "label-sm": ["Inter"], "headline-md": ["Inter"], "headline-lg": ["Inter"] }, "fontSize": { "body-md": ["0.875rem", { "lineHeight": "1.375rem", "letterSpacing": "0em", "fontWeight": "400" }], "headline-lg-mobile": ["1.5rem", { "lineHeight": "2rem", "letterSpacing": "-0.015em", "fontWeight": "600" }], "body-lg": ["1.125rem", { "lineHeight": "1.75rem", "letterSpacing": "0em", "fontWeight": "400" }], "display-lg": ["3rem", { "lineHeight": "3.5rem", "letterSpacing": "-0.025em", "fontWeight": "700" }], "body-sm": ["0.75rem", { "lineHeight": "1.125rem", "letterSpacing": "0.01em", "fontWeight": "400" }], "headline-sm": ["1rem", { "lineHeight": "1.5rem", "letterSpacing": "0em", "fontWeight": "600" }], "label-md": ["0.875rem", { "lineHeight": "1.25rem", "letterSpacing": "-0.005em", "fontWeight": "500" }], "display-lg-mobile": ["2.25rem", { "lineHeight": "2.75rem", "letterSpacing": "-0.02em", "fontWeight": "700" }], "label-sm": ["0.75rem", { "lineHeight": "1rem", "letterSpacing": "0.025em", "fontWeight": "600" }], "headline-md": ["1.25rem", { "lineHeight": "1.75rem", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-lg": ["2rem", { "lineHeight": "2.5rem", "letterSpacing": "-0.02em", "fontWeight": "600" }] } } } };</script></head><body class="bg-surface font-body-md text-on-surface antialiased min-h-screen flex flex-col justify-between"><header class="bg-white border-b border-slate-200 sticky top-0 z-30"><div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between"><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-lg bg-blue-600 text-white flex items-center justify-center font-bold text-base shadow-xs">V</div><div class="flex flex-col"><span class="text-base font-semibold text-slate-900 leading-tight">Vance Hair Studio</span><span class="text-xs text-slate-500">Licensed Barber &amp; Stylist</span></div></div><div class="flex items-center gap-2 text-xs text-slate-400"><span class="">Powered by BookFlow</span></div></div></header><main class="w-full flex-1 pt-16 bg-surface"><div class="flex flex-col w-full">
+<!-- Subtle decorative ambient glow behind top region -->
+<div class="relative w-full overflow-hidden">
+<div class="absolute -top-24 left-1/2 -translate-x-1/2 w-[768px] h-64 bg-gradient-to-b from-primary-fixed/25 to-transparent blur-3xl pointer-events-none -z-10"></div>
+<div class="max-w-6xl mx-auto px-6 sm:px-8 pt-6 pb-16">
+<!-- Studio Header & Reassurance Meta -->
+<section class="mb-6">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6">
+<div class="flex items-start gap-4">
+<div class="relative w-16 h-16 rounded-xl bg-surface-container overflow-hidden shadow-sm shrink-0">
+<img class="w-full h-full object-cover" data-alt="Portrait of Marcus Vance, expert master barber in mid-thirties with crisp grooming attire and warm professional demeanor in a high-end minimalist San Francisco studio with natural skylight and brushed steel accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDHxOd5-cSbJiinoyFxM5bzqSvM4b7k5JeCF75BGkKNkROjcyJDtj0gXjCVZ04L7K52gA02AA50pxyaqiHUe8KDQcOrFDY4xAmPaUfBSxeQBTxgMhdUojDY8Qaw7N0a84vQBgh9HGiCL5KpoIs1PKJ1ffZz24LZvGfFmuW82vsvMsTg39Jlub12tKfXPfF6qUMC1-8RnIAd1aN04_x5EA_j5102fiarOe9vj4JVA0NGGYLQ7l4xdCB6Q">
+<span class="absolute bottom-1 right-1 w-3.5 h-3.5 rounded-full bg-secondary ring-2 ring-surface-container-lowest" title="Studio Open &amp; Active"></span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2 flex-wrap">
+<h1 class="font-headline-md text-headline-md text-on-surface font-semibold tracking-tight">Vance Hair Studio</h1>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-surface-container text-primary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+                  Verified Studio
+                </span>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-secondary-container/30 text-on-secondary-container font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">chair</span>
+                  Single-chair studio • 1:1 service
+                </span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">
+                Operated by Marcus Vance • Licensed Barber &amp; Stylist • 482 Jackson St, San Francisco, CA • (415) 555-0198
+              </p>
+</div>
+</div>
+<div class="flex flex-col items-start md:items-end justify-center">
+<div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container-low shadow-sm"><span class="material-symbols-outlined text-primary text-[18px]">bolt</span>
+<span class="font-label-md text-label-md text-on-surface font-medium">Real-Time Availability</span></div>
+<span class="font-body-sm text-body-sm text-on-surface-variant/80 mt-1">Direct real-time availability • Verified open slots</span>
+</div>
+</div>
+<!-- 5-Step Stepper -->
+<nav aria-label="Booking Progress" class="w-full bg-surface-container-lowest rounded-xl p-4 shadow-sm mb-6"><ol class="grid grid-cols-2 md:grid-cols-5 gap-3"><li class="flex items-center gap-3"><div class="w-8 h-8 rounded-full bg-emerald-600 text-white flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">check</span></div><div class="flex flex-col min-w-0"><span class="font-label-sm text-label-sm text-slate-500 uppercase tracking-wider">Step 1</span><span class="font-headline-sm text-headline-sm text-slate-700 font-medium truncate">1. Service</span></div></li><li class="flex items-center gap-3 relative"><div class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center shrink-0 shadow-sm font-label-md text-label-md font-semibold">2</div><div class="flex flex-col min-w-0"><span class="font-label-sm text-label-sm text-blue-600 font-semibold uppercase tracking-wider">Step 2 • Active</span><span class="font-headline-sm text-headline-sm text-blue-600 font-semibold truncate">2. Date &amp; Time</span></div></li><li class="flex items-center gap-3 opacity-60"><div class="w-8 h-8 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center shrink-0 font-label-md text-label-md font-semibold">3</div><div class="flex flex-col min-w-0"><span class="font-label-sm text-label-sm text-slate-400 uppercase tracking-wider">Step 3</span><span class="font-headline-sm text-headline-sm text-slate-500 font-medium truncate">3. Customer Information</span></div></li><li class="hidden md:flex items-center gap-3 opacity-60"><div class="w-8 h-8 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center shrink-0 font-label-md text-label-md font-semibold">4</div><div class="flex flex-col min-w-0"><span class="font-label-sm text-label-sm text-slate-400 uppercase tracking-wider">Step 4</span><span class="font-headline-sm text-headline-sm text-slate-500 font-medium truncate">4. Review &amp; Confirm</span></div></li><li class="hidden md:flex items-center gap-3 opacity-60"><div class="w-8 h-8 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center shrink-0 font-label-md text-label-md font-semibold">5</div><div class="flex flex-col min-w-0"><span class="font-label-sm text-label-sm text-slate-400 uppercase tracking-wider">Step 5</span><span class="font-headline-sm text-headline-sm text-slate-500 font-medium truncate">5. Booking Request Received</span></div></li></ol></nav>
+<!-- Selected Service Summary Banner -->
+<div class="w-full bg-surface-container-lowest rounded-xl p-5 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-surface-container-low flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[26px]">content_cut</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-wider">Selected Service</span>
+<span class="w-1.5 h-1.5 rounded-full bg-outline-variant"></span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Single Provider: Marcus Vance</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Signature Precision Haircut</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+                45 mins • $45.00 • Comprehensive consultation, tailored haircut, hot towel &amp; neck shave
+              </p>
+</div>
+</div>
+<button class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md hover:bg-surface-variant transition-colors self-start sm:self-center shrink-0" type="button">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+            Change Service
+          </button>
+</div>
+</section>
+<!-- Interactive Scenario Switcher / Inspector (Stage 6.3 Verification Harness) -->
+
+<!-- Main 2-Column Availability Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Left Column: Interactive Calendar (7 Cols on desktop) -->
+<div class="lg:col-span-7 bg-surface-container-lowest rounded-2xl p-6 shadow-sm flex flex-col">
+<!-- Calendar Month Header & Navigation -->
+<div class="flex items-center justify-between pb-6">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-[28px]">event</span>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight" id="calendar-month-title">October 2024</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">America/Los_Angeles (Pacific Time)</p>
+</div>
+</div>
+<div class="flex items-center gap-1.5">
+<button class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant hover:bg-surface-variant transition-colors" disabled="" style="opacity: 0.45; cursor: not-allowed;" title="Previous Month (Past Months Disabled)" type="button">
+<span class="material-symbols-outlined text-[20px]">chevron_left</span>
+</button>
+<div class="px-2 py-1 rounded bg-surface-container-low font-label-sm text-label-sm text-on-surface font-medium">
+                Current
+              </div>
+<button class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-on-surface hover:bg-surface-variant transition-colors" title="Next Month (November 2024)" type="button">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Calendar Days of Week Header -->
+<div class="grid grid-cols-7 gap-2 mb-2 text-center">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold py-1">Mon</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold py-1">Tue</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold py-1">Wed</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold py-1">Thu</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold py-1">Fri</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold py-1">Sat</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold py-1 text-on-surface-variant/70">Sun</span>
+</div>
+<!-- Calendar Matrix (October 2024 starts on Tuesday) -->
+<div class="grid grid-cols-7 gap-2" id="calendar-grid">
+<!-- Sept 30 (Muted Previous Month) -->
+<div class="h-16 rounded-xl bg-surface p-1.5 flex flex-col justify-between opacity-30 cursor-not-allowed">
+<span class="font-body-sm text-body-sm text-on-surface-variant">30</span>
+</div>
+<!-- Oct 1 (Past) -->
+<div class="h-16 rounded-xl bg-surface p-1.5 flex flex-col justify-between opacity-35 cursor-not-allowed line-through">
+<span class="font-body-sm text-body-sm text-on-surface-variant">1</span>
+</div>
+<!-- Oct 2 (Past) -->
+<div class="h-16 rounded-xl bg-surface p-1.5 flex flex-col justify-between opacity-35 cursor-not-allowed line-through">
+<span class="font-body-sm text-body-sm text-on-surface-variant">2</span>
+</div>
+<!-- Oct 3 (Past) -->
+<div class="h-16 rounded-xl bg-surface p-1.5 flex flex-col justify-between opacity-35 cursor-not-allowed line-through">
+<span class="font-body-sm text-body-sm text-on-surface-variant">3</span>
+</div>
+<!-- Oct 4 (Past) -->
+<div class="h-16 rounded-xl bg-surface p-1.5 flex flex-col justify-between opacity-35 cursor-not-allowed line-through">
+<span class="font-body-sm text-body-sm text-on-surface-variant">4</span>
+</div>
+<!-- Oct 5 (Past) -->
+<div class="h-16 rounded-xl bg-surface p-1.5 flex flex-col justify-between opacity-35 cursor-not-allowed line-through">
+<span class="font-body-sm text-body-sm text-on-surface-variant">5</span>
+</div>
+<!-- Oct 6 (Sunday Closed) -->
+<div class="h-16 rounded-xl bg-surface-container-low p-1.5 flex flex-col justify-between opacity-40 cursor-not-allowed">
+<span class="font-body-sm text-body-sm text-on-surface-variant">6</span>
+<span class="font-label-sm text-[10px] text-on-surface-variant/80 uppercase">Closed</span>
+</div>
+<!-- Oct 7–12 (Past summarized) -->
+<div class="h-16 rounded-xl bg-surface p-1.5 flex flex-col justify-between opacity-35 cursor-not-allowed line-through">
+<span class="font-body-sm text-body-sm text-on-surface-variant">7</span>
+</div>
+<div class="h-16 rounded-xl bg-surface p-1.5 flex flex-col justify-between opacity-35 cursor-not-allowed line-through">
+<span class="font-body-sm text-body-sm text-on-surface-variant">8</span>
+</div>
+<div class="h-16 rounded-xl bg-surface p-1.5 flex flex-col justify-between opacity-35 cursor-not-allowed line-through">
+<span class="font-body-sm text-body-sm text-on-surface-variant">9</span>
+</div>
+<div class="h-16 rounded-xl bg-surface p-1.5 flex flex-col justify-between opacity-35 cursor-not-allowed line-through">
+<span class="font-body-sm text-body-sm text-on-surface-variant">10</span>
+</div>
+<div class="h-16 rounded-xl bg-surface p-1.5 flex flex-col justify-between opacity-35 cursor-not-allowed line-through">
+<span class="font-body-sm text-body-sm text-on-surface-variant">11</span>
+</div>
+<div class="h-16 rounded-xl bg-surface p-1.5 flex flex-col justify-between opacity-35 cursor-not-allowed line-through">
+<span class="font-body-sm text-body-sm text-on-surface-variant">12</span>
+</div>
+<!-- Oct 13 (Sunday Closed) -->
+<div class="h-16 rounded-xl bg-surface-container-low p-1.5 flex flex-col justify-between opacity-40 cursor-not-allowed">
+<span class="font-body-sm text-body-sm text-on-surface-variant">13</span>
+<span class="font-label-sm text-[10px] text-on-surface-variant/80 uppercase">Closed</span>
+</div>
+<!-- Oct 14–19 (Past) -->
+<div class="h-16 rounded-xl bg-surface p-1.5 flex flex-col justify-between opacity-35 cursor-not-allowed line-through">
+<span class="font-body-sm text-body-sm text-on-surface-variant">14</span>
+</div>
+<div class="h-16 rounded-xl bg-surface p-1.5 flex flex-col justify-between opacity-35 cursor-not-allowed line-through">
+<span class="font-body-sm text-body-sm text-on-surface-variant">15</span>
+</div>
+<div class="h-16 rounded-xl bg-surface p-1.5 flex flex-col justify-between opacity-35 cursor-not-allowed line-through">
+<span class="font-body-sm text-body-sm text-on-surface-variant">16</span>
+</div>
+<div class="h-16 rounded-xl bg-surface p-1.5 flex flex-col justify-between opacity-35 cursor-not-allowed line-through">
+<span class="font-body-sm text-body-sm text-on-surface-variant">17</span>
+</div>
+<div class="h-16 rounded-xl bg-surface p-1.5 flex flex-col justify-between opacity-35 cursor-not-allowed line-through">
+<span class="font-body-sm text-body-sm text-on-surface-variant">18</span>
+</div>
+<div class="h-16 rounded-xl bg-surface p-1.5 flex flex-col justify-between opacity-35 cursor-not-allowed line-through">
+<span class="font-body-sm text-body-sm text-on-surface-variant">19</span>
+</div>
+<!-- Oct 20 (Sunday Closed) -->
+<div class="h-16 rounded-xl bg-surface-container-low p-1.5 flex flex-col justify-between opacity-40 cursor-not-allowed">
+<span class="font-body-sm text-body-sm text-on-surface-variant">20</span>
+<span class="font-label-sm text-[10px] text-on-surface-variant/80 uppercase">Closed</span>
+</div>
+<!-- Oct 21–23 (Past Days) -->
+<div class="h-16 rounded-xl bg-surface p-1.5 flex flex-col justify-between opacity-35 cursor-not-allowed line-through">
+<span class="font-body-sm text-body-sm text-on-surface-variant">21</span>
+</div>
+<div class="h-16 rounded-xl bg-surface p-1.5 flex flex-col justify-between opacity-35 cursor-not-allowed line-through">
+<span class="font-body-sm text-body-sm text-on-surface-variant">22</span>
+</div>
+<div class="h-16 rounded-xl bg-surface p-1.5 flex flex-col justify-between opacity-35 cursor-not-allowed line-through">
+<span class="font-body-sm text-body-sm text-on-surface-variant">23</span>
+</div>
+<!-- Oct 24: TODAY / SELECTED DATE (State A Active) -->
+<button class="calendar-day-tile h-16 rounded-xl p-2 flex flex-col justify-between text-left transition-all bg-primary-container text-on-primary shadow-md ring-2 ring-primary-container" id="tile-oct-24" onclick="selectDate(24)" type="button">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm font-bold">24</span>
+<span class="text-[10px] uppercase font-bold tracking-wider px-1.5 py-0.5 rounded bg-on-primary/20 text-on-primary">Today</span>
+</div>
+<div class="flex items-center gap-1 font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-on-primary"></span>
+<span class="">Selected</span>
+</div>
+</button>
+<!-- Oct 25: Available (or Fully Booked in State C) -->
+<button class="calendar-day-tile h-16 rounded-xl p-2 flex flex-col justify-between text-left transition-all bg-surface-container-low hover:bg-surface-container text-on-surface hover:shadow-sm" id="tile-oct-25" onclick="selectDate(25)" type="button">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm font-medium">25</span>
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-[11px]" id="tile-label-25">6 slots</span>
+</button>
+<!-- Oct 26: Available -->
+<button class="calendar-day-tile h-16 rounded-xl p-2 flex flex-col justify-between text-left transition-all bg-surface-container-low hover:bg-surface-container text-on-surface hover:shadow-sm" id="tile-oct-26" onclick="selectDate(26)" type="button">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm font-medium">26</span>
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-[11px]">4 slots</span>
+</button>
+<!-- Oct 27: Sunday Closed Studio Day -->
+<button class="calendar-day-tile h-16 rounded-xl p-2 flex flex-col justify-between text-left transition-all bg-surface-container-low/60 text-on-surface-variant cursor-pointer hover:bg-surface-container" id="tile-oct-27" onclick="selectDate(27)" type="button">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm font-medium opacity-60">27</span>
+<span class="material-symbols-outlined text-[14px] text-on-surface-variant/70">do_not_disturb_on</span>
+</div>
+<span class="font-label-sm text-[10px] text-on-surface-variant uppercase font-semibold">Closed</span>
+</button>
+<!-- Oct 28: Masked Blocked Period -->
+<button class="calendar-day-tile h-16 rounded-xl p-2 flex flex-col justify-between text-left transition-all bg-surface-container-low/60 text-on-surface-variant cursor-pointer hover:bg-surface-container" id="tile-oct-28" onclick="selectDate(28)" type="button">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm font-medium opacity-60">28</span>
+<span class="material-symbols-outlined text-[14px] text-on-surface-variant/70">lock</span>
+</div>
+<span class="font-label-sm text-[10px] text-on-surface-variant uppercase font-semibold">Unavailable</span>
+</button>
+<!-- Oct 29: Available -->
+<button class="calendar-day-tile h-16 rounded-xl p-2 flex flex-col justify-between text-left transition-all bg-surface-container-low hover:bg-surface-container text-on-surface hover:shadow-sm" id="tile-oct-29" onclick="selectDate(29)" type="button">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm font-medium">29</span>
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-[11px]">8 slots</span>
+</button>
+<!-- Oct 30: Available -->
+<button class="calendar-day-tile h-16 rounded-xl p-2 flex flex-col justify-between text-left transition-all bg-surface-container-low hover:bg-surface-container text-on-surface hover:shadow-sm" id="tile-oct-30" onclick="selectDate(30)" type="button">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm font-medium">30</span>
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-[11px]">7 slots</span>
+</button>
+<!-- Oct 31: Available -->
+<button class="calendar-day-tile h-16 rounded-xl p-2 flex flex-col justify-between text-left transition-all bg-surface-container-low hover:bg-surface-container text-on-surface hover:shadow-sm" id="tile-oct-31" onclick="selectDate(31)" type="button">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm font-medium">31</span>
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-[11px]">5 slots</span>
+</button>
+<!-- Nov 1-3 Muted -->
+<div class="h-16 rounded-xl bg-surface p-1.5 flex flex-col justify-between opacity-30 cursor-not-allowed">
+<span class="font-body-sm text-body-sm text-on-surface-variant">1</span>
+</div>
+<div class="h-16 rounded-xl bg-surface p-1.5 flex flex-col justify-between opacity-30 cursor-not-allowed">
+<span class="font-body-sm text-body-sm text-on-surface-variant">2</span>
+</div>
+<div class="h-16 rounded-xl bg-surface p-1.5 flex flex-col justify-between opacity-30 cursor-not-allowed">
+<span class="font-body-sm text-body-sm text-on-surface-variant">3</span>
+</div>
+</div>
+<!-- Calendar Legend -->
+<div class="mt-6 pt-4 flex flex-wrap items-center justify-between gap-4 text-on-surface-variant">
+<div class="flex items-center gap-4 flex-wrap">
+<div class="flex items-center gap-1.5">
+<span class="w-3 h-3 rounded-md bg-primary-container"></span>
+<span class="font-body-sm text-body-sm">Selected Date</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+<span class="font-body-sm text-body-sm">Open Slots</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-3 h-3 rounded-md bg-surface-container-low"></span>
+<span class="font-body-sm text-body-sm">Unavailable / Closed</span>
+</div>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant/70">
+              Times displayed in Studio Local Time (PT)
+            </span>
+</div>
+</div>
+<!-- Right Column: Available Time Slots Container (5 Cols on desktop) -->
+<div class="lg:col-span-5 flex flex-col">
+<!-- Dynamic Content Slot for Scenarios -->
+<div class="bg-surface-container-lowest rounded-2xl p-6 shadow-sm min-h-[490px] flex flex-col justify-between">
+<!-- STATE A: Active Date & Time (Default) -->
+<div class="scenario-view flex flex-col h-full" id="view-state-A">
+<div class="pb-4 mb-4">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold" id="slot-container-heading">
+                    Thursday, Oct 24, 2024
+                  </h3>
+<span class="font-label-sm text-label-sm text-secondary font-semibold bg-secondary-container/30 px-2 py-0.5 rounded-full">
+                    6 Available Times
+                  </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary">schedule</span>
+                  45-minute service window • Marcus Vance
+                </p>
+</div>
+<!-- Slot Demonstrating Rule: Booked slot excluded/disabled & Active selected slot -->
+<div class="mb-4">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-2 block font-semibold">
+                  Morning Availability
+                </span>
+<div class="grid grid-cols-2 gap-2.5">
+<!-- 09:00 AM: Occupied / Booked Exclusion Illustration -->
+<div class="p-3 rounded-xl bg-surface-container-low/50 text-on-surface-variant/40 flex items-center justify-between cursor-not-allowed select-none" title="Slot already booked by another guest. Overlapping times are strictly excluded.">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-medium line-through">09:00 AM</span>
+<span class="font-body-sm text-[10px] uppercase font-semibold">Booked</span>
+</div>
+<span class="material-symbols-outlined text-[16px]">lock_clock</span>
+</div>
+<!-- 10:15 AM: CURRENTLY SELECTED SLOT -->
+<button class="p-3 rounded-xl bg-primary-container text-on-primary flex items-center justify-between shadow-md transition-all text-left ring-2 ring-primary-container" type="button">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-bold text-on-primary">10:15 AM</span>
+<span class="font-body-sm text-[11px] text-on-primary-container">Until 11:00 AM</span>
+</div>
+<span class="material-symbols-outlined text-[20px] text-on-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</button>
+<!-- 11:30 AM: Available -->
+<button class="p-3 rounded-xl bg-surface-container-low hover:bg-surface-container text-on-surface flex items-center justify-between transition-all text-left hover:shadow-sm group" type="button">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-medium text-on-surface group-hover:text-primary">11:30 AM</span>
+<span class="font-body-sm text-[11px] text-on-surface-variant">Until 12:15 PM</span>
+</div>
+<span class="material-symbols-outlined text-[16px] text-outline-variant group-hover:text-primary">arrow_forward</span>
+</button>
+<!-- 12:45 PM: Buffer/Lunch Break strictly excluded per Barber operational schedule -->
+<div class="p-3 rounded-xl bg-surface-container-low/40 text-on-surface-variant/40 flex items-center justify-between cursor-not-allowed select-none" title="Studio operational buffer / sanitation break">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-medium line-through">12:45 PM</span>
+<span class="font-body-sm text-[10px] uppercase font-semibold">Break</span>
+</div>
+<span class="material-symbols-outlined text-[16px]">coffee</span>
+</div>
+</div>
+</div>
+<!-- Afternoon Availability -->
+<div class="mb-4">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-2 block font-semibold">
+                  Afternoon Availability
+                </span>
+<div class="grid grid-cols-2 gap-2.5">
+<!-- 01:30 PM: Available -->
+<button class="p-3 rounded-xl bg-surface-container-low hover:bg-surface-container text-on-surface flex items-center justify-between transition-all text-left hover:shadow-sm group" type="button">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-medium text-on-surface group-hover:text-primary">01:30 PM</span>
+<span class="font-body-sm text-[11px] text-on-surface-variant">Until 02:15 PM</span>
+</div>
+<span class="material-symbols-outlined text-[16px] text-outline-variant group-hover:text-primary">arrow_forward</span>
+</button>
+<!-- 02:45 PM: Available -->
+<button class="p-3 rounded-xl bg-surface-container-low hover:bg-surface-container text-on-surface flex items-center justify-between transition-all text-left hover:shadow-sm group" type="button">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-medium text-on-surface group-hover:text-primary">02:45 PM</span>
+<span class="font-body-sm text-[11px] text-on-surface-variant">Until 03:30 PM</span>
+</div>
+<span class="material-symbols-outlined text-[16px] text-outline-variant group-hover:text-primary">arrow_forward</span>
+</button>
+<!-- 04:00 PM: Available -->
+<button class="p-3 rounded-xl bg-surface-container-low hover:bg-surface-container text-on-surface flex items-center justify-between transition-all text-left hover:shadow-sm group" type="button">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-medium text-on-surface group-hover:text-primary">04:00 PM</span>
+<span class="font-body-sm text-[11px] text-on-surface-variant">Until 04:45 PM</span>
+</div>
+<span class="material-symbols-outlined text-[16px] text-outline-variant group-hover:text-primary">arrow_forward</span>
+</button>
+<!-- 05:15 PM: Available (Last slot of day) -->
+<button class="p-3 rounded-xl bg-surface-container-low hover:bg-surface-container text-on-surface flex items-center justify-between transition-all text-left hover:shadow-sm group" type="button">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-medium text-on-surface group-hover:text-primary">05:15 PM</span>
+<span class="font-body-sm text-[11px] text-on-surface-variant">Until 06:00 PM</span>
+</div>
+<span class="material-symbols-outlined text-[16px] text-outline-variant group-hover:text-primary">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Real-time algorithm reassurance note -->
+<div class="mt-auto pt-3 rounded-lg bg-surface-container-low p-3 flex items-start gap-2.5">
+<span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">verified_user</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                  Time slots guarantee the full 45-minute service window plus a standard sanitation reset. No waiting in line.
+                </p>
+</div>
+</div>
+<!-- STATE B: Closed Studio Day (Sunday Oct 27) -->
+<div class="scenario-view hidden flex-col items-center justify-center text-center py-10 my-auto" id="view-state-B">
+<div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant mb-4">
+<span class="material-symbols-outlined text-[32px]">storefront</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Studio Closed on Sundays</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xs mt-2">
+                Marcus Vance is out of the studio on Sunday, October 27. Regular chair hours resume Monday through Saturday.
+              </p>
+<div class="mt-6 flex flex-col gap-2 w-full max-w-xs">
+<button class="w-full py-2.5 px-4 rounded-lg bg-primary-container text-on-primary font-label-md text-label-md font-medium hover:bg-primary transition-colors" onclick="setScenario('A')" type="button">
+                  Select Thursday, Oct 24 (Next Available)
+                </button>
+<button class="w-full py-2.5 px-4 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md font-medium hover:bg-surface-variant transition-colors" onclick="selectDate(26)" type="button">
+                  View Saturday, Oct 26
+                </button>
+</div>
+</div>
+<!-- STATE C: Fully Booked Day (Friday Oct 25) -->
+<div class="scenario-view hidden flex-col items-center justify-center text-center py-10 my-auto" id="view-state-C">
+<div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center text-outline mb-4">
+<span class="material-symbols-outlined text-[32px]">event_busy</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Fully Booked for Friday, Oct 25</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xs mt-2">
+                All 8 appointment windows have been claimed for this day. Marcus Vance operates a 1-guest-at-a-time studio.
+              </p>
+<div class="mt-6 flex flex-col gap-2 w-full max-w-xs">
+<button class="w-full py-2.5 px-4 rounded-lg bg-primary-container text-on-primary font-label-md text-label-md font-medium hover:bg-primary transition-colors" onclick="selectDate(26)" type="button">
+                  Check Saturday, Oct 26 (4 slots)
+                </button>
+<button class="w-full py-2.5 px-4 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md font-medium hover:bg-surface-variant transition-colors" onclick="setScenario('A')" type="button">
+                  Return to Thursday, Oct 24
+                </button>
+</div>
+</div>
+<!-- STATE D: Masked Blocked Period (Monday Oct 28 - Zero internal notes revealed!) -->
+<div class="scenario-view hidden flex-col items-center justify-center text-center py-10 my-auto" id="view-state-D">
+<div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant mb-4">
+<span class="material-symbols-outlined text-[32px]">event_available</span>
+</div>
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm mb-2">
+<span class="material-symbols-outlined text-[14px]">shield</span>
+                Studio Schedule Status
+              </div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Monday, Oct 28 is Unavailable</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xs mt-2">
+                Appointments are not available on this date due to private studio scheduling. No internal details are disclosed.
+              </p>
+<div class="mt-6 flex flex-col gap-2 w-full max-w-xs">
+<button class="w-full py-2.5 px-4 rounded-lg bg-primary-container text-on-primary font-label-md text-label-md font-medium hover:bg-primary transition-colors" onclick="selectDate(29)" type="button">
+                  View Tuesday, Oct 29 (8 slots open)
+                </button>
+<button class="w-full py-2.5 px-4 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md font-medium hover:bg-surface-variant transition-colors" onclick="setScenario('A')" type="button">
+                  Return to Thursday, Oct 24
+                </button>
+</div>
+</div>
+<!-- STATE E: Loading Availability (Skeleton Shimmer) -->
+<div class="scenario-view hidden flex-col h-full animate-pulse" id="view-state-E">
+<div class="flex items-center justify-between pb-4 mb-4">
+<div class="h-6 w-44 bg-surface-container rounded"></div>
+<div class="h-5 w-24 bg-surface-container rounded-full"></div>
+</div>
+<div class="h-4 w-52 bg-surface-container-low rounded mb-6"></div>
+<div class="space-y-4 flex-1">
+<div class="h-3 w-28 bg-surface-container rounded"></div>
+<div class="grid grid-cols-2 gap-2.5">
+<div class="h-14 rounded-xl bg-surface-container-low"></div>
+<div class="h-14 rounded-xl bg-surface-container-low"></div>
+<div class="h-14 rounded-xl bg-surface-container-low"></div>
+<div class="h-14 rounded-xl bg-surface-container-low"></div>
+</div>
+<div class="h-3 w-32 bg-surface-container rounded pt-2"></div>
+<div class="grid grid-cols-2 gap-2.5">
+<div class="h-14 rounded-xl bg-surface-container-low"></div>
+<div class="h-14 rounded-xl bg-surface-container-low"></div>
+</div>
+</div>
+<div class="h-12 w-full bg-surface-container rounded-xl mt-4"></div>
+</div>
+<!-- STATE F: Availability Sync Error -->
+<div class="scenario-view hidden flex-col items-center justify-center text-center py-10 my-auto" id="view-state-F">
+<div class="w-16 h-16 rounded-full bg-error-container text-on-error-container flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-[32px]">sync_problem</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Unable to Load Availability</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xs mt-2">
+                We could not establish a real-time connection with Marcus Vance's scheduling ledger. Please retry.
+              </p>
+<div class="mt-6 flex flex-col gap-2 w-full max-w-xs">
+<button class="w-full py-2.5 px-4 rounded-lg bg-primary-container text-on-primary font-label-md text-label-md font-medium hover:bg-primary transition-colors flex items-center justify-center gap-2" onclick="setScenario('A')" type="button">
+<span class="material-symbols-outlined text-[18px]">refresh</span>
+                  Try Again
+                </button>
+<span class="font-body-sm text-[11px] text-on-surface-variant/70">Error Code: ERR_SYNC_TIMELOCK_TIMEOUT</span>
+</div>
+</div>
+</div>
+<!-- Studio Trust Badge -->
+<div class="mt-4 px-4 py-3 rounded-xl bg-surface-container-low flex items-center gap-3"><span class="material-symbols-outlined text-secondary text-[22px] shrink-0">lock</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Studio Privacy Guarantee</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Your contact information is only used to coordinate your appointment.</span>
+</div></div>
+</div>
+</div>
+<!-- Bottom Desktop Action & Summary Bar -->
+<section class="mt-8 bg-surface-container-lowest rounded-2xl p-6 shadow-md flex flex-col lg:flex-row items-center justify-between gap-6" id="bottom-action-bar">
+<!-- Left: Real-time Appointment Breakdown -->
+<div class="flex items-start sm:items-center gap-4 w-full lg:w-auto">
+<div class="w-12 h-12 rounded-xl bg-primary-fixed flex items-center justify-center text-on-primary-fixed-variant shrink-0">
+<span class="material-symbols-outlined text-[26px]">calendar_today</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-wider">Appointment Summary</span>
+<span class="w-1 h-1 rounded-full bg-outline"></span>
+<span class="font-body-sm text-body-sm text-secondary font-medium" id="summary-status-badge">Slot Reserved</span>
+</div>
+<div class="font-headline-sm text-headline-sm text-on-surface font-bold mt-0.5" id="summary-line-1">
+              Signature Precision Haircut • Thursday, Oct 24 at 10:15 AM – 11:00 AM
+            </div>
+<div class="font-body-sm text-body-sm text-on-surface-variant mt-0.5" id="summary-line-2">45 mins with Marcus Vance • <strong class="text-on-surface font-semibold">$45.00</strong></div>
+</div>
+</div>
+<!-- Right: Primary CTA and Safe Step Actions -->
+<div class="flex flex-col sm:flex-row items-center gap-4 w-full lg:w-auto justify-end shrink-0">
+<button class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors py-2 px-3" type="button">← Back to Service</button>
+<!-- Primary Forward Button -->
+<a class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-xl bg-primary-container hover:bg-primary text-on-primary font-headline-sm text-headline-sm font-semibold shadow-md hover:shadow-lg transition-all text-center" href="#customer-info-step" id="btn-continue-step">
+<span class="">Continue to Customer Information</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</a>
+</div>
+</section>
+<!-- Bottom Reassurance Note -->
+<div class="mt-3 flex items-center justify-center gap-2 text-center text-on-surface-variant"><span class="material-symbols-outlined text-[16px] text-secondary">check_circle</span>
+<span class="font-body-sm text-body-sm">Next step: Enter contact details (Name &amp; Phone).</span></div>
+</div>
+</div>
+</div>
+<script>
+  // Scenario switcher script to demonstrate all required states from MVTS Stage 6.3 spec
+  function setScenario(stateKey) {
+    // 1. Hide all scenario views
+    const views = document.querySelectorAll('.scenario-view');
+    views.forEach(v => {
+      v.classList.add('hidden');
+      v.classList.remove('flex');
+    });
+
+    // 2. Deactivate all buttons
+    const btns = document.querySelectorAll('.scenario-btn');
+    btns.forEach(b => {
+      b.classList.remove('bg-primary-container', 'text-on-primary', 'shadow-sm', 'font-semibold');
+      b.classList.add('bg-surface-container-lowest', 'text-on-surface', 'hover:bg-surface-container', 'font-medium');
+    });
+
+    // 3. Activate selected button
+    const activeBtn = document.getElementById('btn-state-' + stateKey);
+    if (activeBtn) {
+      activeBtn.classList.remove('bg-surface-container-lowest', 'text-on-surface', 'hover:bg-surface-container', 'font-medium');
+      activeBtn.classList.add('bg-primary-container', 'text-on-primary', 'shadow-sm', 'font-semibold');
+    }
+
+    // 4. Show corresponding view
+    const targetView = document.getElementById('view-state-' + stateKey);
+    if (targetView) {
+      targetView.classList.remove('hidden');
+      targetView.classList.add('flex');
+    }
+
+    // 5. Update summary bar accordingly
+    const summaryLine1 = document.getElementById('summary-line-1');
+    const summaryLine2 = document.getElementById('summary-line-2');
+    const summaryBadge = document.getElementById('summary-status-badge');
+    const continueBtn = document.getElementById('btn-continue-step');
+
+    if (stateKey === 'A') {
+      summaryLine1.textContent = 'Signature Precision Haircut • Thursday, Oct 24 at 10:15 AM – 11:00 AM';
+      summaryLine2.innerHTML = '45 mins with Marcus Vance • <strong class="text-on-surface font-semibold">$45.00</strong> (Payment due in person upon service completion)';
+      summaryBadge.textContent = 'Slot Reserved';
+      summaryBadge.className = 'font-body-sm text-body-sm text-secondary font-medium';
+      continueBtn.classList.remove('opacity-50', 'pointer-events-none', 'bg-surface-container', 'text-on-surface-variant');
+      continueBtn.classList.add('bg-primary-container', 'text-on-primary');
+    } else {
+      summaryLine1.textContent = 'Signature Precision Haircut • Select a date and time to continue';
+      summaryLine2.innerHTML = '45 mins with Marcus Vance • $45.00 • No active slot selected';
+      summaryBadge.textContent = 'Awaiting Time Slot';
+      summaryBadge.className = 'font-body-sm text-body-sm text-on-surface-variant font-medium';
+      continueBtn.classList.add('opacity-50', 'pointer-events-none', 'bg-surface-container', 'text-on-surface-variant');
+      continueBtn.classList.remove('bg-primary-container', 'text-on-primary');
+    }
+  }
+
+  // Interactive Date selection simulator
+  function selectDate(day) {
+    if (day === 24) {
+      setScenario('A');
+    } else if (day === 27) {
+      setScenario('B');
+    } else if (day === 25) {
+      setScenario('C');
+    } else if (day === 28) {
+      setScenario('D');
+    } else {
+      // General available day
+      setScenario('A');
+      const heading = document.getElementById('slot-container-heading');
+      if (heading) {
+        heading.textContent = 'Date: October ' + day + ', 2024';
+      }
+    }
+  }
+</script></main><footer class="w-full bg-surface-container-low py-8 shadow-[0_-1px_8px_rgba(0,0,0,0.02)] mt-auto"><div class="max-w-6xl mx-auto px-6 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-space-sm text-center sm:text-left"><p class="font-body-sm text-body-sm text-on-surface-variant">Powered by <span class="font-label-sm text-label-sm text-on-surface font-semibold">BookFlow</span> • Secure online booking for independent businesses</p><p class="font-body-sm text-body-sm text-on-surface-variant">San Francisco, CA</p></div></footer>
+
+
+
+
+
+</body></html>

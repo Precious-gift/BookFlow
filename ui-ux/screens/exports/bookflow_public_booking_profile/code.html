@@ -1,0 +1,437 @@
+<!DOCTYPE html><html lang="en" style=""><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_dashboard" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "tertiary-container": "#4865d4", "on-secondary": "#ffffff", "surface-container": "#e5eeff", "secondary": "#006a61", "surface": "#f8f9ff", "surface-bright": "#f8f9ff", "on-tertiary": "#ffffff", "on-error": "#ffffff", "surface-container-low": "#eff4ff", "on-surface": "#0b1c30", "surface-variant": "#d3e4fe", "background": "#f8f9ff", "primary-container": "#2563eb", "on-primary-container": "#eeefff", "inverse-primary": "#b4c5ff", "on-secondary-fixed-variant": "#005049", "primary-fixed": "#dbe1ff", "on-error-container": "#93000a", "on-secondary-container": "#006f66", "surface-tint": "#0053db", "on-tertiary-container": "#eff0ff", "on-primary-fixed-variant": "#003ea8", "on-secondary-fixed": "#00201d", "on-tertiary-fixed-variant": "#173bab", "error": "#ba1a1a", "surface-dim": "#cbdbf5", "on-surface-variant": "#434655", "outline": "#737686", "secondary-fixed-dim": "#6bd8cb", "tertiary-fixed": "#dde1ff", "on-background": "#0b1c30", "secondary-fixed": "#89f5e7", "tertiary": "#2c4bb9", "surface-container-high": "#dce9ff", "tertiary-fixed-dim": "#b8c4ff", "inverse-surface": "#213145", "on-primary": "#ffffff", "surface-container-lowest": "#ffffff", "inverse-on-surface": "#eaf1ff", "primary-fixed-dim": "#b4c5ff", "secondary-container": "#86f2e4", "surface-container-highest": "#d3e4fe", "error-container": "#ffdad6", "outline-variant": "#c3c6d7", "on-tertiary-fixed": "#001453", "on-primary-fixed": "#00174b", "primary": "#004ac6" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-md": "1rem", "space-sm": "0.5rem", "gutter-sm": "1rem", "space-xs": "0.25rem", "margin-sm": "1rem", "space-lg": "1.5rem", "space-xl": "2rem", "margin": "2rem", "gutter": "1.5rem" }, "fontFamily": { "body-sm": ["Inter"], "label-md": ["Inter"], "headline-sm": ["Inter"], "headline-lg-mobile": ["Inter"], "label-sm": ["Inter"], "display-lg-mobile": ["Inter"], "headline-md": ["Inter"], "headline-lg": ["Inter"], "display-lg": ["Inter"], "body-md": ["Inter"], "body-lg": ["Inter"] }, "fontSize": { "body-sm": ["0.75rem", { "lineHeight": "1.125rem", "letterSpacing": "0.01em", "fontWeight": "400" }], "label-md": ["0.875rem", { "lineHeight": "1.25rem", "letterSpacing": "-0.005em", "fontWeight": "500" }], "headline-sm": ["1rem", { "lineHeight": "1.5rem", "letterSpacing": "0em", "fontWeight": "600" }], "headline-lg-mobile": ["1.5rem", { "lineHeight": "2rem", "letterSpacing": "-0.015em", "fontWeight": "600" }], "label-sm": ["0.75rem", { "lineHeight": "1rem", "letterSpacing": "0.025em", "fontWeight": "600" }], "display-lg-mobile": ["2.25rem", { "lineHeight": "2.75rem", "letterSpacing": "-0.02em", "fontWeight": "700" }], "headline-md": ["1.25rem", { "lineHeight": "1.75rem", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-lg": ["2rem", { "lineHeight": "2.5rem", "letterSpacing": "-0.02em", "fontWeight": "600" }], "display-lg": ["3rem", { "lineHeight": "3.5rem", "letterSpacing": "-0.025em", "fontWeight": "700" }], "body-md": ["0.875rem", { "lineHeight": "1.375rem", "letterSpacing": "0em", "fontWeight": "400" }], "body-lg": ["1.125rem", { "lineHeight": "1.75rem", "letterSpacing": "0em", "fontWeight": "400" }] } } } };</script></head><body class="bg-background font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-lowest border-r border-outline-variant/30 z-50 flex flex-col justify-between transition-transform duration-300 -translate-x-full lg:translate-x-0"><div class="flex flex-col flex-1 overflow-y-auto"><div class="h-16 flex items-center px-6 gap-3 border-b border-outline-variant/20"><div class="w-9 h-9 rounded-lg bg-primary flex items-center justify-center text-on-primary font-headline-sm text-headline-sm" aria-label="BookFlow" title="BookFlow" role="img"><span class="material-symbols-outlined text-[20px]">auto_schedule</span></div></div><div class="px-4 py-4"><div class="p-3 rounded-lg bg-surface-container-low border border-outline-variant/40 flex items-center justify-between cursor-pointer hover:bg-surface-container transition-colors"><div class="flex items-center gap-2.5 overflow-hidden"><div class="w-7 h-7 rounded-md bg-secondary-container text-on-secondary-container flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-[18px]">store</span></div><div class="flex flex-col truncate"><span class="font-label-md text-label-md text-on-surface truncate">Urban Edge Barbershop</span><span class="font-label-sm text-label-sm text-secondary flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>Solo Operator</span></div></div><span class="material-symbols-outlined text-outline text-[18px]">unfold_more</span></div></div><nav class="flex-1 px-3 space-y-1" data-active-classes="bg-primary-container text-on-primary-container font-headline-sm"><a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[20px]">dashboard</span><span class="">Dashboard</span></a><a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="appointments" href="#"><span class="material-symbols-outlined text-[20px]">calendar_today</span><span class="">Appointments</span></a><a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="services" href="#"><span class="material-symbols-outlined text-[20px]">spa</span><span class="">Services</span></a><a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="working-hours" href="#"><span class="material-symbols-outlined text-[20px]">schedule</span><span class="">Working Hours</span></a><a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="customers" href="#"><span class="material-symbols-outlined text-[20px]">group</span><span class="">Customers</span></a></nav></div><div class="p-4 border-t border-outline-variant/20"><div class="flex items-center justify-between p-2 rounded-lg hover:bg-surface-container transition-colors"><div class="flex items-center gap-3 min-w-0"><div class="w-9 h-9 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="flex flex-col min-w-0"><span class="font-label-md text-label-md text-on-surface truncate">Marcus Vance</span><span class="font-body-sm text-body-sm text-on-surface-variant truncate">Owner</span></div></div><a class="p-1.5 text-on-surface-variant hover:text-error hover:bg-error-container/20 rounded-lg transition-colors flex items-center justify-center" data-path="logout" href="#" title="Logout"><span class="material-symbols-outlined text-[20px]">logout</span></a></div></div></aside><div class="lg:pl-64"><header class="fixed top-0 left-0 lg:left-64 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-md border-b border-outline-variant/30 z-40 px-4 lg:px-8 flex items-center justify-between gap-4"><div class="flex items-center gap-3"><button aria-label="Toggle Navigation" class="lg:hidden p-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[24px]">menu</span></button><nav class="hidden sm:flex items-center gap-2 font-label-md text-label-md"><span class="text-on-surface-variant">Portal</span><span class="material-symbols-outlined text-[16px] text-outline">chevron_right</span><span class="text-on-surface font-headline-sm text-headline-sm">Business Profile</span></nav></div><div class="flex items-center gap-3 sm:gap-4"><a class="hidden sm:inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container-low border border-outline-variant/40 hover:border-primary text-on-surface-variant hover:text-primary transition-all font-body-sm text-body-sm" href="#" target="_blank"><span class="material-symbols-outlined text-[16px] text-primary">link</span><span class="font-label-sm text-label-sm">bookflow.me/b/urban-edge-barbershop</span><span class="material-symbols-outlined text-[14px]">open_in_new</span></a><div class="relative" id="owner-account-menu-container"><button aria-expanded="false" aria-haspopup="true" class="w-9 h-9 rounded-full bg-primary flex items-center justify-center shrink-0 hover:opacity-90 transition-all focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 cursor-pointer shadow-xs" id="owner-menu-trigger" onclick="const menu = document.getElementById('owner-dropdown-menu'); const isHidden = menu.classList.contains('hidden'); menu.classList.toggle('hidden', !isHidden); this.setAttribute('aria-expanded', isHidden ? 'true' : 'false');" title="Owner Account &amp; Settings" type="button"><span class="material-symbols-outlined text-on-primary text-[20px]">person</span></button><div class="absolute right-0 mt-2 w-64 bg-surface-container-lowest border border-outline-variant/40 rounded-xl shadow-lg py-2 z-50 transition-all hidden" id="owner-dropdown-menu"><div class="px-4 py-2.5 border-b border-outline-variant/20 flex flex-col min-w-0"><span class="font-label-md text-label-md font-semibold text-on-surface truncate">Urban Edge Barbershop</span><span class="font-body-sm text-body-sm text-on-surface-variant truncate">hello@urbanedge.example</span></div><div class="py-1.5 px-1.5"><a class="flex items-center justify-between px-3 py-2 rounded-lg bg-surface-container-low text-primary font-headline-sm text-headline-sm transition-colors" href="#"><div class="flex items-center gap-2.5"><span class="material-symbols-outlined text-[18px] text-primary">storefront</span><span class="font-medium text-body-md">Business Profile</span></div><span class="w-1.5 h-1.5 rounded-full bg-primary"></span></a><a class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors font-medium text-body-md" href="#"><span class="material-symbols-outlined text-[18px] text-outline">lock_person</span><span class="">Account &amp; Security</span></a></div><div class="border-t border-outline-variant/20 my-1"></div><div class="py-1 px-1.5"><a class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-error hover:bg-error-container/20 transition-colors font-medium text-body-md" href="#"><span class="material-symbols-outlined text-[18px]">logout</span><span class="">Log Out</span></a></div></div></div></div></header><main class="relative pt-16 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- Interactive Toast Notification -->
+<div class="fixed top-20 right-8 z-50 transform translate-y-4 opacity-0 pointer-events-none transition-all duration-300 flex items-center gap-3 px-4 py-3 rounded-xl bg-inverse-surface text-inverse-on-surface shadow-xl" id="toast-notification">
+<span class="material-symbols-outlined text-secondary-fixed text-[20px]">check_circle</span>
+<span class="font-label-md text-label-md">Booking link copied to clipboard</span>
+<button class="ml-2 text-inverse-on-surface/70 hover:text-inverse-on-surface" onclick="dismissToast()">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+<!-- Stage 5.6.3 Prototype State Inspection Bar -->
+<div class="w-full bg-surface-container-low px-4 sm:px-8 py-2.5 flex flex-wrap items-center justify-between gap-3 shadow-xs">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Prototype Inspector: Stage 5.6.3</span>
+</div>
+<div class="flex items-center gap-1.5 overflow-x-auto py-1">
+<button class="px-3 py-1 rounded-full font-label-sm text-label-sm bg-primary text-on-primary shadow-xs transition-all flex items-center gap-1.5" id="pill-active" onclick="switchState('active')">
+<span class="w-1.5 h-1.5 rounded-full bg-surface"></span>
+        Active (Default)
+      </button>
+<button class="px-3 py-1 rounded-full font-label-sm text-label-sm bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container transition-all" id="pill-incomplete" onclick="switchState('incomplete')">
+        Incomplete / Not Ready
+      </button>
+<button class="px-3 py-1 rounded-full font-label-sm text-label-sm bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container transition-all" id="pill-loading" onclick="switchState('loading')">
+        Loading Skeleton
+      </button>
+<button class="px-3 py-1 rounded-full font-label-sm text-label-sm bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container transition-all" id="pill-error" onclick="switchState('error')">
+        Error State
+      </button>
+<button class="px-3 py-1 rounded-full font-label-sm text-label-sm bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container transition-all" id="pill-toast" onclick="triggerToast()">
+        Simulate Copy Toast
+      </button>
+</div>
+</div>
+<div class="px-4 sm:px-8 py-6 max-w-7xl w-full mx-auto space-y-6">
+<!-- Back Link Navigation -->
+<div>
+<a class="inline-flex items-center gap-2 font-label-md text-label-md text-primary hover:text-primary-container transition-colors group" href="#">
+<span class="material-symbols-outlined text-[18px] group-hover:-translate-x-0.5 transition-transform">arrow_back</span>
+<span class="">Back to Business Profile</span>
+</a>
+</div>
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div>
+<h1 class="font-headline-lg text-headline-lg tracking-tight text-on-surface">Public Booking Profile</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Manage the public link customers use to book your services.</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="px-4 py-2 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container font-label-md text-label-md transition-all shadow-xs flex items-center gap-2" onclick="copyBookingLink()">
+<span class="material-symbols-outlined text-[18px] text-outline">content_copy</span>
+<span class="">Copy Link</span>
+</button>
+<a class="px-4 py-2 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md transition-all shadow-sm flex items-center gap-2" href="https://bookflow.me/b/urban-edge-barbershop" target="_blank">
+<span class="">View Public Page</span>
+<span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</a>
+</div>
+</div>
+<!-- Error State Container (Hidden by default) -->
+<div class="hidden p-6 rounded-2xl bg-error-container text-on-error-container shadow-sm space-y-4" id="state-error">
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-full bg-on-error-container/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-error text-[24px]">error</span>
+</div>
+<div class="space-y-1">
+<h2 class="font-headline-sm text-headline-sm text-error">Unable to load your public booking profile</h2>
+<p class="font-body-md text-body-md text-on-error-container/80">There was a temporary disruption communicating with the booking endpoint. Your current URL remains accessible to customers.</p>
+</div>
+</div>
+<div class="pl-14">
+<button class="px-4 py-2 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container font-label-md text-label-md transition-all shadow-xs" onclick="switchState('active')">
+          Try Again
+        </button>
+</div>
+</div>
+<!-- Incomplete State Container (Hidden by default) -->
+<div class="hidden p-6 rounded-2xl bg-surface-container-low shadow-sm space-y-4" id="state-incomplete">
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-full bg-error-container text-error flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[24px]">warning</span>
+</div>
+<div class="space-y-1">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Your public booking page isn't ready yet</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Complete your core business details (business name, category, and city location) in your profile settings before your booking link can accept customer appointments.</p>
+</div>
+</div>
+<div class="pl-14 flex items-center gap-3">
+<a class="px-4 py-2 rounded-lg bg-primary text-on-primary hover:bg-primary-container font-label-md text-label-md transition-all shadow-xs inline-flex items-center gap-1.5" href="#">
+<span class="">Complete Business Profile</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Loading Skeleton View (Hidden by default) -->
+<div class="hidden grid grid-cols-1 lg:grid-cols-12 gap-8 animate-pulse" id="state-loading">
+<div class="lg:col-span-7 space-y-6">
+<div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm space-y-4">
+<div class="h-6 w-32 bg-surface-container-high rounded-md"></div>
+<div class="h-4 w-3/4 bg-surface-container rounded-md"></div>
+<div class="h-14 bg-surface-container-low rounded-xl"></div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm space-y-4">
+<div class="h-5 w-40 bg-surface-container-high rounded-md"></div>
+<div class="grid grid-cols-2 gap-3">
+<div class="h-16 bg-surface-container-low rounded-lg"></div>
+<div class="h-16 bg-surface-container-low rounded-lg"></div>
+<div class="h-16 bg-surface-container-low rounded-lg"></div>
+<div class="h-16 bg-surface-container-low rounded-lg"></div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-5">
+<div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm space-y-4">
+<div class="h-6 w-48 bg-surface-container-high rounded-md"></div>
+<div class="h-80 bg-surface-container-low rounded-2xl"></div>
+</div>
+</div>
+</div>
+<!-- Active Populated Content View (Default) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start" id="state-active">
+<!-- Left Column: Settings, Flow & Catalog Connection -->
+<div class="lg:col-span-7 space-y-6">
+<!-- Public Booking Link Primary Card -->
+<div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm space-y-5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[22px]">public</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Public Booking Link</h2>
+</div>
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full font-label-sm text-label-sm bg-secondary-fixed text-on-secondary-fixed">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+              Active
+            </span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            This is your business's permanent web address where customers select active services and request appointments.
+          </p>
+<!-- Interactive URL Container -->
+<div class="p-3.5 rounded-xl bg-surface-container-low flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 shadow-xs">
+<div class="flex items-center gap-2 min-w-0 px-1">
+<span class="material-symbols-outlined text-outline text-[18px] shrink-0">link</span>
+<span class="font-label-md text-label-md text-primary font-semibold truncate select-all">bookflow.me/b/urban-edge-barbershop</span>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<button class="flex-1 sm:flex-none px-3 py-1.5 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container font-label-sm text-label-sm transition-all shadow-xs flex items-center justify-center gap-1.5" onclick="copyBookingLink()">
+<span class="material-symbols-outlined text-[16px] text-outline">content_copy</span>
+<span id="copy-btn-text" class="">Copy Link</span>
+</button>
+<a class="p-1.5 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container transition-all shadow-xs flex items-center justify-center text-primary" href="#" target="_blank" title="Open Public Page">
+<span class="material-symbols-outlined text-[18px]">open_in_new</span>
+</a>
+</div>
+</div>
+<div class="hidden items-center gap-2 text-secondary font-label-sm text-label-sm" id="local-feedback">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+<span class="">Booking link copied to clipboard</span>
+</div>
+</div>
+<!-- How Customers Book (Visual Milestone Pipeline) -->
+<div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm space-y-5">
+<div class="space-y-1">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">How Customers Book</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Customers use this page to view your active services, choose a date and available time, provide their contact information, and submit a booking request.
+            </p>
+</div>
+<!-- 4-step milestone cards -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+<div class="p-3.5 rounded-xl bg-surface-container-low space-y-1.5">
+<div class="flex items-center gap-2">
+<span class="w-5 h-5 rounded-full bg-primary text-on-primary font-label-sm text-label-sm flex items-center justify-center text-[11px]">1</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">Browse Services</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Active catalog offerings with transparent durations and prices.</p>
+</div>
+<div class="p-3.5 rounded-xl bg-surface-container-low space-y-1.5">
+<div class="flex items-center gap-2">
+<span class="w-5 h-5 rounded-full bg-primary text-on-primary font-label-sm text-label-sm flex items-center justify-center text-[11px]">2</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">Select Date &amp; Slot</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Live appointment slots dynamically filtered by your working hours.</p>
+</div>
+<div class="p-3.5 rounded-xl bg-surface-container-low space-y-1.5">
+<div class="flex items-center gap-2">
+<span class="w-5 h-5 rounded-full bg-primary text-on-primary font-label-sm text-label-sm flex items-center justify-center text-[11px]">3</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">Contact Info</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Strictly Full Name, Phone number, and optional Email for updates.</p>
+</div>
+<div class="p-3.5 rounded-xl bg-surface-container-low space-y-1.5">
+<div class="flex items-center gap-2">
+<span class="w-5 h-5 rounded-full bg-primary text-on-primary font-label-sm text-label-sm flex items-center justify-center text-[11px]">4</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">Confirmation</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Instant booking submission queued for your direct review.</p>
+</div>
+</div>
+<div class="p-3 rounded-lg bg-surface-container flex items-center gap-2.5 text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[18px] text-primary shrink-0">verified_user</span>
+<span class=""><strong>Accountless guest journey:</strong> Customers do not create accounts or passwords to book appointments with you.</span>
+</div>
+</div>
+<!-- Active Services Connection -->
+<div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm space-y-5">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Connected Services (3 Active)</h2>
+<span class="material-symbols-outlined text-outline text-[20px]">spa</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Your public booking page dynamically displays active services from your service catalog.
+          </p>
+<!-- Compact Read-only Service Chips -->
+<div class="space-y-2.5">
+<div class="p-3 rounded-xl bg-surface-container-low flex items-center justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface-container-lowest flex items-center justify-center text-primary shadow-xs">
+<span class="material-symbols-outlined text-[18px]">content_cut</span>
+</div>
+<div>
+<h3 class="font-label-md text-label-md text-on-surface font-semibold">Men's Signature Haircut</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">45 mins</p>
+</div>
+</div>
+<span class="font-label-md text-label-md font-semibold text-on-surface">₦15,000</span>
+</div>
+<div class="p-3 rounded-xl bg-surface-container-low flex items-center justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface-container-lowest flex items-center justify-center text-primary shadow-xs">
+<span class="material-symbols-outlined text-[18px]">face</span>
+</div>
+<div>
+<h3 class="font-label-md text-label-md text-on-surface font-semibold">Beard Sculpt &amp; Hot Towel</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">30 mins</p>
+</div>
+</div>
+<span class="font-label-md text-label-md font-semibold text-on-surface">₦8,000</span>
+</div>
+<div class="p-3 rounded-xl bg-surface-container-low flex items-center justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface-container-lowest flex items-center justify-center text-primary shadow-xs">
+<span class="material-symbols-outlined text-[18px]">brush</span>
+</div>
+<div>
+<h3 class="font-label-md text-label-md text-on-surface font-semibold">Complete Executive Grooming</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">75 mins</p>
+</div>
+</div>
+<span class="font-label-md text-label-md font-semibold text-on-surface">₦22,000</span>
+</div>
+</div>
+<div class="pt-1">
+<a class="inline-flex items-center gap-1.5 font-label-md text-label-md text-primary hover:text-primary-container font-medium group" href="#">
+<span class="">Manage Services in Service Catalog</span>
+<span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Right Column: Live Public Page Interactive Mockup Preview -->
+<div class="lg:col-span-5 space-y-4 lg:sticky lg:top-24">
+<div class="flex items-center justify-between px-1">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface">Live Public Page Preview</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-0.5 rounded-full">
+            Customer View
+          </span>
+</div>
+<!-- Framed Browser Mockup -->
+<div class="rounded-3xl bg-surface-container-lowest shadow-md overflow-hidden">
+<!-- Browser Frame Top Bar -->
+<div class="bg-surface-container px-4 py-3 flex items-center gap-3">
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-outline-variant/60"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-outline-variant/60"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-outline-variant/60"></span>
+</div>
+<div class="flex-1 bg-surface-container-lowest rounded-md px-3 py-1 text-center font-body-sm text-body-sm text-on-surface-variant/80 truncate shadow-2xs">
+              bookflow.me/b/urban-edge-barbershop
+            </div>
+<span class="material-symbols-outlined text-[16px] text-outline">lock</span>
+</div>
+<!-- Public Page Body Canvas -->
+<div class="p-6 bg-surface space-y-6">
+<!-- Studio Header -->
+<div class="flex items-start gap-3.5">
+<div class="w-12 h-12 rounded-xl bg-primary text-on-primary flex items-center justify-center font-headline-md text-headline-md font-bold shrink-0 shadow-xs">
+                UE
+              </div>
+<div class="space-y-1">
+<div class="flex flex-wrap items-center gap-2">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Urban Edge Barbershop</h3>
+</div>
+<div class="flex flex-wrap items-center gap-2">
+<span class="inline-block px-2 py-0.5 rounded-full font-label-sm text-label-sm bg-surface-container-high text-on-surface-variant">
+                    Barbershop &amp; Men's Grooming
+                  </span>
+<span class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]">location_on</span>
+                    Lekki Phase 1, Lagos
+                  </span>
+</div>
+</div>
+</div>
+<!-- Short Bio -->
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              Professional grooming services for men and boys, including precision cuts, beard grooming, and hot towel treatments.
+            </p>
+<!-- Service Selection Mock Teaser -->
+<div class="space-y-3 pt-2">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Select a Service</span>
+<div class="p-3.5 rounded-xl bg-surface-container-lowest shadow-2xs space-y-2">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Men's Signature Haircut</span>
+<span class="font-label-md text-label-md font-semibold text-primary">₦15,000</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm">
+<span class="">45 mins</span>
+<span class="px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-label-sm text-label-sm">Select</span>
+</div>
+</div>
+<div class="p-3.5 rounded-xl bg-surface-container-lowest shadow-2xs space-y-2">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Beard Sculpt &amp; Hot Towel</span>
+<span class="font-label-md text-label-md font-semibold text-primary">₦8,000</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm">
+<span class="">30 mins</span>
+<span class="px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-label-sm text-label-sm">Select</span>
+</div>
+</div>
+</div>
+<!-- Public Footer Disclaimer -->
+<div class="pt-4 text-center space-y-1">
+<p class="font-body-sm text-body-sm text-outline">Single-operator appointment booking</p>
+<div class="flex items-center justify-center gap-1 text-on-surface-variant font-label-sm text-label-sm">
+<span class="">Powered by</span>
+<span class="font-semibold text-primary">BookFlow</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Helper Navigation Card -->
+<div class="p-4 rounded-xl bg-surface-container-lowest shadow-xs flex items-center justify-between gap-3">
+<div class="space-y-0.5">
+<span class="font-label-md text-label-md text-on-surface font-medium">Need to update your business details?</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Update contact email, address, or business description.</p>
+</div>
+<a class="px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm transition-all whitespace-nowrap shrink-0" href="#">
+            Edit Business Profile →
+          </a>
+</div>
+</div>
+</div>
+</div>
+<script>
+    function switchState(stateName) {
+      const activeContainer = document.getElementById('state-active');
+      const incompleteContainer = document.getElementById('state-incomplete');
+      const loadingContainer = document.getElementById('state-loading');
+      const errorContainer = document.getElementById('state-error');
+
+      // Reset all pills
+      ['active', 'incomplete', 'loading', 'error'].forEach(s => {
+        const pill = document.getElementById('pill-' + s);
+        if (pill) {
+          pill.className = "px-3 py-1 rounded-full font-label-sm text-label-sm bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container transition-all";
+        }
+      });
+
+      // Update current active pill
+      const currentPill = document.getElementById('pill-' + stateName);
+      if (currentPill) {
+        currentPill.className = "px-3 py-1 rounded-full font-label-sm text-label-sm bg-primary text-on-primary shadow-xs transition-all";
+      }
+
+      // Hide all states
+      activeContainer.classList.add('hidden');
+      incompleteContainer.classList.add('hidden');
+      loadingContainer.classList.add('hidden');
+      errorContainer.classList.add('hidden');
+
+      // Show selected state
+      if (stateName === 'active') {
+        activeContainer.classList.remove('hidden');
+      } else if (stateName === 'incomplete') {
+        incompleteContainer.classList.remove('hidden');
+      } else if (stateName === 'loading') {
+        loadingContainer.classList.remove('hidden');
+      } else if (stateName === 'error') {
+        errorContainer.classList.remove('hidden');
+      }
+    }
+
+    function triggerToast() {
+      const toast = document.getElementById('toast-notification');
+      toast.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4');
+      toast.classList.add('opacity-100', 'translate-y-0');
+
+      setTimeout(() => {
+        dismissToast();
+      }, 3500);
+    }
+
+    function dismissToast() {
+      const toast = document.getElementById('toast-notification');
+      toast.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
+      toast.classList.remove('opacity-100', 'translate-y-0');
+    }
+
+    function copyBookingLink() {
+      const linkText = "bookflow.me/b/urban-edge-barbershop";
+      navigator.clipboard.writeText(linkText).then(() => {
+        triggerToast();
+        const feedback = document.getElementById('local-feedback');
+        const copyBtnText = document.getElementById('copy-btn-text');
+        
+        if (feedback) feedback.classList.remove('hidden');
+        if (copyBtnText) copyBtnText.innerText = "Copied!";
+
+        setTimeout(() => {
+          if (copyBtnText) copyBtnText.innerText = "Copy Link";
+          if (feedback) feedback.classList.add('hidden');
+        }, 2500);
+      }).catch(() => {
+        triggerToast();
+      });
+    }
+  </script>
+</div></main></div>
+
+
+</body></html>

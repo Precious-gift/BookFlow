@@ -1,0 +1,544 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta content="web_dashboard" name="shell-type">
+<title>Working Hours - BookFlow</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+    @layer base {
+      html, body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Inter', sans-serif;
+      }
+      body {
+        overscroll-behavior: none;
+      }
+    }
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#2563eb",
+            "primary-hover": "#1d4ed8"
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen">
+<!-- Left Sidebar Shell -->
+<aside class="fixed left-0 top-0 h-full w-64 bg-white border-r border-slate-200 z-30 flex flex-col justify-between">
+<div class="flex flex-col">
+<!-- App Brand Header -->
+<div class="p-5 border-b border-slate-100 flex flex-col gap-3"><div class="flex items-center"><div class="w-9 h-9 rounded-xl bg-blue-600 flex items-center justify-center text-white shadow-sm shrink-0" aria-label="BookFlow" title="BookFlow" role="img"><span class="material-symbols-outlined text-[20px]">calendar_month</span></div></div><div class="flex items-center gap-3 pt-1"><div class="w-8 h-8 rounded-lg bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-700 font-semibold text-xs shrink-0">VH</div><div class="flex flex-col min-w-0"><span class="text-xs font-semibold text-slate-900 truncate leading-tight">Vance Hair Studio</span><span class="text-[11px] text-slate-500 font-medium truncate leading-tight">Owner</span></div></div></div>
+<!-- Navigation Section -->
+<div class="px-5 pt-5 pb-2">
+<span class="text-[11px] font-semibold text-slate-400 uppercase tracking-wider">Navigation</span>
+</div>
+<nav class="flex flex-col gap-1 px-3"><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition-colors text-sm font-medium" href="#"><span class="material-symbols-outlined text-[20px] text-slate-500">grid_view</span><span class="">Dashboard</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition-colors text-sm font-medium" href="#"><span class="material-symbols-outlined text-[20px] text-slate-500">calendar_today</span><span class="">Appointments</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition-colors text-sm font-medium" href="#"><span class="material-symbols-outlined text-[20px] text-slate-500">content_cut</span><span class="">Services</span></a><a class="flex items-center justify-between px-3.5 py-2.5 rounded-lg bg-blue-50 text-blue-600 font-medium text-sm transition-colors" href="#"><div class="flex items-center gap-3"><span class="material-symbols-outlined text-[20px] text-blue-600">schedule</span><span class="">Working Hours</span></div><span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition-colors text-sm font-medium" href="#"><span class="material-symbols-outlined text-[20px] text-slate-500">group</span><span class="">Customers</span></a></nav>
+</div>
+<!-- Owner Profile Footer -->
+<div class="p-3 border-t border-slate-200 bg-slate-50/70"><div class="flex items-center justify-between p-2.5 rounded-xl bg-white border border-slate-200/80 shadow-xs"><div class="flex items-center gap-2.5 min-w-0"><div class="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center shrink-0"><span class="text-xs text-white font-semibold">MV</span></div><div class="flex flex-col min-w-0"><span class="text-xs font-semibold text-slate-900 truncate leading-tight">Marcus Vance</span><span class="text-[11px] text-slate-500 truncate leading-tight">Owner</span></div></div><button class="text-slate-400 hover:text-rose-600 transition-colors p-1.5 rounded-md hover:bg-slate-100 flex items-center justify-center" title="Logout" type="button"><span class="material-symbols-outlined text-[18px]">logout</span></button></div></div>
+</aside>
+<!-- Top Bar & Main Page Area -->
+<div class="pl-64">
+<!-- Top Bar -->
+<header class="fixed top-0 left-64 right-0 h-16 bg-white/90 backdrop-blur border-b border-slate-200 z-20 flex items-center justify-between px-8"><div class="flex items-center gap-2 text-sm"><span class="text-slate-500 font-normal">Portal</span><span class="text-slate-300">/</span><span class="text-slate-900 font-semibold">Working Hours</span></div><div class="flex items-center gap-3"><a class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 text-blue-600 text-xs font-medium transition-colors border border-slate-200/60" href="#" target="_blank"><span class="material-symbols-outlined text-[14px]">link</span><span class="">bookflow.me/b/vance-studio</span><span class="material-symbols-outlined text-[14px]">north_east</span></a><div class="relative"><button id="user-menu-button" onclick="document.getElementById('user-menu-dropdown').classList.toggle('hidden')" class="w-8 h-8 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-slate-200 transition-colors focus:outline-none cursor-pointer" aria-haspopup="true" aria-expanded="false" type="button"><span class="material-symbols-outlined text-[18px]">person</span></button><div id="user-menu-dropdown" class="hidden absolute right-0 mt-2 w-56 bg-white rounded-xl shadow-xl border border-slate-200 py-1.5 z-50 text-slate-800 animate-in fade-in duration-150"><div class="px-4 py-2.5 border-b border-slate-100"><p class="text-xs font-semibold text-slate-900 leading-tight truncate">Marcus Vance</p><p class="text-[11px] text-slate-500 truncate leading-tight mt-0.5">Vance Hair Studio</p></div><div class="py-1"><a href="#" class="flex items-center gap-2.5 px-4 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50 hover:text-slate-900 transition-colors"><span class="material-symbols-outlined text-[16px] text-slate-400">storefront</span><span class="">Business Profile</span></a><a href="#" class="flex items-center gap-2.5 px-4 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50 hover:text-slate-900 transition-colors"><span class="material-symbols-outlined text-[16px] text-slate-400">lock_person</span><span class="">Account &amp; Security</span></a></div><div class="border-t border-slate-100 my-1"></div><div class="py-1"><a href="#" class="flex items-center gap-2.5 px-4 py-2 text-xs font-medium text-slate-700 hover:bg-rose-50 hover:text-rose-600 transition-colors"><span class="material-symbols-outlined text-[16px] text-slate-400 hover:text-rose-600">logout</span><span class="">Log Out</span></a></div></div></div></div></header>
+<!-- Main Container -->
+<main class="pt-16 px-8 py-8 w-full max-w-7xl mx-auto">
+<div class="flex flex-col gap-6 pb-16">
+<!-- Toast notification (hidden by default) -->
+<div class="fixed top-20 right-8 z-50 transform -translate-y-4 opacity-0 pointer-events-none transition-all duration-300 flex items-center gap-2 px-4 py-2.5 bg-slate-900 text-white rounded-lg shadow-xl text-sm" id="toast-notification">
+<span class="material-symbols-outlined text-emerald-400 text-[18px]">check_circle</span>
+<span id="toast-message" class="">Schedule updated successfully</span>
+</div>
+<!-- Page Header -->
+<div class="flex flex-col gap-1">
+<h1 class="text-2xl font-semibold text-slate-900 tracking-tight">Working Hours</h1>
+<p class="text-sm text-slate-600 max-w-3xl">
+            Define your weekly operating schedule and custom unavailable periods to control when customers can book appointments online.
+          </p>
+</div>
+<!-- Info Banner / Availability Logic Callout -->
+<div class="flex items-start gap-3.5 p-4 bg-blue-50/70 border border-blue-100 rounded-xl text-slate-800">
+<div class="w-8 h-8 rounded-lg bg-blue-600 text-white flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
+<span class="material-symbols-outlined text-[18px]">info</span>
+</div>
+<div class="flex flex-col text-sm">
+<span class="font-semibold text-slate-900">How Availability Works:</span>
+<p class="text-slate-600 mt-0.5 leading-relaxed">Bookable time slots are generated from weekly working hours, selected service duration, unavailable periods, and existing appointments.</p>
+</div>
+</div>
+<!-- SECTION 1: Weekly Operating Schedule -->
+<section class="bg-white rounded-xl border border-slate-200 shadow-xs overflow-hidden flex flex-col">
+<!-- Card Header -->
+<div class="p-6 border-b border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+<div>
+<h2 class="text-base font-semibold text-slate-900">Weekly Working Hours</h2>
+<p class="text-xs text-slate-500 mt-0.5">
+                Set regular recurring opening and closing hours for each day of the week.
+              </p>
+</div>
+<button class="inline-flex items-center justify-center gap-1.5 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg text-sm shadow-sm transition-colors cursor-pointer shrink-0" onclick="saveWorkingHours()">
+<span class="material-symbols-outlined text-[18px]">check</span>
+<span class="">Save Changes</span>
+</button>
+</div>
+<!-- Schedule Days List -->
+<div class="divide-y divide-slate-100">
+<!-- Monday -->
+<div class="p-4 sm:px-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-slate-50/60 transition-colors">
+<div class="flex items-center gap-3 w-48 shrink-0">
+<span class="w-24 text-sm font-semibold text-slate-900">Monday</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" onchange="toggleDayRow('monday', this.checked)" type="checkbox">
+<div class="w-10 h-5 bg-slate-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-blue-600"></div>
+<span class="ml-2 text-xs font-medium text-slate-700" id="label-monday">Open</span>
+</label>
+</div>
+<div class="flex items-center gap-2 flex-1 max-w-lg" id="inputs-monday">
+<div class="flex items-center gap-2 bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-lg text-sm">
+<span class="text-xs text-slate-500">Opens:</span>
+<select class="bg-transparent text-sm font-medium text-slate-800 focus:outline-none cursor-pointer border-0 p-0 pr-6">
+<option selected="">09:00 AM</option>
+<option>08:00 AM</option>
+<option>10:00 AM</option>
+</select>
+</div>
+<span class="text-xs text-slate-400 font-medium">to</span>
+<div class="flex items-center gap-2 bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-lg text-sm">
+<span class="text-xs text-slate-500">Closes:</span>
+<select class="bg-transparent text-sm font-medium text-slate-800 focus:outline-none cursor-pointer border-0 p-0 pr-6">
+<option>05:00 PM</option>
+<option selected="">06:00 PM</option>
+<option>07:00 PM</option>
+</select>
+</div>
+</div>
+<div class="flex items-center justify-end w-32 shrink-0">
+<span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-blue-50 text-blue-700" id="badge-monday">
+                  9 hrs
+                </span>
+</div>
+</div>
+<!-- Tuesday -->
+<div class="p-4 sm:px-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-slate-50/60 transition-colors">
+<div class="flex items-center gap-3 w-48 shrink-0">
+<span class="w-24 text-sm font-semibold text-slate-900">Tuesday</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" onchange="toggleDayRow('tuesday', this.checked)" type="checkbox">
+<div class="w-10 h-5 bg-slate-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-blue-600"></div>
+<span class="ml-2 text-xs font-medium text-slate-700" id="label-tuesday">Open</span>
+</label>
+</div>
+<div class="flex items-center gap-2 flex-1 max-w-lg" id="inputs-tuesday">
+<div class="flex items-center gap-2 bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-lg text-sm">
+<span class="text-xs text-slate-500">Opens:</span>
+<select class="bg-transparent text-sm font-medium text-slate-800 focus:outline-none cursor-pointer border-0 p-0 pr-6">
+<option selected="">09:00 AM</option>
+<option>08:00 AM</option>
+<option>10:00 AM</option>
+</select>
+</div>
+<span class="text-xs text-slate-400 font-medium">to</span>
+<div class="flex items-center gap-2 bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-lg text-sm">
+<span class="text-xs text-slate-500">Closes:</span>
+<select class="bg-transparent text-sm font-medium text-slate-800 focus:outline-none cursor-pointer border-0 p-0 pr-6">
+<option>05:00 PM</option>
+<option selected="">06:00 PM</option>
+<option>07:00 PM</option>
+</select>
+</div>
+</div>
+<div class="flex items-center justify-end w-32 shrink-0">
+<span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-blue-50 text-blue-700" id="badge-tuesday">
+                  9 hrs
+                </span>
+</div>
+</div>
+<!-- Wednesday -->
+<div class="p-4 sm:px-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-slate-50/60 transition-colors">
+<div class="flex items-center gap-3 w-48 shrink-0">
+<span class="w-24 text-sm font-semibold text-slate-900">Wednesday</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" onchange="toggleDayRow('wednesday', this.checked)" type="checkbox">
+<div class="w-10 h-5 bg-slate-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-blue-600"></div>
+<span class="ml-2 text-xs font-medium text-slate-700" id="label-wednesday">Open</span>
+</label>
+</div>
+<div class="flex items-center gap-2 flex-1 max-w-lg" id="inputs-wednesday">
+<div class="flex items-center gap-2 bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-lg text-sm">
+<span class="text-xs text-slate-500">Opens:</span>
+<select class="bg-transparent text-sm font-medium text-slate-800 focus:outline-none cursor-pointer border-0 p-0 pr-6">
+<option selected="">09:00 AM</option>
+<option>08:00 AM</option>
+<option>10:00 AM</option>
+</select>
+</div>
+<span class="text-xs text-slate-400 font-medium">to</span>
+<div class="flex items-center gap-2 bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-lg text-sm">
+<span class="text-xs text-slate-500">Closes:</span>
+<select class="bg-transparent text-sm font-medium text-slate-800 focus:outline-none cursor-pointer border-0 p-0 pr-6">
+<option>05:00 PM</option>
+<option selected="">06:00 PM</option>
+<option>07:00 PM</option>
+</select>
+</div>
+</div>
+<div class="flex items-center justify-end w-32 shrink-0">
+<span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-blue-50 text-blue-700" id="badge-wednesday">
+                  9 hrs
+                </span>
+</div>
+</div>
+<!-- Thursday -->
+<div class="p-4 sm:px-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-slate-50/60 transition-colors">
+<div class="flex items-center gap-3 w-48 shrink-0">
+<span class="w-24 text-sm font-semibold text-slate-900">Thursday</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" onchange="toggleDayRow('thursday', this.checked)" type="checkbox">
+<div class="w-10 h-5 bg-slate-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-blue-600"></div>
+<span class="ml-2 text-xs font-medium text-slate-700" id="label-thursday">Open</span>
+</label>
+</div>
+<div class="flex items-center gap-2 flex-1 max-w-lg" id="inputs-thursday">
+<div class="flex items-center gap-2 bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-lg text-sm">
+<span class="text-xs text-slate-500">Opens:</span>
+<select class="bg-transparent text-sm font-medium text-slate-800 focus:outline-none cursor-pointer border-0 p-0 pr-6">
+<option selected="">09:00 AM</option>
+<option>08:00 AM</option>
+<option>10:00 AM</option>
+</select>
+</div>
+<span class="text-xs text-slate-400 font-medium">to</span>
+<div class="flex items-center gap-2 bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-lg text-sm">
+<span class="text-xs text-slate-500">Closes:</span>
+<select class="bg-transparent text-sm font-medium text-slate-800 focus:outline-none cursor-pointer border-0 p-0 pr-6">
+<option>05:00 PM</option>
+<option selected="">06:00 PM</option>
+<option>07:00 PM</option>
+</select>
+</div>
+</div>
+<div class="flex items-center justify-end w-32 shrink-0">
+<span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-blue-50 text-blue-700" id="badge-thursday">
+                  9 hrs
+                </span>
+</div>
+</div>
+<!-- Friday -->
+<div class="p-4 sm:px-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-slate-50/60 transition-colors">
+<div class="flex items-center gap-3 w-48 shrink-0">
+<span class="w-24 text-sm font-semibold text-slate-900">Friday</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" onchange="toggleDayRow('friday', this.checked)" type="checkbox">
+<div class="w-10 h-5 bg-slate-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-blue-600"></div>
+<span class="ml-2 text-xs font-medium text-slate-700" id="label-friday">Open</span>
+</label>
+</div>
+<div class="flex items-center gap-2 flex-1 max-w-lg" id="inputs-friday">
+<div class="flex items-center gap-2 bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-lg text-sm">
+<span class="text-xs text-slate-500">Opens:</span>
+<select class="bg-transparent text-sm font-medium text-slate-800 focus:outline-none cursor-pointer border-0 p-0 pr-6">
+<option selected="">09:00 AM</option>
+<option>08:00 AM</option>
+<option>10:00 AM</option>
+</select>
+</div>
+<span class="text-xs text-slate-400 font-medium">to</span>
+<div class="flex items-center gap-2 bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-lg text-sm">
+<span class="text-xs text-slate-500">Closes:</span>
+<select class="bg-transparent text-sm font-medium text-slate-800 focus:outline-none cursor-pointer border-0 p-0 pr-6">
+<option>05:00 PM</option>
+<option selected="">06:00 PM</option>
+<option>07:00 PM</option>
+</select>
+</div>
+</div>
+<div class="flex items-center justify-end w-32 shrink-0">
+<span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-blue-50 text-blue-700" id="badge-friday">
+                  9 hrs
+                </span>
+</div>
+</div>
+<!-- Saturday -->
+<div class="p-4 sm:px-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-slate-50/60 transition-colors">
+<div class="flex items-center gap-3 w-48 shrink-0">
+<span class="w-24 text-sm font-semibold text-slate-900">Saturday</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" onchange="toggleDayRow('saturday', this.checked)" type="checkbox">
+<div class="w-10 h-5 bg-slate-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-blue-600"></div>
+<span class="ml-2 text-xs font-medium text-slate-700" id="label-saturday">Open</span>
+</label>
+</div>
+<div class="flex items-center gap-2 flex-1 max-w-lg" id="inputs-saturday">
+<div class="flex items-center gap-2 bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-lg text-sm">
+<span class="text-xs text-slate-500">Opens:</span>
+<select class="bg-transparent text-sm font-medium text-slate-800 focus:outline-none cursor-pointer border-0 p-0 pr-6">
+<option>09:00 AM</option>
+<option selected="">10:00 AM</option>
+</select>
+</div>
+<span class="text-xs text-slate-400 font-medium">to</span>
+<div class="flex items-center gap-2 bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-lg text-sm">
+<span class="text-xs text-slate-500">Closes:</span>
+<select class="bg-transparent text-sm font-medium text-slate-800 focus:outline-none cursor-pointer border-0 p-0 pr-6">
+<option selected="">04:00 PM</option>
+<option>05:00 PM</option>
+</select>
+</div>
+</div>
+<div class="flex items-center justify-end w-32 shrink-0">
+<span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-blue-50 text-blue-700" id="badge-saturday">
+                  6 hrs
+                </span>
+</div>
+</div>
+<!-- Sunday (Closed by default) -->
+<div class="p-4 sm:px-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-slate-50/50 hover:bg-slate-50 transition-colors">
+<div class="flex items-center gap-3 w-48 shrink-0">
+<span class="w-24 text-sm font-semibold text-slate-900">Sunday</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" onchange="toggleDayRow('sunday', this.checked)" type="checkbox">
+<div class="w-10 h-5 bg-slate-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-blue-600"></div>
+<span class="ml-2 text-xs font-medium text-slate-500" id="label-sunday">Closed</span>
+</label>
+</div>
+<div class="flex items-center gap-2 flex-1 max-w-lg" id="inputs-sunday">
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-medium text-slate-400 bg-slate-100">
+<span class="material-symbols-outlined text-[16px]">block</span>
+<span class="">Closed all day — not bookable</span>
+</div>
+</div>
+<div class="flex items-center justify-end w-32 shrink-0">
+<span class="px-2.5 py-1 rounded-md text-xs font-medium bg-slate-100 text-slate-500" id="badge-sunday">
+                  Closed
+                </span>
+</div>
+</div>
+</div>
+<!-- Bottom Card Save Bar -->
+<div class="p-4 sm:px-6 bg-slate-50 border-t border-slate-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+<div class="flex items-center gap-2 text-xs text-slate-500">
+<span class="material-symbols-outlined text-[16px] text-blue-600">sync</span>
+<span class="">Changes apply to future appointment slots instantly.</span>
+</div>
+<button class="inline-flex items-center justify-center gap-1.5 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg text-sm shadow-sm transition-colors cursor-pointer" onclick="saveWorkingHours()">
+<span class="material-symbols-outlined text-[18px]">check</span>
+<span class="">Save Changes</span>
+</button>
+</div>
+</section>
+<!-- SECTION 2: Custom Unavailable Periods -->
+<section class="bg-white rounded-xl border border-slate-200 shadow-xs overflow-hidden flex flex-col">
+<!-- Card Header -->
+<div class="p-6 border-b border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+<div>
+<div class="flex items-center gap-2">
+<h2 class="text-base font-semibold text-slate-900">Custom Unavailable Periods</h2>
+<span class="px-2 py-0.5 rounded-full text-xs font-medium bg-slate-100 text-slate-600">3 Scheduled</span>
+</div>
+<p class="text-xs text-slate-500 mt-0.5">
+                Temporarily block specific dates and times for vacation, personal commitments, or maintenance without altering your recurring weekly schedule.
+              </p>
+</div>
+<button class="inline-flex items-center justify-center gap-1.5 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg text-sm shadow-sm transition-colors cursor-pointer shrink-0" onclick="showAddPeriodAlert()">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span class="">+ Add Unavailable Period</span>
+</button>
+</div>
+<!-- Structured Table -->
+<div class="overflow-x-auto w-full">
+<table class="w-full text-left text-sm border-collapse">
+<thead>
+<tr class="bg-slate-50 text-[11px] font-semibold uppercase text-slate-500 tracking-wider border-b border-slate-200">
+<th class="py-3 px-6">DATE</th>
+<th class="py-3 px-6">TIME WINDOW</th>
+<th class="py-3 px-6">DURATION</th>
+<th class="py-3 px-6">REASON / DESCRIPTION</th>
+<th class="py-3 px-6 text-right">ACTIONS</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 text-slate-700">
+<!-- Row 1: Oct 28 -->
+<tr class="hover:bg-slate-50/70 transition-colors">
+<td class="py-4 px-6 whitespace-nowrap">
+<span class="font-medium text-slate-900 block">Oct 28, 2024</span>
+<span class="text-xs text-slate-500">Monday</span>
+</td>
+<td class="py-4 px-6 whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 font-medium text-slate-800">
+<span class="material-symbols-outlined text-[16px] text-slate-400">schedule</span>
+                      01:00 PM – 03:00 PM
+                    </span>
+</td>
+<td class="py-4 px-6 whitespace-nowrap">
+<span class="px-2.5 py-1 rounded-md text-xs font-medium bg-slate-100 text-slate-700">2 hrs</span>
+</td>
+<td class="py-4 px-6">
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0"></span>
+<span class="text-slate-800 font-normal">Personal appointment</span>
+</div>
+</td>
+<td class="py-4 px-6 text-right whitespace-nowrap">
+<div class="inline-flex items-center gap-3">
+<button class="text-xs font-semibold text-blue-600 hover:text-blue-800 hover:underline" onclick="showToast('Edit period option clicked')">Edit</button>
+<button class="text-xs font-semibold text-rose-600 hover:text-rose-800 hover:underline" onclick="showToast('Blocked period removed')">Remove</button>
+</div>
+</td>
+</tr>
+<!-- Row 2: Nov 04 -->
+<tr class="hover:bg-slate-50/70 transition-colors">
+<td class="py-4 px-6 whitespace-nowrap">
+<span class="font-medium text-slate-900 block">Nov 04, 2024</span>
+<span class="text-xs text-slate-500">Monday</span>
+</td>
+<td class="py-4 px-6 whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 font-medium text-slate-800">
+<span class="material-symbols-outlined text-[16px] text-slate-400">schedule</span>
+                      10:00 AM – 01:00 PM
+                    </span>
+</td>
+<td class="py-4 px-6 whitespace-nowrap">
+<span class="px-2.5 py-1 rounded-md text-xs font-medium bg-slate-100 text-slate-700">3 hrs</span>
+</td>
+<td class="py-4 px-6">
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0"></span>
+<span class="text-slate-800 font-normal">Maintenance &amp; equipment servicing</span>
+</div>
+</td>
+<td class="py-4 px-6 text-right whitespace-nowrap">
+<div class="inline-flex items-center gap-3">
+<button class="text-xs font-semibold text-blue-600 hover:text-blue-800 hover:underline" onclick="showToast('Edit period option clicked')">Edit</button>
+<button class="text-xs font-semibold text-rose-600 hover:text-rose-800 hover:underline" onclick="showToast('Blocked period removed')">Remove</button>
+</div>
+</td>
+</tr>
+<!-- Row 3: Nov 28 -->
+<tr class="hover:bg-slate-50/70 transition-colors">
+<td class="py-4 px-6 whitespace-nowrap">
+<span class="font-medium text-slate-900 block">Nov 28, 2024</span>
+<span class="text-xs text-slate-500">Thursday</span>
+</td>
+<td class="py-4 px-6 whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 font-medium text-slate-800">
+<span class="material-symbols-outlined text-[16px] text-slate-400">schedule</span>
+                      09:00 AM – 06:00 PM
+                    </span>
+</td>
+<td class="py-4 px-6 whitespace-nowrap">
+<span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-blue-50 text-blue-700">Full Day (9 hrs)</span>
+</td>
+<td class="py-4 px-6">
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0"></span>
+<span class="text-slate-800 font-normal">Thanksgiving holiday closure</span>
+</div>
+</td>
+<td class="py-4 px-6 text-right whitespace-nowrap">
+<div class="inline-flex items-center gap-3">
+<button class="text-xs font-semibold text-blue-600 hover:text-blue-800 hover:underline" onclick="showToast('Edit period option clicked')">Edit</button>
+<button class="text-xs font-semibold text-rose-600 hover:text-rose-800 hover:underline" onclick="showToast('Blocked period removed')">Remove</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Footer -->
+<div class="p-4 sm:px-6 bg-slate-50 border-t border-slate-200 flex items-center justify-between text-xs text-slate-500">
+<span class="font-medium">3 unavailable periods scheduled. These hours are excluded from customer booking selection.</span>
+
+</div>
+</section>
+</div>
+</main>
+</div>
+<!-- JavaScript Micro-Interactions (Zero modals rendered by default) -->
+<script>
+    function toggleDayRow(day, isOpen) {
+      const label = document.getElementById('label-' + day);
+      const badge = document.getElementById('badge-' + day);
+      const inputs = document.getElementById('inputs-' + day);
+
+      if (isOpen) {
+        label.textContent = 'Open';
+        label.className = 'ml-2 text-xs font-medium text-slate-700';
+        badge.textContent = day === 'saturday' ? '6 hrs' : '9 hrs';
+        badge.className = 'px-2.5 py-1 rounded-md text-xs font-semibold bg-blue-50 text-blue-700';
+
+        inputs.innerHTML = `
+          <div class="flex items-center gap-2 bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-lg text-sm">
+            <span class="text-xs text-slate-500">Opens:</span>
+            <select class="bg-transparent text-sm font-medium text-slate-800 focus:outline-none cursor-pointer border-0 p-0 pr-6">
+              <option selected>${day === 'saturday' ? '10:00 AM' : '09:00 AM'}</option>
+              <option>08:00 AM</option>
+            </select>
+          </div>
+          <span class="text-xs text-slate-400 font-medium">to</span>
+          <div class="flex items-center gap-2 bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-lg text-sm">
+            <span class="text-xs text-slate-500">Closes:</span>
+            <select class="bg-transparent text-sm font-medium text-slate-800 focus:outline-none cursor-pointer border-0 p-0 pr-6">
+              <option selected>${day === 'saturday' ? '04:00 PM' : '06:00 PM'}</option>
+              <option>07:00 PM</option>
+            </select>
+          </div>
+        `;
+      } else {
+        label.textContent = 'Closed';
+        label.className = 'ml-2 text-xs font-medium text-slate-500';
+        badge.textContent = 'Closed';
+        badge.className = 'px-2.5 py-1 rounded-md text-xs font-medium bg-slate-100 text-slate-500';
+
+        inputs.innerHTML = `
+          <div class="flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-medium text-slate-400 bg-slate-100">
+            <span class="material-symbols-outlined text-[16px]">block</span>
+            <span>Closed all day — not bookable</span>
+          </div>
+        `;
+      }
+    }
+
+    function showToast(message) {
+      const toast = document.getElementById('toast-notification');
+      const msgEl = document.getElementById('toast-message');
+      msgEl.textContent = message;
+      toast.classList.remove('opacity-0', '-translate-y-4', 'pointer-events-none');
+      toast.classList.add('opacity-100', 'translate-y-0');
+      setTimeout(() => {
+        toast.classList.add('opacity-0', '-translate-y-4', 'pointer-events-none');
+        toast.classList.remove('opacity-100', 'translate-y-0');
+      }, 3000);
+    }
+
+    function saveWorkingHours() {
+      showToast('Weekly schedule updated successfully');
+    }
+
+    function showAddPeriodAlert() {
+      showToast('Unavailable period dialog trigger ready');
+    }
+  </script>
+
+
+
+
+<script>document.addEventListener('click', function(event) { const btn = document.getElementById('user-menu-button'); const menu = document.getElementById('user-menu-dropdown'); if (btn && menu && !btn.contains(event.target) && !menu.contains(event.target)) { menu.classList.add('hidden'); } });</script>
+
+
+
+
+
+</body></html>

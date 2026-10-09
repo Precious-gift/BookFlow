@@ -1,0 +1,519 @@
+<!DOCTYPE html><html lang="en" style=""><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_dashboard" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "tertiary-container": "#4865d4", "on-secondary": "#ffffff", "surface-container": "#e5eeff", "secondary": "#006a61", "surface": "#f8f9ff", "surface-bright": "#f8f9ff", "on-tertiary": "#ffffff", "on-error": "#ffffff", "surface-container-low": "#eff4ff", "on-surface": "#0b1c30", "surface-variant": "#d3e4fe", "background": "#f8f9ff", "primary-container": "#2563eb", "on-primary-container": "#eeefff", "inverse-primary": "#b4c5ff", "on-secondary-fixed-variant": "#005049", "primary-fixed": "#dbe1ff", "on-error-container": "#93000a", "on-secondary-container": "#006f66", "surface-tint": "#0053db", "on-tertiary-container": "#eff0ff", "on-primary-fixed-variant": "#003ea8", "on-secondary-fixed": "#00201d", "on-tertiary-fixed-variant": "#173bab", "error": "#ba1a1a", "surface-dim": "#cbdbf5", "on-surface-variant": "#434655", "outline": "#737686", "secondary-fixed-dim": "#6bd8cb", "tertiary-fixed": "#dde1ff", "on-background": "#0b1c30", "secondary-fixed": "#89f5e7", "tertiary": "#2c4bb9", "surface-container-high": "#dce9ff", "tertiary-fixed-dim": "#b8c4ff", "inverse-surface": "#213145", "on-primary": "#ffffff", "surface-container-lowest": "#ffffff", "inverse-on-surface": "#eaf1ff", "primary-fixed-dim": "#b4c5ff", "secondary-container": "#86f2e4", "surface-container-highest": "#d3e4fe", "error-container": "#ffdad6", "outline-variant": "#c3c6d7", "on-tertiary-fixed": "#001453", "on-primary-fixed": "#00174b", "primary": "#004ac6" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-md": "1rem", "space-sm": "0.5rem", "gutter-sm": "1rem", "space-xs": "0.25rem", "margin-sm": "1rem", "space-lg": "1.5rem", "space-xl": "2rem", "margin": "2rem", "gutter": "1.5rem" }, "fontFamily": { "body-sm": ["Inter"], "label-md": ["Inter"], "headline-sm": ["Inter"], "headline-lg-mobile": ["Inter"], "label-sm": ["Inter"], "display-lg-mobile": ["Inter"], "headline-md": ["Inter"], "headline-lg": ["Inter"], "display-lg": ["Inter"], "body-md": ["Inter"], "body-lg": ["Inter"] }, "fontSize": { "body-sm": ["0.75rem", { "lineHeight": "1.125rem", "letterSpacing": "0.01em", "fontWeight": "400" }], "label-md": ["0.875rem", { "lineHeight": "1.25rem", "letterSpacing": "-0.005em", "fontWeight": "500" }], "headline-sm": ["1rem", { "lineHeight": "1.5rem", "letterSpacing": "0em", "fontWeight": "600" }], "headline-lg-mobile": ["1.5rem", { "lineHeight": "2rem", "letterSpacing": "-0.015em", "fontWeight": "600" }], "label-sm": ["0.75rem", { "lineHeight": "1rem", "letterSpacing": "0.025em", "fontWeight": "600" }], "display-lg-mobile": ["2.25rem", { "lineHeight": "2.75rem", "letterSpacing": "-0.02em", "fontWeight": "700" }], "headline-md": ["1.25rem", { "lineHeight": "1.75rem", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-lg": ["2rem", { "lineHeight": "2.5rem", "letterSpacing": "-0.02em", "fontWeight": "600" }], "display-lg": ["3rem", { "lineHeight": "3.5rem", "letterSpacing": "-0.025em", "fontWeight": "700" }], "body-md": ["0.875rem", { "lineHeight": "1.375rem", "letterSpacing": "0em", "fontWeight": "400" }], "body-lg": ["1.125rem", { "lineHeight": "1.75rem", "letterSpacing": "0em", "fontWeight": "400" }] } } } };</script></head><body class="bg-background font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-lowest border-r border-outline-variant/30 z-50 flex flex-col justify-between transition-transform duration-300 -translate-x-full lg:translate-x-0"><div class="flex flex-col flex-1 overflow-y-auto"><div class="h-16 flex items-center px-6 gap-3 border-b border-outline-variant/20"><div class="w-9 h-9 rounded-lg bg-primary flex items-center justify-center text-on-primary font-headline-sm text-headline-sm shadow-xs" role="img" aria-label="BookFlow" title="BookFlow"><span class="material-symbols-outlined text-[20px]">auto_schedule</span></div></div><div class="px-4 py-4"><div class="p-3 rounded-lg bg-surface-container-low border border-outline-variant/40 flex items-center justify-between cursor-pointer hover:bg-surface-container transition-colors"><div class="flex items-center gap-2.5 overflow-hidden"><div class="w-7 h-7 rounded-md bg-secondary-container text-on-secondary-container flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-[18px]">store</span></div><div class="flex flex-col truncate"><span class="font-label-md text-label-md text-on-surface truncate">Urban Edge Barbershop</span><span class="font-label-sm text-label-sm text-secondary flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>Solo Operator</span></div></div><span class="material-symbols-outlined text-outline text-[18px]">unfold_more</span></div></div><nav class="flex-1 px-3 space-y-1" data-active-classes="bg-primary-container text-on-primary-container font-headline-sm"><a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[20px]">dashboard</span><span class="">Dashboard</span></a><a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="appointments" href="#"><span class="material-symbols-outlined text-[20px]">calendar_today</span><span class="">Appointments</span></a><a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="services" href="#"><span class="material-symbols-outlined text-[20px]">spa</span><span class="">Services</span></a><a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="working-hours" href="#"><span class="material-symbols-outlined text-[20px]">schedule</span><span class="">Working Hours</span></a><a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-colors" data-path="customers" href="#"><span class="material-symbols-outlined text-[20px]">group</span><span class="">Customers</span></a></nav></div><div class="p-4 border-t border-outline-variant/20"><div class="flex items-center justify-between p-2 rounded-lg hover:bg-surface-container transition-colors"><div class="flex items-center gap-3 min-w-0"><div class="w-9 h-9 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="flex flex-col min-w-0"><span class="font-label-md text-label-md text-on-surface truncate">Marcus Vance</span><span class="font-body-sm text-body-sm text-on-surface-variant truncate">Owner</span></div></div><a class="p-1.5 text-on-surface-variant hover:text-error hover:bg-error-container/20 rounded-lg transition-colors flex items-center justify-center" data-path="logout" href="#" title="Logout"><span class="material-symbols-outlined text-[20px]">logout</span></a></div></div></aside><div class="lg:pl-64"><header class="fixed top-0 left-0 lg:left-64 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-md border-b border-outline-variant/30 z-40 px-4 lg:px-8 flex items-center justify-between gap-4"><div class="flex items-center gap-3"><button aria-label="Toggle Navigation" class="lg:hidden p-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[24px]">menu</span></button><nav class="hidden sm:flex items-center gap-2 font-label-md text-label-md"><span class="text-on-surface-variant">Portal</span><span class="material-symbols-outlined text-[16px] text-outline">chevron_right</span><span class="text-on-surface font-headline-sm text-headline-sm">Business Profile</span></nav></div><div class="flex items-center gap-3 sm:gap-4"><a class="hidden sm:inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container-low border border-outline-variant/40 hover:border-primary text-on-surface-variant hover:text-primary transition-all font-body-sm text-body-sm" href="#" target="_blank"><span class="material-symbols-outlined text-[16px] text-primary">link</span><span class="font-label-sm text-label-sm">bookflow.me/b/urban-edge-barbershop</span><span class="material-symbols-outlined text-[14px]">open_in_new</span></a><div class="relative" id="owner-account-menu-container"><button aria-expanded="false" aria-haspopup="true" class="w-9 h-9 rounded-full bg-primary flex items-center justify-center shrink-0 hover:opacity-90 transition-all focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 cursor-pointer shadow-xs" id="owner-menu-trigger" onclick="const menu = document.getElementById('owner-dropdown-menu'); const isHidden = menu.classList.contains('hidden'); menu.classList.toggle('hidden', !isHidden); this.setAttribute('aria-expanded', isHidden ? 'true' : 'false');" title="Owner Account &amp; Settings" type="button"><span class="material-symbols-outlined text-on-primary text-[20px]">person</span></button><div class="absolute right-0 mt-2 w-64 bg-surface-container-lowest border border-outline-variant/40 rounded-xl shadow-lg py-2 z-50 transition-all hidden" id="owner-dropdown-menu"><div class="px-4 py-2.5 border-b border-outline-variant/20 flex flex-col min-w-0"><span class="font-label-md text-label-md font-semibold text-on-surface truncate">Urban Edge Barbershop</span><span class="font-body-sm text-body-sm text-on-surface-variant truncate">hello@urbanedge.example</span></div><div class="py-1.5 px-1.5"><a class="flex items-center justify-between px-3 py-2 rounded-lg bg-surface-container-low text-primary font-headline-sm text-headline-sm transition-colors" href="#"><div class="flex items-center gap-2.5"><span class="material-symbols-outlined text-[18px] text-primary">storefront</span><span class="font-medium text-body-md">Business Profile</span></div><span class="w-1.5 h-1.5 rounded-full bg-primary"></span></a><a class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors font-medium text-body-md" href="#"><span class="material-symbols-outlined text-[18px] text-outline">lock_person</span><span class="">Account &amp; Security</span></a></div><div class="border-t border-outline-variant/20 my-1"></div><div class="py-1 px-1.5"><a class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-error hover:bg-error-container/20 transition-colors font-medium text-body-md" href="#"><span class="material-symbols-outlined text-[18px]">logout</span><span class="">Log Out</span></a></div></div></div></div></header><main class="relative pt-16 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- Top Inspection & Prototype State Switcher -->
+<div class="w-full bg-surface-container-high px-4 sm:px-8 py-2.5">
+<div class="max-w-5xl mx-auto flex flex-wrap items-center justify-between gap-3">
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-primary text-on-primary font-label-sm text-[10px]">
+          v1
+        </span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">
+          Stage 5.6.4 Prototype Inspection
+        </span>
+</div>
+<div class="flex flex-wrap items-center gap-1.5 bg-surface-container-lowest p-1 rounded-lg shadow-sm">
+<button class="px-2.5 py-1 text-label-sm font-label-sm rounded-md bg-primary-container text-on-primary-container transition-all" id="btn-state-default" onclick="setInspectorState('default')" type="button">
+          Default (Active)
+        </button>
+<button class="px-2.5 py-1 text-label-sm font-label-sm rounded-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" id="btn-state-email" onclick="setInspectorState('modal-email')" type="button">
+          Email Modal
+        </button>
+<button class="px-2.5 py-1 text-label-sm font-label-sm rounded-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" id="btn-state-password" onclick="setInspectorState('modal-password')" type="button">
+          Password Modal
+        </button>
+<button class="px-2.5 py-1 text-label-sm font-label-sm rounded-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" id="btn-state-loading" onclick="setInspectorState('loading')" type="button">
+          Loading State
+        </button>
+<button class="px-2.5 py-1 text-label-sm font-label-sm rounded-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" id="btn-state-success" onclick="setInspectorState('success')" type="button">
+          Success Banner
+        </button>
+<button class="px-2.5 py-1 text-label-sm font-label-sm rounded-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" id="btn-state-error" onclick="setInspectorState('error')" type="button">
+          Error Banner
+        </button>
+</div>
+</div>
+</div>
+<!-- Dynamic Notification / Status Banners -->
+<div class="max-w-5xl mx-auto w-full px-4 sm:px-8 pt-6 space-y-3">
+<!-- Success Banner -->
+<div class="hidden p-4 rounded-xl bg-secondary-container/30 text-on-surface flex items-start justify-between gap-3 shadow-sm animate-in fade-in duration-200" id="banner-success">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-secondary text-on-secondary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px]">check</span>
+</div>
+<div>
+<p class="font-headline-sm text-headline-sm text-secondary">Password updated successfully</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Your login credentials have been safely renewed. Next sign-in will require this new password.</p>
+</div>
+</div>
+<button class="text-on-surface-variant hover:text-on-surface p-1" onclick="document.getElementById('banner-success').classList.add('hidden')" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Error Banner -->
+<div class="hidden p-4 rounded-xl bg-error-container text-on-error-container flex items-start justify-between gap-3 shadow-sm animate-in fade-in duration-200" id="banner-error">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-error text-on-error flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px]">priority_high</span>
+</div>
+<div>
+<p class="font-headline-sm text-headline-sm font-semibold">Unable to update your credentials</p>
+<p class="font-body-sm text-body-sm">Please verify your current password and try again. Ensure all required fields are accurately filled.</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-3 py-1 bg-on-error text-error text-label-sm font-label-sm rounded-lg hover:opacity-90" onclick="openPasswordModal()" type="button">
+          Try Again
+        </button>
+<button class="text-on-error-container hover:opacity-80 p-1" onclick="document.getElementById('banner-error').classList.add('hidden')" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Primary Workspace Content -->
+<div class="max-w-5xl mx-auto w-full px-4 sm:px-8 py-8 space-y-8">
+<!-- Header Section with Back Reference -->
+<div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<a class="inline-flex items-center gap-1 font-label-md text-label-md text-primary hover:text-on-primary-fixed-variant transition-colors group" href="#">
+<span class="material-symbols-outlined text-[16px] group-hover:-translate-x-0.5 transition-transform">arrow_back</span>
+            Back to Business Profile
+          </a>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Account &amp; Security</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Manage your account access and credentials for BookFlow Business Owner console.</p>
+</div>
+<!-- Trust Indicator Tag -->
+<div class="flex items-center gap-2 self-start sm:self-auto px-3 py-1.5 rounded-lg bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm shadow-xs">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="">Owner Portal Authenticated</span>
+</div>
+</div>
+<!-- MAIN CARDS STACK -->
+<div class="space-y-6" id="content-cards">
+<!-- CARD 1: ACCOUNT INFORMATION -->
+<div class="bg-surface-container-lowest rounded-xl p-6 sm:p-8 shadow-sm space-y-6">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-2">
+<div class="space-y-0.5">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">mail</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Account Information</h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">The primary email address associated with your BookFlow business owner account.</p>
+</div>
+<span class="font-label-sm text-[11px] uppercase tracking-wider text-outline">Stage 5.6.4 Baseline</span>
+</div>
+<!-- Email Details Presentation Box -->
+<div class="bg-surface-container-low p-4 sm:p-5 rounded-xl flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div class="space-y-1.5 min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-[11px] font-semibold uppercase tracking-wider text-on-surface-variant">Owner Email Address</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-container/40 text-on-secondary-container font-label-sm text-[11px]">
+<span class="material-symbols-outlined text-[13px]">verified</span>
+                Verified Owner Account
+              </span>
+</div>
+<p class="font-headline-sm text-headline-sm text-on-surface font-semibold truncate tracking-tight" id="display-owner-email">
+              marcus.vance@example.com
+            </p>
+</div>
+<div class="shrink-0 flex items-center">
+<button class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-surface-container-lowest hover:bg-surface-container text-on-surface font-label-md text-label-md shadow-xs transition-colors" onclick="openEmailModal()" type="button">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">alternate_email</span>
+              Change Email
+            </button>
+</div>
+</div>
+<!-- Informational Note -->
+<div class="flex items-start gap-3 text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[18px] text-outline shrink-0 mt-0.5">info</span>
+<p class="">This email is used to sign in to your BookFlow Business Owner portal and receive system security notices and appointment receipts.</p>
+</div>
+</div>
+<!-- CARD 2: PASSWORD & SECURITY -->
+<div class="bg-surface-container-lowest rounded-xl p-6 sm:p-8 shadow-sm space-y-6">
+<div class="space-y-0.5">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">lock</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Password &amp; Security</h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Update your password to help keep your BookFlow account secure.</p>
+</div>
+<!-- Password Status Row -->
+<div class="bg-surface-container-low p-4 sm:p-5 rounded-xl flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div class="flex items-center gap-3.5 min-w-0">
+<div class="w-11 h-11 rounded-lg bg-surface-container-lowest flex items-center justify-center text-primary shadow-xs shrink-0">
+<span class="material-symbols-outlined text-[22px]">key</span>
+</div>
+<div class="space-y-0.5 min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface">Account Password</span>
+<span class="inline-flex items-center gap-1 text-[11px] font-label-sm font-semibold text-secondary px-2 py-0.5 rounded-full bg-secondary-container/40">
+                  Strong Protection
+                </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Password last changed 42 days ago</p>
+</div>
+</div>
+<div class="shrink-0">
+<button class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-surface-container-lowest hover:bg-surface-container text-on-surface font-label-md text-label-md shadow-xs transition-colors" onclick="openPasswordModal()" type="button">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">lock_reset</span>
+              Change Password
+            </button>
+</div>
+</div>
+<!-- Informational Reassurance Box -->
+<div class="p-4 rounded-xl bg-surface-container-low flex items-start gap-3">
+<span class="material-symbols-outlined text-[20px] text-primary shrink-0 mt-0.5">shield</span>
+<div class="space-y-1">
+<p class="font-label-md text-label-md text-on-surface font-medium">Credential Protection Scope</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              Your credentials protect your client database, appointment schedules, and service catalog. We recommend choosing a unique password of at least 8 characters that you do not use on other sites.
+            </p>
+</div>
+</div>
+</div>
+<!-- CARD 3: SESSION MANAGEMENT & LOGOUT -->
+<div class="bg-surface-container-lowest rounded-xl p-6 sm:p-8 shadow-sm space-y-6">
+<div class="space-y-0.5">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">devices</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Session Management</h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Current authenticated access to this device and session state.</p>
+</div>
+<!-- Current Session Detail Row -->
+<div class="bg-surface-container-low p-4 sm:p-5 rounded-xl flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div class="flex items-start sm:items-center gap-3.5 min-w-0">
+<div class="w-11 h-11 rounded-lg bg-surface-container-lowest flex items-center justify-center text-primary shadow-xs shrink-0 mt-1 sm:mt-0">
+<span class="material-symbols-outlined text-[22px]">laptop_mac</span>
+</div>
+<div class="space-y-1 min-w-0">
+<div class="flex flex-wrap items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Current Session (Web Browser)</span>
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-secondary-container/40 text-secondary font-label-sm text-[11px] font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
+                  Active Now
+                </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex flex-wrap items-center gap-2">
+<span class="">Chrome on macOS</span>
+<span class="text-outline">•</span>
+<span class="">Lekki, Lagos, Nigeria</span>
+<span class="text-outline">•</span>
+<span class="">IP: 102.89.44.***</span>
+</p>
+</div>
+</div>
+<div class="shrink-0 pt-2 md:pt-0">
+<button class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-surface-container-lowest hover:bg-error-container/40 text-on-surface hover:text-error font-label-md text-label-md shadow-xs transition-colors" onclick="simulateLogout()" type="button">
+<span class="material-symbols-outlined text-[18px]">logout</span>
+              Log Out of Account
+            </button>
+</div>
+</div>
+<!-- Reassurance Footer for Solo Owner -->
+<div class="flex items-center justify-between pt-2 text-on-surface-variant font-body-sm text-body-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-outline">verified_user</span>
+<span class="">Single-operator secure token stored in encrypted HTTP-only session.</span>
+</div>
+<span class="font-label-sm text-[11px] text-outline">BookFlow MVTS v1 Core</span>
+</div>
+</div>
+</div>
+<!-- SKELETON / LOADING STATE (Controlled by Inspector Switcher) -->
+<div class="hidden space-y-6" id="content-skeleton">
+<!-- Skeleton 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-8 shadow-sm space-y-6 animate-pulse">
+<div class="h-6 w-48 bg-surface-container rounded"></div>
+<div class="h-4 w-72 bg-surface-container-low rounded"></div>
+<div class="h-20 w-full bg-surface-container-low rounded-xl"></div>
+</div>
+<!-- Skeleton 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-8 shadow-sm space-y-6 animate-pulse">
+<div class="h-6 w-44 bg-surface-container rounded"></div>
+<div class="h-4 w-80 bg-surface-container-low rounded"></div>
+<div class="h-20 w-full bg-surface-container-low rounded-xl"></div>
+</div>
+<!-- Skeleton 3 -->
+<div class="bg-surface-container-lowest rounded-xl p-8 shadow-sm space-y-6 animate-pulse">
+<div class="h-6 w-52 bg-surface-container rounded"></div>
+<div class="h-20 w-full bg-surface-container-low rounded-xl"></div>
+</div>
+</div>
+</div>
+<!-- ======================================================== -->
+<!-- MODAL A: CHANGE EMAIL (Inline Interactive Dialog)        -->
+<!-- ======================================================== -->
+<div class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-inverse-surface/40 backdrop-blur-xs" id="modal-email-container">
+<div class="bg-surface-container-lowest rounded-xl max-w-md w-full p-6 sm:p-8 shadow-xl space-y-6 relative transform transition-all animate-in fade-in zoom-in-95 duration-150">
+<!-- Close button -->
+<button class="absolute top-5 right-5 text-on-surface-variant hover:text-on-surface p-1 rounded-lg hover:bg-surface-container transition-colors" onclick="closeEmailModal()" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+<div class="space-y-1">
+<div class="w-10 h-10 rounded-lg bg-surface-container-low text-primary flex items-center justify-center mb-3">
+<span class="material-symbols-outlined text-[22px]">alternate_email</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-semibold tracking-tight">Change Account Email</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Update the email address used to sign in to your BookFlow owner portal.</p>
+</div>
+<form class="space-y-4" onsubmit="handleSaveEmail(event)">
+<!-- Current Email (Readonly) -->
+<div class="space-y-1.5">
+<label class="block font-label-sm text-label-sm text-on-surface-variant">Current Email</label>
+<div class="relative">
+<input class="w-full h-10 px-3 rounded-lg bg-surface-container-low text-on-surface-variant font-body-md text-body-md cursor-not-allowed outline-none select-none" readonly="" type="email" value="marcus.vance@example.com">
+<span class="absolute right-3 top-2.5 material-symbols-outlined text-[18px] text-outline">lock</span>
+</div>
+</div>
+<!-- New Email -->
+<div class="space-y-1.5">
+<div class="flex items-center justify-between">
+<label class="block font-label-sm text-label-sm text-on-surface" for="input-new-email">New Email Address <span class="text-error">*</span></label>
+</div>
+<input class="w-full h-10 px-3 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary outline-none transition-all placeholder:text-outline" id="input-new-email" placeholder="new.email@example.com" required="" type="email">
+<p class="font-body-sm text-body-sm text-on-surface-variant">We'll use this new address for all future logins and confirmation alerts.</p>
+</div>
+<!-- Validation Notice -->
+<div class="hidden p-2.5 rounded-lg bg-error-container text-on-error-container font-body-sm text-body-sm flex items-center gap-2" id="email-validation-msg">
+<span class="material-symbols-outlined text-[16px]">info</span>
+<span class="">New email must be a valid email format.</span>
+</div>
+<div class="flex items-center justify-end gap-3 pt-4">
+<button class="px-4 py-2 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md transition-colors" onclick="closeEmailModal()" type="button">
+            Cancel
+          </button>
+<button class="inline-flex items-center justify-center gap-2 px-5 py-2 rounded-lg bg-primary hover:bg-on-primary-fixed-variant text-on-primary font-label-md text-label-md shadow-sm transition-all" id="btn-save-email" type="submit">
+<span class="">Save Email</span>
+</button>
+</div>
+</form>
+</div>
+</div>
+<!-- ======================================================== -->
+<!-- MODAL B: CHANGE PASSWORD (Inline Interactive Dialog)     -->
+<!-- ======================================================== -->
+<div class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-inverse-surface/40 backdrop-blur-xs" id="modal-password-container">
+<div class="bg-surface-container-lowest rounded-xl max-w-md w-full p-6 sm:p-8 shadow-xl space-y-6 relative transform transition-all animate-in fade-in zoom-in-95 duration-150">
+<!-- Close button -->
+<button class="absolute top-5 right-5 text-on-surface-variant hover:text-on-surface p-1 rounded-lg hover:bg-surface-container transition-colors" onclick="closePasswordModal()" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+<div class="space-y-1">
+<div class="w-10 h-10 rounded-lg bg-surface-container-low text-primary flex items-center justify-center mb-3">
+<span class="material-symbols-outlined text-[22px]">lock_reset</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-semibold tracking-tight">Change Password</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Enter your current password and choose a new secure password.</p>
+</div>
+<form class="space-y-4" onsubmit="handleSavePassword(event)">
+<!-- Current Password -->
+<div class="space-y-1.5">
+<label class="block font-label-sm text-label-sm text-on-surface" for="pwd-current">Current Password <span class="text-error">*</span></label>
+<div class="relative">
+<input class="w-full h-10 px-3 pr-10 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary outline-none transition-all placeholder:text-outline" id="pwd-current" placeholder="••••••••••••" required="" type="password">
+<button class="absolute right-3 top-2.5 text-on-surface-variant hover:text-on-surface" onclick="togglePasswordVisibility('pwd-current', this)" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+</div>
+</div>
+<!-- New Password -->
+<div class="space-y-1.5">
+<label class="block font-label-sm text-label-sm text-on-surface" for="pwd-new">New Password <span class="text-error">*</span></label>
+<div class="relative">
+<input class="w-full h-10 px-3 pr-10 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary outline-none transition-all placeholder:text-outline" id="pwd-new" placeholder="••••••••••••" required="" type="password">
+<button class="absolute right-3 top-2.5 text-on-surface-variant hover:text-on-surface" onclick="togglePasswordVisibility('pwd-new', this)" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Minimum 8 characters with a mix of letters and numbers.</p>
+</div>
+<!-- Confirm Password -->
+<div class="space-y-1.5">
+<label class="block font-label-sm text-label-sm text-on-surface" for="pwd-confirm">Confirm New Password <span class="text-error">*</span></label>
+<div class="relative">
+<input class="w-full h-10 px-3 pr-10 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary outline-none transition-all placeholder:text-outline" id="pwd-confirm" placeholder="••••••••••••" required="" type="password">
+<button class="absolute right-3 top-2.5 text-on-surface-variant hover:text-on-surface" onclick="togglePasswordVisibility('pwd-confirm', this)" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+</div>
+</div>
+<!-- Inline Validation message -->
+<div class="hidden p-2.5 rounded-lg bg-error-container text-on-error-container font-body-sm text-body-sm flex items-center gap-2" id="password-validation-msg">
+<span class="material-symbols-outlined text-[16px]">error</span>
+<span class="">New password and confirmation must match. Current password is required.</span>
+</div>
+<div class="flex items-center justify-end gap-3 pt-4">
+<button class="px-4 py-2 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md transition-colors" onclick="closePasswordModal()" type="button">
+            Cancel
+          </button>
+<button class="inline-flex items-center justify-center gap-2 px-5 py-2 rounded-lg bg-primary hover:bg-on-primary-fixed-variant text-on-primary font-label-md text-label-md shadow-sm transition-all" id="btn-save-password" type="submit">
+<span class="">Update Password</span>
+</button>
+</div>
+</form>
+</div>
+</div>
+<!-- Inline Script for Inspection States and Dialog Interactions -->
+<script>
+    function setInspectorState(state) {
+      // Reset all buttons
+      const buttons = ['default', 'email', 'password', 'loading', 'success', 'error'];
+      buttons.forEach(b => {
+        const btn = document.getElementById('btn-state-' + b);
+        if (btn) {
+          btn.className = "px-2.5 py-1 text-label-sm font-label-sm rounded-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all";
+        }
+      });
+
+      // Highlight active button
+      let activeBtnId = 'btn-state-default';
+      if (state === 'modal-email') activeBtnId = 'btn-state-email';
+      if (state === 'modal-password') activeBtnId = 'btn-state-password';
+      if (state === 'loading') activeBtnId = 'btn-state-loading';
+      if (state === 'success') activeBtnId = 'btn-state-success';
+      if (state === 'error') activeBtnId = 'btn-state-error';
+      
+      const activeBtn = document.getElementById(activeBtnId);
+      if (activeBtn) {
+        activeBtn.className = "px-2.5 py-1 text-label-sm font-label-sm rounded-md bg-primary-container text-on-primary-container transition-all";
+      }
+
+      // Hide all modals & banners
+      document.getElementById('modal-email-container').classList.add('hidden');
+      document.getElementById('modal-password-container').classList.add('hidden');
+      document.getElementById('banner-success').classList.add('hidden');
+      document.getElementById('banner-error').classList.add('hidden');
+      
+      // Toggle skeleton vs cards
+      const cards = document.getElementById('content-cards');
+      const skeleton = document.getElementById('content-skeleton');
+      
+      if (state === 'loading') {
+        cards.classList.add('hidden');
+        skeleton.classList.remove('hidden');
+        return;
+      } else {
+        cards.classList.remove('hidden');
+        skeleton.classList.add('hidden');
+      }
+
+      // Specific triggers
+      if (state === 'modal-email') {
+        openEmailModal();
+      } else if (state === 'modal-password') {
+        openPasswordModal();
+      } else if (state === 'success') {
+        document.getElementById('banner-success').classList.remove('hidden');
+      } else if (state === 'error') {
+        document.getElementById('banner-error').classList.remove('hidden');
+      }
+    }
+
+    function openEmailModal() {
+      document.getElementById('modal-email-container').classList.remove('hidden');
+      document.getElementById('email-validation-msg').classList.add('hidden');
+      setTimeout(() => document.getElementById('input-new-email').focus(), 50);
+    }
+
+    function closeEmailModal() {
+      document.getElementById('modal-email-container').classList.add('hidden');
+    }
+
+    function openPasswordModal() {
+      document.getElementById('modal-password-container').classList.remove('hidden');
+      document.getElementById('password-validation-msg').classList.add('hidden');
+      setTimeout(() => document.getElementById('pwd-current').focus(), 50);
+    }
+
+    function closePasswordModal() {
+      document.getElementById('modal-password-container').classList.add('hidden');
+    }
+
+    function togglePasswordVisibility(fieldId, btnElement) {
+      const field = document.getElementById(fieldId);
+      const icon = btnElement.querySelector('.material-symbols-outlined');
+      if (field.type === 'password') {
+        field.type = 'text';
+        icon.textContent = 'visibility_off';
+      } else {
+        field.type = 'password';
+        icon.textContent = 'visibility';
+      }
+    }
+
+    function handleSaveEmail(e) {
+      e.preventDefault();
+      const newEmail = document.getElementById('input-new-email').value;
+      const saveBtn = document.getElementById('btn-save-email');
+      
+      if (!newEmail || !newEmail.includes('@') || !newEmail.includes('.')) {
+        document.getElementById('email-validation-msg').classList.remove('hidden');
+        return;
+      }
+
+      saveBtn.innerHTML = '<span class="material-symbols-outlined animate-spin text-[16px]">sync</span> Saving...';
+      saveBtn.disabled = true;
+
+      setTimeout(() => {
+        document.getElementById('display-owner-email').textContent = newEmail;
+        closeEmailModal();
+        saveBtn.innerHTML = '<span>Save Email</span>';
+        saveBtn.disabled = false;
+        
+        // Show success banner
+        const successBanner = document.getElementById('banner-success');
+        successBanner.querySelector('p.font-headline-sm').textContent = 'Email address updated successfully';
+        successBanner.querySelector('p.font-body-sm').textContent = 'Your primary login email is now updated to ' + newEmail;
+        successBanner.classList.remove('hidden');
+      }, 700);
+    }
+
+    function handleSavePassword(e) {
+      e.preventDefault();
+      const currentPwd = document.getElementById('pwd-current').value;
+      const newPwd = document.getElementById('pwd-new').value;
+      const confirmPwd = document.getElementById('pwd-confirm').value;
+      const saveBtn = document.getElementById('btn-save-password');
+
+      if (!currentPwd || !newPwd || newPwd !== confirmPwd) {
+        document.getElementById('password-validation-msg').classList.remove('hidden');
+        return;
+      }
+
+      saveBtn.innerHTML = '<span class="material-symbols-outlined animate-spin text-[16px]">sync</span> Updating...';
+      saveBtn.disabled = true;
+
+      setTimeout(() => {
+        closePasswordModal();
+        saveBtn.innerHTML = '<span>Update Password</span>';
+        saveBtn.disabled = false;
+
+        // Reset fields
+        document.getElementById('pwd-current').value = '';
+        document.getElementById('pwd-new').value = '';
+        document.getElementById('pwd-confirm').value = '';
+
+        // Show success banner
+        const successBanner = document.getElementById('banner-success');
+        successBanner.querySelector('p.font-headline-sm').textContent = 'Password updated successfully';
+        successBanner.querySelector('p.font-body-sm').textContent = 'Your password has been changed. Next sign-in will use this new credential.';
+        successBanner.classList.remove('hidden');
+      }, 700);
+    }
+
+    function simulateLogout() {
+      if (confirm('Are you sure you want to log out of your BookFlow Business Owner account?')) {
+        alert('Logging out of Urban Edge Barbershop session. Redirecting to login portal...');
+      }
+    }
+  </script>
+</div></main></div>
+
+
+</body></html>
