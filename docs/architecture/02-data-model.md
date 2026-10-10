@@ -27,6 +27,7 @@ erDiagram
         guid Id PK
         string OwnerId FK "UNIQUE"
         string Slug UK
+        bool IsActive
         string TimeZoneId
         string CurrencyCode
         string CurrencySymbol
@@ -45,9 +46,11 @@ erDiagram
     Customer {
         guid Id PK
         guid BusinessId FK "Composite UK"
+        string Name
         string NormalizedPhone
         bool IsPhoneValid
         string Email "Optional"
+        string Notes "Optional"
     }
 
     Appointment {
@@ -62,6 +65,7 @@ erDiagram
         string ServiceNameSnapshot
         decimal ServicePriceSnapshot
         int ServiceDurationSnapshot
+        byte[] RowVersion "Concurrency"
     }
 
     WorkingPeriod {
@@ -84,7 +88,7 @@ erDiagram
 ## Entity Responsibilities and Ownership
 
 - **ApplicationUser:** Managed by ASP.NET Core Identity. Extends `IdentityUser` and handles authentication and roles (`Owner`, `Admin`).
-- **Business:** The core tenant entity. Enforces a **strict 1:1 ownership** via a `UNIQUE` constraint on `OwnerId`.
+- **Business:** The core tenant entity. Enforces a **strict 1:1 ownership** via a `UNIQUE` constraint on `OwnerId`. The `IsActive` flag controls the platform-level activation state, distinct from `Service.IsActive`. This governs public discoverability and owner mutation access.
 - **Service:** Business offerings containing duration and price.
 - **Customer:** A tenant-scoped CRM record created during guest booking.
 - **Appointment:** A historical and active booking record capturing the exact temporal and financial state of a service at the time of booking.
@@ -112,6 +116,12 @@ Customers book without an account. Identity matching relies strictly on the phon
 - **Tenant-Scoped Uniqueness:** `UNIQUE (BusinessId, NormalizedPhone, IsPhoneValid)`. This prevents valid numbers from ever colliding with or silently merging into uncertain invalid inputs.
 - **Corrections:** If an owner updates an invalid phone number to a valid one that already belongs to another CRM record, the database constraint cleanly rejects the update, requiring explicit manual CRM deduplication rather than silent data corruption.
 - **Optional Email:** Email is strictly optional at booking but can be updated later via the CRM by the owner.
+
+## Customer CRM Data
+
+In addition to identity matching, the `Customer` entity stores CRM data:
+- **Name:** Captured during booking. Enforced as `NVARCHAR(100)` at the database and API boundary. While the UI displays this as "Full Name", the canonical data model uses `Name`.
+- **Notes:** Optional internal CRM notes managed by the owner, enforced as nullable `NVARCHAR(2000)`. These notes are strictly private CRM data accessible only to the authenticated owner of the tenant business and must never be exposed via public booking endpoints.
 
 ## Appointment Lifecycle and History Preservation
 

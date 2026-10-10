@@ -1,12 +1,12 @@
 # 04 API Contracts
 
-**Status:** Draft — Phase 6.3.2, awaiting full API design completion.
+**Status:** Draft — Phase 6.3.5 (Includes Admin API), awaiting full API design completion.
 
 ## Overview
 
 This document defines the API contracts for the ASP.NET Core backend. It serves as the design foundation before implementation. 
 
-*Note: The unauthenticated public booking API is defined in Section 2. The authenticated owner API contracts, including API-wide CSRF/antiforgery mitigation and strong ETag concurrency rules, are defined in Section 3. Admin management contracts remain deferred to subsequent phases.*
+*Note: The unauthenticated public booking API is defined in Section 2. The authenticated owner API contracts, including API-wide CSRF/antiforgery mitigation and strong ETag concurrency rules, are defined in Section 3. Admin management contracts are defined in Section 7.*
 
 ## 1. Common API Standards and Error Policy
 
@@ -58,7 +58,7 @@ All validation and conflict errors use RFC 7807 Problem Details (ASP.NET Core de
 
 ## 2. Unauthenticated Public Booking API
 
-These endpoints serve the public guest booking flow (`/b/[slug]`). Booking is strictly accountless.
+These endpoints serve the public guest booking flow (`/b/[slug]`). Booking is strictly accountless. Server-side validation must ensure that if the business `IsActive` flag is false, all endpoints in this section return `404 Not Found`.
 
 ### 2.1 Retrieve Public Business Profile
 Loads branding and timezone data (FR-12). Does not expose `OwnerId` or database concurrency tokens.
@@ -167,7 +167,7 @@ Authoritatively creates a Pending appointment (FR-15, FR-16, FR-17, FR-18).
 
 ## 3. Authentication & Owner Configuration API
 
-The following endpoints are protected and require the Owner authorization role, except where noted as Public.
+The following endpoints are protected and require the Owner authorization role, except where noted as Public. All mutating operations (POST, PUT, DELETE) must be server-side rejected if the business `IsActive` flag is false.
 
 ### 3.1 Cross-Cutting Security Design
 - **Authentication Proxy:** Next.js proxies `/api/*` requests to the ASP.NET Core API. The API authoritatively issues `SameSite=Lax` (or `Strict`), `Secure`, `HttpOnly` cookies. The proxy is responsible for forwarding browser `Cookie` headers to the API and forwarding API `Set-Cookie` headers back to the browser. *Implementation Verification:* Cookie paths, forwarding behavior, and domains across the proxy boundary remain unverified and must be explicitly tested.
@@ -214,7 +214,351 @@ Schedule mutation uses a single aggregate endpoint to guarantee atomic locking o
   - **Conflict Response:** A stale precondition returns `412 Precondition Failed`.
   - *Implementation Verification:* Real SQL Server integration tests must cover concurrent schedule mutations to verify rollback and ensure no partial commits occur.
 
-## 4. Deferred and Excluded Endpoints
+## 4. Owner Appointment Management API
+
+These endpoints are protected and require the Owner authorization role. They strictly isolate data to the authenticated owner's `BusinessId`. All mutating operations (e.g., status changes, rescheduling) must be server-side rejected if the business `IsActive` flag is false.
+
+### 4.1 List Appointments
+Retrieves a paginated list of appointments for the owner's business. Private CRM notes are explicitly excluded from the list response to minimize sensitive data exposure.
+
+**`GET /api/v1/appointments`**
+
+**Headers:** Returns a strong ETag on the response.
+
+**Query Parameters:**
+- `startDate` (Optional, `YYYY-MM-DD`): Inclusive start of the local calendar range.
+- `endDate` (Optional, `YYYY-MM-DD`): Inclusive end of the local calendar range.
+  - *Validation:* If both dates are omitted, the API defaults to the current calendar month according to the business's `TimeZoneId`. If only one is supplied, or if the range is reversed or malformed, the API returns `400 Bad Request`. *Proposed Decision:* No strict maximum date-range limit is currently defined, pending product approval.
+- `status` (Optional, repeated): Filters by appointment status (e.g., `?status=Pending&status=Confirmed`).
+- `page` (Optional, integer): 1-indexed page number. Defaults to `1`.
+- `pageSize` (Optional, integer): Items per page. Defaults to `50`. *Proposed Decision:* No maximum page size limit is strictly enforced yet, pending performance reviews.
+- *Pagination Validation:* Values `< 1` for `page` or `pageSize` return `400 Bad Request`.
+
+**Ordering:** Deterministically ordered by `StartTime` ascending, followed by `Id` ascending as a unique tie-breaker.
+
+**Response (200 OK):**
+```json
+{
+  "items": [
+    {
+      "id": "app-uuid",
+      "referenceCode": "XK92M",
+      "status": "Pending",
+      "startTimeUtc": "2024-11-01T13:00:00Z",
+      "endTimeUtc": "2024-11-01T14:00:00Z",
+      "serviceNameSnapshot": "Standard Consultation",
+      "customer": {
+        "id": "cust-uuid",
+        "name": "Jane Doe",
+        "normalizedPhone": "+15550100",
+        "isPhoneValid": true
+      }
+    }
+  ],
+  "totalCount": 1,
+  "page": 1,
+  "pageSize": 50
+}
+```
+
+### 4.2 Get Appointment Details
+**`GET /api/v1/appointments/{id}`**
+
+Returns the full appointment details. Must return `404 Not Found` if the appointment belongs to another business. Private CRM notes are explicitly excluded from this payload.
+
+**Headers:** Returns a strong ETag (e.g., `ETag: "0x00000000000007D1"`) required for concurrent mutations.
+
+**Response (200 OK):**
+```json
+{
+  "id": "app-uuid",
+  "referenceCode": "XK92M",
+  "status": "Pending",
+  "startTimeUtc": "2024-11-01T13:00:00Z",
+  "endTimeUtc": "2024-11-01T14:00:00Z",
+  "serviceNameSnapshot": "Standard Consultation",
+  "servicePriceSnapshot": 100.00,
+  "serviceDurationSnapshot": 60,
+  "customer": {
+    "id": "cust-uuid",
+    "name": "Jane Doe",
+    "normalizedPhone": "+15550100",
+    "isPhoneValid": true,
+    "email": "jane@example.com"
+  }
+}
+```
+
+### 4.3 Update Appointment Status
+**`PUT /api/v1/appointments/{id}/status`**
+
+Transitions the appointment status.
+
+**Headers:** Requires the exact strong ETag in `If-Match`.
+
+**Request Payload:**
+```json
+{
+  "status": "Confirmed"
+}
+```
+
+**Validation Rules:**
+- **Lifecycle Constraints:**
+  - `Pending` ➔ `Confirmed` or `Cancelled`.
+  - `Confirmed` ➔ `Completed` or `Cancelled`.
+  - `Cancelled` and `Completed` are terminal states.
+- Returns `400 Bad Request` for unsupported transitions.
+- **Idempotency:** Repeating a request for the appointment's current status is explicitly idempotent. It will return `200 OK` (success) without altering the database record.
+- **Concurrency Strategy:** Uses a genuine SQL Server `rowversion` concurrency token for the database write, automatically exposing a strong ETag on representations.
+  - Missing `If-Match`: Returns `428 Precondition Required`.
+  - Stale ETag: Returns `412 Precondition Failed`.
+
+### 4.4 Reschedule Appointment
+**`PUT /api/v1/appointments/{id}/reschedule`**
+
+Updates the start time of an existing appointment.
+
+**Headers:** Requires the exact strong ETag in `If-Match`. Missing `If-Match` returns `428 Precondition Required`. Stale ETag returns `412 Precondition Failed`.
+
+**Request Payload:**
+```json
+{
+  "startTimeUtc": "2024-11-02T15:00:00Z"
+}
+```
+
+**Validation and Integrity Rules:**
+- **Status Constraints:** Only `Pending` and `Confirmed` appointments can be rescheduled. Returns `400 Bad Request` otherwise.
+- **Duration Snapshot:** The new `endTimeUtc` is calculated using the original `ServiceDurationSnapshot` stored on the appointment. It strictly does *not* use the service's current duration.
+- **Temporal & Overlap Validation:** The new `startTimeUtc` is interpreted against the business's `TimeZoneId`. The requested slot is validated against working periods, unavailable periods, and overlap rules.
+- **Self-Exclusion:** The appointment being rescheduled must be excluded from its own overlap query.
+- Returns `409 Conflict` if the requested slot is unavailable.
+- Preserves the appointment identity, customer relationship, and all financial/duration snapshots.
+- **Concurrency Strategy:** Enforces optimistic concurrency using the `rowversion` token for the atomic write.
+- *Unresolved / Integration Requirement:* The exact transaction boundaries and SQL Server concurrency scenarios for competing reschedules must be empirically tested during implementation; this design document cannot claim empirical verification without executed tests.
+
+## 5. Owner CRM API
+
+These endpoints are protected (Owner role) and enforce strict tenant isolation. CRM notes are private and restricted to the authenticated owner. Mutating operations (e.g., updating profiles) must be server-side rejected if the business `IsActive` flag is false.
+
+### 5.1 List Customers
+**`GET /api/v1/customers`**
+
+**Query Parameters:**
+- `page` (Optional, integer): Defaults to `1`.
+- `pageSize` (Optional, integer): Defaults to `50`.
+  - *Validation:* Values `< 1` for `page` or `pageSize` return `400 Bad Request`.
+
+**Ordering:** Deterministically ordered by `Name` ascending, followed by `Id` ascending as a tie-breaker.
+
+**Response (200 OK):**
+```json
+{
+  "items": [
+    {
+      "id": "cust-uuid",
+      "name": "Jane Doe",
+      "normalizedPhone": "+15550100",
+      "isPhoneValid": true,
+      "email": "jane@example.com"
+    }
+  ],
+  "totalCount": 1,
+  "page": 1,
+  "pageSize": 50
+}
+```
+*(Note: Private CRM notes are excluded from the list response to minimize payloads, but are available in the details endpoint.)*
+
+### 5.2 Get Customer Details
+**`GET /api/v1/customers/{id}`**
+
+Returns the customer's CRM profile and appointment history.
+
+**Response (200 OK):**
+```json
+{
+  "id": "cust-uuid",
+  "name": "Jane Doe",
+  "normalizedPhone": "+15550100",
+  "isPhoneValid": true,
+  "email": "jane@example.com",
+  "notes": "Prefers morning appointments.",
+  "appointmentHistory": [
+    {
+      "id": "app-uuid",
+      "startTimeUtc": "2024-10-01T10:00:00Z",
+      "status": "Completed",
+      "serviceNameSnapshot": "Standard Consultation",
+      "servicePriceSnapshot": 100.00
+    }
+  ]
+}
+```
+
+### 5.3 Update Customer CRM Profile
+**`PUT /api/v1/customers/{id}`**
+
+Allows the owner to update CRM data.
+
+**Request Payload:**
+```json
+{
+  "name": "Jane Doe",
+  "phone": "+15550100",
+  "email": null,
+  "notes": null
+}
+```
+
+**Validation and Normalization Rules:**
+- **Replacement Semantics:** This is a complete replacement of the editable CRM profile. Required fields must be present and non-null. Optional fields (`email`, `notes`) are cleared when omitted from the payload or explicitly set to `null`.
+- `name` is enforced at a maximum of 100 characters.
+- `notes` is optional and enforced at a maximum of 2,000 characters.
+- **Phone Processing:** Valid phone inputs are strictly normalized to E.164. Invalid inputs use the deterministic fallback, setting `IsPhoneValid = False`.
+- **Uniqueness Protection:** Evaluates the `UNIQUE (BusinessId, NormalizedPhone, IsPhoneValid)` constraint. If the update results in a collision, the API returns `409 Conflict`. The system must never silently merge customer records or reassign history.
+
+## 6. Dashboard Metrics API
+
+Returns key performance indicators for the owner portal (FR-30). Tenant-scoped.
+
+**`GET /api/v1/dashboard/metrics`**
+
+**Response (200 OK):**
+```json
+{
+  "todayAppointments": 5,
+  "upcomingAppointments": 12,
+  "totalCustomers": 150,
+  "completedAppointments": 340
+}
+```
+
+**Metric Definitions & Proposed Interpretations:**
+- `todayAppointments`: Appointments starting on the current calendar date in the business's local time zone, excluding `Cancelled` statuses.
+- `upcomingAppointments`: Future appointments with `Pending` or `Confirmed` status. "Future" is determined by comparing the appointment start time against the current UTC instant.
+- `totalCustomers`: Count of all customer records belonging to the business.
+- `completedAppointments`: All-time count of appointments in the `Completed` status.
+- *Rationale / Approval Required:* These specific criteria are proposed interpretations of the general FR-30 requirement ("executive dashboard metrics"). They must be approved by product stakeholders as they represent business logic decisions rather than explicit MVTS rules.
+- The endpoint safely returns `0` where appropriate and does not expose raw PII.
+
+## 7. Administrator Management API
+
+These endpoints are protected and require the `Admin` authorization role. They provide platform-level oversight and control (FR-34, FR-35, FR-36, FR-37, FR-38).
+
+### 7.1 Cross-Cutting Administrator Rules
+- **Authorization:** Server-side enforcement of the `Admin` role is mandatory. Standard `Owner` role endpoints cannot be used to gain admin access, and admin authentication must be strictly isolated.
+- **Account Provisioning:** *Unresolved Product Decision:* The MVTS does not define a self-service or CLI workflow for creating the initial administrator account. This must be clarified before implementation.
+- **Tenant Scope:** Administrator endpoints have a platform-wide scope, overriding the strict tenant isolation of the Owner API to allow oversight.
+
+### 7.2 Retrieve Platform Metrics
+Retrieves aggregate platform usage information (FR-34, FR-38).
+
+**`GET /api/v1/admin/metrics`**
+
+**Headers:** Requires `Admin` authorization.
+
+**Response (200 OK):**
+```json
+{
+  "totalRegisteredBusinesses": 120,
+  "activeBusinesses": 115,
+  "totalCustomers": 4500,
+  "totalAppointments": 12500
+}
+```
+**Definition & Audit Implications:**
+- `activeBusinesses`: Count of businesses where `IsActive` is true.
+
+### 7.3 List Businesses
+Searches, filters, and paginates registered businesses (FR-35).
+
+**`GET /api/v1/admin/businesses`**
+
+**Headers:** Requires `Admin` authorization. Returns a strong ETag.
+
+**Query Parameters:**
+- `searchTerm` (Optional, string): Searches business name or slug.
+- `status` (Optional, string): Filters by business status (e.g., `Active`, `Inactive`).
+- `page` (Optional, integer): Defaults to `1`.
+- `pageSize` (Optional, integer): Defaults to `50`.
+  - *Validation:* Values `< 1` for `page` or `pageSize` return `400 Bad Request`.
+
+**Ordering:** Deterministically ordered by `Name` ascending, followed by `Id` ascending as a tie-breaker.
+
+**Response (200 OK):**
+```json
+{
+  "items": [
+    {
+      "id": "biz-uuid",
+      "name": "Acme Services",
+      "slug": "acme-services",
+      "isActive": true,
+      "ownerEmail": "owner@acme.com"
+    }
+  ],
+  "totalCount": 120,
+  "page": 1,
+  "pageSize": 50
+}
+```
+
+### 7.4 Get Business Details
+Retrieves detailed profile, owner info, and usage metrics for a specific business (FR-36).
+
+**`GET /api/v1/admin/businesses/{id}`**
+
+**Headers:** Requires `Admin` authorization. Returns a strong ETag.
+
+**Response (200 OK):**
+```json
+{
+  "id": "biz-uuid",
+  "name": "Acme Services",
+  "slug": "acme-services",
+  "isActive": true,
+  "timeZoneId": "America/New_York",
+  "owner": {
+    "id": "owner-uuid",
+    "email": "owner@acme.com"
+  },
+  "metrics": {
+    "totalCustomers": 150,
+    "totalAppointments": 340
+  }
+}
+```
+**Validation:**
+- Returns `404 Not Found` if the business ID does not exist.
+
+### 7.5 Update Business Status
+Activates or deactivates a business account (FR-37).
+
+**`PUT /api/v1/admin/businesses/{id}/status`**
+
+**Headers:** Requires `Admin` authorization, CSRF token via `X-XSRF-TOKEN`, and `If-Match` with exact strong ETag.
+
+**Request Payload:**
+```json
+{
+  "isActive": false
+}
+```
+
+**Validation and Integrity Rules:**
+- **Authorization:** Requires `Admin` role.
+- **Not Found:** Returns `404 Not Found` for invalid business IDs.
+- **Idempotency:** Repeating a request for the business's current status is explicitly idempotent. It returns `200 OK` without altering the database.
+- **Business State & Impact:**
+  - *Approved MVP Product Decision:* Deactivation impacts the platform as follows (clarifying FR-37):
+    - **Public Booking:** A deactivated business's public booking page and public booking endpoints return `404 Not Found`. New public bookings are prohibited.
+    - **Data Preservation:** Existing appointments, customer records, and appointment history are preserved. Deactivation does not automatically cancel appointments or send notifications.
+    - **Owner Access:** Owners of deactivated businesses retain read-only access to historical business records upon authentication. Mutating owner operations (e.g., service changes, availability changes, appointment updates/rescheduling, and CRM updates) are denied while the business is inactive.
+    - **Admin Access:** Administrator access to business details and activation controls remains fully available.
+    - **Enforcement:** Enforcement must be server-side; hiding frontend controls is insufficient.
+- **Concurrency:** Requires strong ETag matching using `rowversion`. Missing `If-Match` returns `428 Precondition Required`. Stale ETag returns `412 Precondition Failed`.
+
+## 8. Deferred and Excluded Endpoints
 - **Public Receipt Lookup:** A `GET /bookings/{referenceCode}` endpoint is explicitly excluded. The MVP relies on the `201 Created` response to render the in-app confirmation screen. Exposing an accountless lookup introduces PII enumeration risks that outweigh the UX benefit.
-- **Owner Dashboard & CRM:** Appointments list/details, status transitions, CRM notes, and owner KPIs (Phase 6.3.4).
-- **Admin Management API:** Platform metrics and business oversight (Phase 6.3.5).
