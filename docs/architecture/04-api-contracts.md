@@ -24,10 +24,15 @@ This document defines the API contracts for the ASP.NET Core backend. It serves 
 
 ### HTTP Status Boundaries
 - `200 OK` / `201 Created`: Successful operations.
-- `400 Bad Request`: Field-level validation (e.g., missing name), invalid date formats, past dates, reversed ranges, or business-rule violations (e.g., attempting to book an explicitly `Inactive` service).
-- `404 Not Found`: Resource does not exist, or cross-tenant leakage prevention (e.g., business slug doesn't exist, or `serviceId` belongs to a different business).
+- `400 Bad Request`: Field-level validation (e.g., missing name, exceeding max length), invalid date formats, past dates, reversed ranges, or business-rule violations (e.g., attempting to book an explicitly `Inactive` service).
+- `401 Unauthorized`: The request is unauthenticated or the session is invalid.
+- `403 Forbidden`: The request is authenticated, but the user lacks permission (e.g., attempting to perform owner mutations on an inactive business, or an Owner accessing Admin endpoints).
+- `404 Not Found`: Resource does not exist, cross-tenant leakage prevention (e.g., owner requesting another business's resource), or an orphaned principal (valid Owner session but missing Business record).
 - `409 Conflict`: Concurrency conflicts or genuine availability violations (e.g., slot taken).
-- `401 Unauthorized` / `403 Forbidden`: *(Provisional for future authenticated routes)*.
+- `413 Payload Too Large`: Request body exceeds the permitted limit (e.g., > 1 MB).
+- `415 Unsupported Media Type`: Request content-type is not `application/json`.
+- `429 Too Many Requests`: Client exceeded rate-limiting thresholds.
+- `500 Internal Server Error`: Unexpected server failure.
 
 ### Standard Problem Details
 All validation and conflict errors use RFC 7807 Problem Details (ASP.NET Core default).
@@ -45,6 +50,11 @@ All validation and conflict errors use RFC 7807 Problem Details (ASP.NET Core de
 }
 ```
 *(Implementation note: The backend must ensure `errors` keys are serialized as `camelCase` to align with the frontend. This framework behavior must be verified during implementation.)*
+
+### Generic Error and Logging Policy
+- **JSON Payload Limit:** All endpoints enforcing a request body enforce a strict `1 MB` JSON payload limit to prevent memory exhaustion (resulting in `413 Payload Too Large`).
+- **500 Internal Server Error:** Unexpected exceptions MUST return a generic Problem Details title. They MUST NEVER expose SQL details, stack traces, or internal exception messages to the client.
+- **Logging Safety:** Request and response bodies are NOT logged by default. Passwords, auth cookies, antiforgery tokens, customer personal data (PII), and internal secrets are explicitly excluded or redacted. The system prefers operational metadata, status codes, duration, and correlation identifiers for troubleshooting.
 
 **Example Concurrency Conflict (409):**
 ```json
@@ -158,6 +168,7 @@ Authoritatively creates a Pending appointment (FR-15, FR-16, FR-17, FR-18).
 ```
 
 **Authoritative Booking Validation & Concurrency Rules:**
+- **Rate Limiting:** Protect this endpoint against automated spam using ASP.NET Core's built-in rate limiter. Limit exceeded returns `429 Too Many Requests`.
 - **Overlap Prevention:** A previous availability response is merely advisory. This endpoint MUST authoritatively validate that the requested slot fits entirely within valid working periods and does not overlap any unavailable periods or existing appointments.
 - **Transaction Guarantee:** This validation must occur within the approved `Serializable` database transaction. If the slot is no longer bookable, the transaction fails and returns a consistent `409 Conflict`. *See [03 Concurrency and Integrity](./03-concurrency-and-integrity.md).* Note: This design requires real SQL Server integration testing during implementation.
 - **Cross-Tenant Security:** Validates that `serviceId` belongs to `slug`. 
@@ -167,31 +178,46 @@ Authoritatively creates a Pending appointment (FR-15, FR-16, FR-17, FR-18).
 
 ## 3. Authentication & Owner Configuration API
 
-The following endpoints are protected and require the Owner authorization role, except where noted as Public. All mutating operations (POST, PUT, DELETE) must be server-side rejected if the business `IsActive` flag is false.
+The following endpoints are protected and require the Owner authorization role, except where noted as Public. All mutating operations (POST, PUT, DELETE) must be server-side rejected if the business `IsActive` flag is false, except for account security operations as specified.
 
 ### 3.1 Cross-Cutting Security Design
 - **Authentication Proxy:** Next.js proxies `/api/*` requests to the ASP.NET Core API. The API authoritatively issues `SameSite=Lax` (or `Strict`), `Secure`, `HttpOnly` cookies. The proxy is responsible for forwarding browser `Cookie` headers to the API and forwarding API `Set-Cookie` headers back to the browser. *Implementation Verification:* Cookie paths, forwarding behavior, and domains across the proxy boundary remain unverified and must be explicitly tested.
-- **CSRF/Antiforgery:** Because of cookie authentication, the API issues an `XSRF-TOKEN` cookie (non-HttpOnly). The Next.js frontend reads this and echoes it in an `X-XSRF-TOKEN` header on mutating (POST, PUT, DELETE) requests. The API validates the antiforgery token using the selected session-bound mechanism; merely receiving the header is insufficient. Explicit `Origin`/`Referer` validation is required, rejecting missing or invalid origins. *Implementation Verification:* The exact token issuance and validation mechanism must be verified.
-- **Tenant Isolation:** Protected endpoints derive the `OwnerId` and `BusinessId` strictly from the authenticated `ClaimsPrincipal`. They never accept `businessId` in URLs or payloads.
+- **CSRF/Antiforgery:** Because of cookie authentication, the API utilizes ASP.NET Core's antiforgery mechanism via a global `AutoValidateAntiforgeryTokenAttribute`. This attribute applies to all unsafe browser requests (POST, PUT, DELETE, PATCH) within its configured MVC filter scope. It relies on a two-part synchronizer token: an `HttpOnly` cookie token and a JavaScript-readable request token exposed as `XSRF-TOKEN`. The Next.js frontend reads `XSRF-TOKEN` and echoes it in an `X-XSRF-TOKEN` header on mutating requests. Coverage explicitly includes login, registration, public booking, logout, and password changes; no exceptions are justified because the `/csrf` endpoint allows anonymous token bootstrapping.
+- **Origin/Referer Validation:** Unsafe requests are subject to strict full-origin matching (Scheme + Hostname + Effective Port). If both `Origin` and `Referer` are absent or mismatched against an explicit allowlist, the request is rejected with `403 Forbidden`. Trusted forwarded headers (e.g., `X-Forwarded-Host`) must be explicitly configured and must never be derived from arbitrary client-supplied input.
+- **Tenant Isolation:** Protected endpoints derive the `OwnerId` and `BusinessId` strictly from the authenticated `ClaimsPrincipal`. They never accept `businessId` in URLs or payloads. If the associated Business record no longer exists, the API returns `404 Not Found`.
+- **Authoritative Activation State:** For mutating operations, the business `IsActive` state must be dynamically evaluated against the authoritative SQL Server database, not trusted from a cached principal or client input. *Documented Limitation:* An owner mutation passing this check immediately before an admin deactivation commits may finish afterward.
 
 ### 3.2 Authentication & Account
-- **`POST /api/v1/auth/register` (Public):** Requires `email`, `password`, `businessName` (FR-01). The persistence strategy must atomically create both the Identity user and the initial `Business`. If either fails, both must roll back (using a transaction or Identity-compatible persistence approach).
-- **`POST /api/v1/auth/login` (Public):** Validates credentials and sets Auth/CSRF cookies (FR-02). (Administrator login follows FR-33).
-- **`POST /api/v1/auth/logout`:** Clears cookies (FR-03).
-- **`GET /api/v1/auth/me`:** Returns authenticated user profile, including role.
-- **`POST /api/v1/auth/change-password`:** Updates password (FR-32). *Scope Decision: Unauthenticated email-based forgotten-password reset is explicitly excluded from the current MVP design pending confirmation against the MVTS. FR-32 establishes password change but does not establish a reset flow.*
+- **`GET /api/v1/auth/csrf` (Public):** An anonymous endpoint dedicated to bootstrapping the CSRF token lifecycle. It explicitly sets the framework-managed `HttpOnly` antiforgery cookie token and exposes the request token through the JavaScript-readable `XSRF-TOKEN` cookie (it does not return raw token values in the response body). Clients must call this before any unsafe operation on a fresh application mount.
+- **`POST /api/v1/auth/register` (Public):** Requires `email` (max 256 characters), `password`, `businessName` (max 100 characters; proposed constraint requiring schema alignment) (FR-01). Dedicated strictly to Owner registration; it must not accept client-controlled roles or administrator privileges. Registration must guarantee that no orphaned `ApplicationUser` record remains without its corresponding `Business`; the implementation mechanism required to enforce this guarantee remains subject to verification. **Rate Limited** (returns `429`).
+- **`POST /api/v1/auth/login` (Public):** Shared authentication endpoint for both Owners and Admins (FR-02, FR-33). Validates credentials and sets Auth/CSRF cookies. Server-side role membership determines authorization; clients cannot grant themselves privileges. **Rate Limited** (returns `429`).
+- **`POST /api/v1/auth/logout`:** Clears the browser cookie and invalidates the current server-side Identity session (FR-03). *Exempt from inactive-business mutation blocks.*
+- **`GET /api/v1/auth/me`:** Returns authenticated user profile, including role. The frontend may use the returned role for navigation, but routing is not authorization.
+  - Owner Response: `{ "id": "...", "email": "...", "role": "Owner", "businessId": "..." }`
+  - Admin Response: `{ "id": "...", "email": "...", "role": "Admin", "businessId": null }`
+- **`POST /api/v1/auth/change-password`:** Updates password (FR-32). Authenticated password changes remain supported. *Exempt from inactive-business mutation blocks.* *Scope Decision: Unauthenticated email-based forgotten-password reset is explicitly excluded from the MVP.*
+
+**Session Policy & Revocation:**
+- The proposed session policy is a 14-day sliding expiration. This defines idle expiration, not absolute lifetime.
+- Changing a password updates the Identity security stamp. The configured validation interval for the security stamp dictates how quickly secondary active sessions are revoked.
 
 ### 3.3 Business Profile (FR-04, FR-31)
 - **`GET /api/v1/business-profile`:** Returns business `name`, `slug`, `timeZoneId`, `currencyCode`, `currencySymbol`, `bio`, `logoUrl`.
 - **`PUT /api/v1/business-profile`:** Updates the profile.
-  - `slug` must be globally unique (`409 Conflict` if taken).
+  - `name`: Max 100 characters *(Proposed constraint; requires schema alignment)*.
+  - `slug`: Max 100 characters. Permitted characters: lowercase ASCII letters (`a-z`), digits (`0-9`), and hyphens (`-`). A single hyphen may separate alphanumeric segments. Leading, trailing, and consecutive hyphens are prohibited. Must be globally unique (`409 Conflict` if taken) *(Proposed constraint; requires schema alignment)*.
+  - `bio`: Optional, Max 2000 characters.
   - `currencyCode` and `currencySymbol` must be updated atomically together.
-  - Modifying `timeZoneId` alters future availability calculations but does not shift existing UTC `Appointment` bounds.
+  - `timeZoneId`: Must be a valid IANA time zone identifier (validated by the application layer). Modifying it alters future availability calculations but does not shift existing UTC `Appointment` bounds.
 
 ### 3.4 Service Management (FR-05, FR-06, FR-07, FR-08)
 - **`GET /api/v1/services`:** Returns all active and inactive services.
 - **`POST /api/v1/services`:** Creates a new service.
+  - `price`: Must be >= 0. Free services are permitted.
+  - `durationMinutes`: Must be between 5 and 1440, inclusive.
+  - *Validation:* Invalid values return `400 Bad Request` using the existing RFC 7807 Problem Details convention. API validation and database constraints must be aligned during implementation.
 - **`PUT /api/v1/services/{id}`:** Fully updates a service, including `isActive`. Hard deletion (`DELETE`) is prohibited. Inactive services are hidden from public booking but preserve historical appointment integrity.
+  - Applies the same `price` and `durationMinutes` constraints as creation.
 
 ### 3.5 Schedule Mutation (FR-09, FR-10)
 Schedule mutation uses a single aggregate endpoint to guarantee atomic locking of the entire schedule against the `Business.RowVersion`.
@@ -228,11 +254,11 @@ Retrieves a paginated list of appointments for the owner's business. Private CRM
 **Query Parameters:**
 - `startDate` (Optional, `YYYY-MM-DD`): Inclusive start of the local calendar range.
 - `endDate` (Optional, `YYYY-MM-DD`): Inclusive end of the local calendar range.
-  - *Validation:* If both dates are omitted, the API defaults to the current calendar month according to the business's `TimeZoneId`. If only one is supplied, or if the range is reversed or malformed, the API returns `400 Bad Request`. *Proposed Decision:* No strict maximum date-range limit is currently defined, pending product approval.
+  - *Validation:* If both dates are omitted, the API defaults to the current calendar month according to the business's `TimeZoneId`. A maximum range of 366 calendar days, inclusive, applies when both `startDate` and `endDate` are supplied. Supplying only one date, submitting reversed ranges, or requesting a range exceeding the 366-day maximum returns `400 Bad Request`. The range calculation must be strictly consistent with the business-local calendar semantics.
 - `status` (Optional, repeated): Filters by appointment status (e.g., `?status=Pending&status=Confirmed`).
 - `page` (Optional, integer): 1-indexed page number. Defaults to `1`.
-- `pageSize` (Optional, integer): Items per page. Defaults to `50`. *Proposed Decision:* No maximum page size limit is strictly enforced yet, pending performance reviews.
-- *Pagination Validation:* Values `< 1` for `page` or `pageSize` return `400 Bad Request`.
+- `pageSize` (Optional, integer): Items per page. Defaults to `50`. Maximum `100`.
+- *Pagination Validation:* Values `< 1` for `page` or `pageSize` return `400 Bad Request`. `pageSize > 100` returns `400 Bad Request` rather than silently clamping.
 
 **Ordering:** Deterministically ordered by `StartTime` ascending, followed by `Id` ascending as a unique tie-breaker.
 
@@ -347,8 +373,8 @@ These endpoints are protected (Owner role) and enforce strict tenant isolation. 
 
 **Query Parameters:**
 - `page` (Optional, integer): Defaults to `1`.
-- `pageSize` (Optional, integer): Defaults to `50`.
-  - *Validation:* Values `< 1` for `page` or `pageSize` return `400 Bad Request`.
+- `pageSize` (Optional, integer): Defaults to `50`. Maximum `100`.
+  - *Validation:* Values `< 1` for `page` or `pageSize`, or `pageSize > 100`, return `400 Bad Request`.
 
 **Ordering:** Deterministically ordered by `Name` ascending, followed by `Id` ascending as a tie-breaker.
 
@@ -449,8 +475,8 @@ These endpoints are protected and require the `Admin` authorization role. They p
 
 ### 7.1 Cross-Cutting Administrator Rules
 - **Authorization:** Server-side enforcement of the `Admin` role is mandatory. Standard `Owner` role endpoints cannot be used to gain admin access, and admin authentication must be strictly isolated.
-- **Account Provisioning:** *Unresolved Product Decision:* The MVTS does not define a self-service or CLI workflow for creating the initial administrator account. This must be clarified before implementation.
-- **Tenant Scope:** Administrator endpoints have a platform-wide scope, overriding the strict tenant isolation of the Owner API to allow oversight.
+- **Account Provisioning and Recovery:** The MVP explicitly excludes public endpoints for creating, deleting, demoting, or recovering Admin accounts. The initial Admin is provisioned securely during application startup via protected configuration. Admin password recovery is a controlled, operator-authorized procedure.
+- **Tenant Scope:** Administrator endpoints have a platform-wide scope, overriding the strict tenant isolation of the Owner API to allow oversight. An Admin viewing another business is a platform operation, whereas an Owner viewing another business is a cross-tenant violation returning `404 Not Found`.
 
 ### 7.2 Retrieve Platform Metrics
 Retrieves aggregate platform usage information (FR-34, FR-38).
@@ -482,8 +508,8 @@ Searches, filters, and paginates registered businesses (FR-35).
 - `searchTerm` (Optional, string): Searches business name or slug.
 - `status` (Optional, string): Filters by business status (e.g., `Active`, `Inactive`).
 - `page` (Optional, integer): Defaults to `1`.
-- `pageSize` (Optional, integer): Defaults to `50`.
-  - *Validation:* Values `< 1` for `page` or `pageSize` return `400 Bad Request`.
+- `pageSize` (Optional, integer): Defaults to `50`. Maximum `100`.
+  - *Validation:* Values `< 1` for `page` or `pageSize`, or `pageSize > 100`, return `400 Bad Request`.
 
 **Ordering:** Deterministically ordered by `Name` ascending, followed by `Id` ascending as a tie-breaker.
 

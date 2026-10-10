@@ -44,17 +44,31 @@ The Next.js frontend delivers the UI across three explicitly isolated route grou
 
 - **One Business Per Owner:** The system enforces a strict 1:1 ownership constraint. An authenticated business owner (`ApplicationUser`) manages exactly one `Business`.
 - **Data Isolation:** All business-owner endpoints must extract the Owner ID from the authenticated claims and inherently scope all database queries to prevent cross-tenant data leakage.
+- **Dual-Layer Integrity:** Tenant integrity requires both application-level scoped queries and database-level composite foreign keys and constraints.
+
+## Authoritative Activation State
+
+- **Dynamic Evaluation:** For mutating operations, the business `IsActive` state must be evaluated against the authoritative SQL Server database, rather than trusting a cached principal or client input.
 
 ## API and Communication Strategy
 
 The backend exposes a **RESTful HTTP API** documented with OpenAPI/Swagger. The Next.js frontend uses TanStack Query to manage data exchange, utilizing JSON payloads that map to TypeScript interfaces generated or aligned with the OpenAPI specification.
 
+**API Defenses and Limits:**
+- **Request Limits:** All JSON request bodies are bounded to a maximum size of 1 MB to prevent memory exhaustion.
+- **Rate Limiting:** Built-in ASP.NET Core Rate Limiting (per-process, memory-based) protects critical endpoints (Authentication, Registration, and Public Booking). Exceeding limits returns `429 Too Many Requests`. The Client IP serves as the partition key, explicitly requiring secure `ForwardedHeadersMiddleware` configuration. Redis is explicitly excluded.
+- **Logging Safety:** No request or response payloads are logged by default. Secrets and PII are redacted. Unhandled exceptions return generic `500` error messages without exposing stack traces or SQL details.
+
 ## Authentication Direction
 
-**Approved Strategy:** The MVP will utilize **ASP.NET Core Identity** for registration, password hashing, and role validation.
-**Recommended Approach (Pending Final Implementation Approval):** Authentication sessions are proposed to be managed via **HTTP-only Cookies** issued by the .NET API. To avoid CORS complexity and the need for a heavy Backend-For-Frontend (BFF), Next.js rewrites (`next.config.js`) will proxy `/api/*` traffic directly to the .NET API.
+**Approved Strategy:** The MVP utilizes **ASP.NET Core Identity** (`ApplicationUser : IdentityUser`) for registration, password hashing, and role validation (`Owner` vs. `Admin`).
+**Session Management:** Authentication sessions are managed via **HTTP-only Cookies** issued by the .NET API. To avoid CORS complexity and the need for a heavy Backend-For-Frontend (BFF), Next.js rewrites (`next.config.js`) proxy `/api/*` traffic directly to the .NET API. **No browser JWT access/refresh tokens are used.**
 
-*Remaining Security Decisions:* While this proxy arrangement is approved in design, the precise configuration of CSRF protection (e.g., Antiforgery tokens) and secure cookie settings across development and deployment environments remain to be finalized during implementation.
+*Session Policy (Proposed):* A 14-day sliding session expiration is proposed. This policy defines the sliding idle expiration; any absolute maximum session lifetime and cookie persistence across browser restarts must be explicitly verified. ASP.NET Core Identity security-stamp validation will handle session revocation (e.g., after password changes), but its immediate effect depends on the configured validation interval.
+
+*Security Configuration & CSRF:* A global ASP.NET Core antiforgery filter (`AutoValidateAntiforgeryTokenAttribute`) enforces CSRF protection for all unsafe browser requests within its configured MVC filter scope, utilizing a two-part synchronizer token (an `HttpOnly` cookie and a JS-readable `XSRF-TOKEN`). Strict Origin/Referer full-origin matching provides defense in depth. Trusted origin allowlists and forwarded-header configurations must be explicitly defined per environment.
+
+*Pending Implementation Verification:* Next.js rewrites must be empirically proven to correctly forward multiple independent `Set-Cookie` headers without corruption. The exact lifecycle of token issuance during login, the concrete validation scope of the antiforgery attribute, and the stable persistence of Data Protection keys across application restarts, must be verified during the proof of concept. The concurrent safety of the administrator provisioning mechanism must also be verified to prevent duplicate accounts during simultaneous startup.
 
 ## Excluded Technologies and Complexity
 
