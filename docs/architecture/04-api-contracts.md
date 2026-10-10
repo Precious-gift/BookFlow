@@ -6,7 +6,7 @@
 
 This document defines the API contracts for the ASP.NET Core backend. It serves as the design foundation before implementation. 
 
-*Note: The unauthenticated public booking API is defined here. The authenticated owner/admin API contracts and CSRF/antiforgery mitigation details will be finalized in subsequent design phases.*
+*Note: The unauthenticated public booking API is defined in Section 2. The authenticated owner API contracts, including API-wide CSRF/antiforgery mitigation and strong ETag concurrency rules, are defined in Section 3. Admin management contracts remain deferred to subsequent phases.*
 
 ## 1. Common API Standards and Error Policy
 
@@ -165,7 +165,56 @@ Authoritatively creates a Pending appointment (FR-15, FR-16, FR-17, FR-18).
 - **Phone Normalization:** The provided phone number is processed using the approved two-tier strategy: valid numbers are normalized to E.164, and invalid numbers use the deterministic fallback and validity flag. Customer matching relies strictly on the `(BusinessId, NormalizedPhone, IsPhoneValid)` constraint. *See [02 Data Model](./02-data-model.md#customer-matching-and-phone-normalization).*
 - **MVP Exclusions:** Name and Phone are required; Email is optional. Customer accounts, payments, and deposits are strictly excluded. The status is forcefully assigned to `Pending`.
 
-## 3. Deferred and Excluded Endpoints
+## 3. Authentication & Owner Configuration API
 
+The following endpoints are protected and require the Owner authorization role, except where noted as Public.
+
+### 3.1 Cross-Cutting Security Design
+- **Authentication Proxy:** Next.js proxies `/api/*` requests to the ASP.NET Core API. The API authoritatively issues `SameSite=Lax` (or `Strict`), `Secure`, `HttpOnly` cookies. The proxy is responsible for forwarding browser `Cookie` headers to the API and forwarding API `Set-Cookie` headers back to the browser. *Implementation Verification:* Cookie paths, forwarding behavior, and domains across the proxy boundary remain unverified and must be explicitly tested.
+- **CSRF/Antiforgery:** Because of cookie authentication, the API issues an `XSRF-TOKEN` cookie (non-HttpOnly). The Next.js frontend reads this and echoes it in an `X-XSRF-TOKEN` header on mutating (POST, PUT, DELETE) requests. The API validates the antiforgery token using the selected session-bound mechanism; merely receiving the header is insufficient. Explicit `Origin`/`Referer` validation is required, rejecting missing or invalid origins. *Implementation Verification:* The exact token issuance and validation mechanism must be verified.
+- **Tenant Isolation:** Protected endpoints derive the `OwnerId` and `BusinessId` strictly from the authenticated `ClaimsPrincipal`. They never accept `businessId` in URLs or payloads.
+
+### 3.2 Authentication & Account
+- **`POST /api/v1/auth/register` (Public):** Requires `email`, `password`, `businessName` (FR-01). The persistence strategy must atomically create both the Identity user and the initial `Business`. If either fails, both must roll back (using a transaction or Identity-compatible persistence approach).
+- **`POST /api/v1/auth/login` (Public):** Validates credentials and sets Auth/CSRF cookies (FR-02). (Administrator login follows FR-33).
+- **`POST /api/v1/auth/logout`:** Clears cookies (FR-03).
+- **`GET /api/v1/auth/me`:** Returns authenticated user profile, including role.
+- **`POST /api/v1/auth/change-password`:** Updates password (FR-32). *Scope Decision: Unauthenticated email-based forgotten-password reset is explicitly excluded from the current MVP design pending confirmation against the MVTS. FR-32 establishes password change but does not establish a reset flow.*
+
+### 3.3 Business Profile (FR-04, FR-31)
+- **`GET /api/v1/business-profile`:** Returns business `name`, `slug`, `timeZoneId`, `currencyCode`, `currencySymbol`, `bio`, `logoUrl`.
+- **`PUT /api/v1/business-profile`:** Updates the profile.
+  - `slug` must be globally unique (`409 Conflict` if taken).
+  - `currencyCode` and `currencySymbol` must be updated atomically together.
+  - Modifying `timeZoneId` alters future availability calculations but does not shift existing UTC `Appointment` bounds.
+
+### 3.4 Service Management (FR-05, FR-06, FR-07, FR-08)
+- **`GET /api/v1/services`:** Returns all active and inactive services.
+- **`POST /api/v1/services`:** Creates a new service.
+- **`PUT /api/v1/services/{id}`:** Fully updates a service, including `isActive`. Hard deletion (`DELETE`) is prohibited. Inactive services are hidden from public booking but preserve historical appointment integrity.
+
+### 3.5 Schedule Mutation (FR-09, FR-10)
+Schedule mutation uses a single aggregate endpoint to guarantee atomic locking of the entire schedule against the `Business.RowVersion`.
+
+- **`GET /api/v1/availability`**
+  - Returns `workingPeriods` and `unavailablePeriods`.
+  - **Headers:** Returns an opaque, strong ETag compatible with HTTP concurrency (e.g., `ETag: "0x00000000000007D1"`). The ETag is treated as an opaque strong validator.
+
+- **`PUT /api/v1/availability`**
+  - **Headers:** Requires the exact strong ETag in `If-Match`. The client must return the strong ETag unchanged. Missing precondition header returns `428 Precondition Required`.
+  - **Aggregate Replacement Semantics:**
+    - Explicitly omitted collection properties leave that collection unchanged.
+    - An explicitly empty collection (`[]`) clears all existing records in that collection.
+    - Submitting `null` for a collection returns `400 Bad Request`.
+    - Existing IDs belonging to the tenant are updated. Omitted IDs within a submitted collection are deleted.
+    - Duplicate IDs return `400 Bad Request`.
+    - Unknown or cross-business IDs return `404 Not Found`, without exposing another business's data.
+    - Any validation or concurrency failure leaves working periods and unavailable periods unchanged.
+  - **Atomic Concurrency Guarantee:** All child mutations and the conditional parent `Business.RowVersion` update must execute in one atomic database transaction. Concurrency detection depends on a correctly configured EF Core concurrency token and a concurrency-aware conditional update checking the original SQL Server rowversion. A stale token rolls back all child changes. (Do not assume arbitrary SQL automatically triggers EF Core concurrency exceptions).
+  - **Conflict Response:** A stale precondition returns `412 Precondition Failed`.
+  - *Implementation Verification:* Real SQL Server integration tests must cover concurrent schedule mutations to verify rollback and ensure no partial commits occur.
+
+## 4. Deferred and Excluded Endpoints
 - **Public Receipt Lookup:** A `GET /bookings/{referenceCode}` endpoint is explicitly excluded. The MVP relies on the `201 Created` response to render the in-app confirmation screen. Exposing an accountless lookup introduces PII enumeration risks that outweigh the UX benefit.
-- **Owner/Admin API:** Contracts for the business owner dashboard, authentication, service management, and `RowVersion` schedule-mutation concurrency will be designed in subsequent stages.
+- **Owner Dashboard & CRM:** Appointments list/details, status transitions, CRM notes, and owner KPIs (Phase 6.3.4).
+- **Admin Management API:** Platform metrics and business oversight (Phase 6.3.5).
