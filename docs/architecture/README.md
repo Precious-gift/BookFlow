@@ -11,6 +11,7 @@ Architecture decisions must remain consistent with the approved MVTS. Proposed c
 | [01-system-architecture.md](./01-system-architecture.md) | Modular monolith structure, Clean Architecture backend layers, technology stack, route boundaries, authentication direction, tenant isolation, and excluded technologies. |
 | [02-data-model.md](./02-data-model.md) | Approved Phase 6.2 entity and relationship design, ownership constraints, composite FKs, appointment lifecycle, phone normalization, and currency rules. |
 | [03-concurrency-and-integrity.md](./03-concurrency-and-integrity.md) | Booking concurrency via Serializable transactions, schedule mutation concurrency via `Business.RowVersion`, and required integration test specifications. |
+| [04-api-contracts.md](./04-api-contracts.md) | Common API standards, error formats, unauthenticated public booking contracts, date boundaries, and authoritative transaction overlap rules. |
 
 ## Related Documents
 
