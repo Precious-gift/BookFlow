@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-export default function RootFoundationalPage() {
+export default function DesignTokensBenchPage() {
   return (
     <main className="min-h-screen bg-background text-text-primary p-6 md:p-12 flex flex-col items-center">
       <div className="w-full max-w-2xl space-y-6">
@@ -11,18 +11,25 @@ export default function RootFoundationalPage() {
             BookFlow MVP — Ticket T-06 Foundation
           </div>
           <h1 className="text-2xl font-semibold text-text-primary tracking-tight">
-            Next.js App Router & Design System Tokens
+            Next.js App Router &amp; Design System Tokens
           </h1>
           <p className="mt-1 text-sm text-text-secondary">
             Empirical verification test bench for frozen design tokens per AUTHORITATIVE_FOUNDATION_v1.1.md.
           </p>
 
-          {/* Ticket T-07 Deliverables Navigation */}
+          {/* Navigation */}
           <div className="mt-4 pt-4 border-t border-surface-tertiary">
             <div className="text-xs font-semibold text-text-secondary uppercase tracking-wider mb-2.5">
-              Ticket T-07 — Presentation Route Groups & Shared UI
+              Available Views
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+              <Link
+                href="/"
+                className="flex items-center justify-between p-2.5 rounded-lg border border-border bg-surface-secondary hover:bg-surface-tertiary font-medium text-text-primary transition-colors min-h-[44px]"
+              >
+                <span>(public) / (Landing Page)</span>
+                <span className="text-primary font-bold">→</span>
+              </Link>
               <Link
                 href="/components-gallery"
                 className="flex items-center justify-between p-2.5 rounded-lg border border-border bg-surface-secondary hover:bg-surface-tertiary font-medium text-text-primary transition-colors min-h-[44px]"
@@ -42,13 +49,6 @@ export default function RootFoundationalPage() {
                 className="flex items-center justify-between p-2.5 rounded-lg border border-border bg-surface-secondary hover:bg-surface-tertiary font-medium text-text-primary transition-colors min-h-[44px]"
               >
                 <span>(owner) /portal</span>
-                <span className="text-primary font-bold">→</span>
-              </Link>
-              <Link
-                href="/admin"
-                className="flex items-center justify-between p-2.5 rounded-lg border border-border bg-surface-secondary hover:bg-surface-tertiary font-medium text-text-primary transition-colors min-h-[44px]"
-              >
-                <span>(admin) /admin</span>
                 <span className="text-primary font-bold">→</span>
               </Link>
             </div>
