@@ -1,4 +1,4 @@
-﻿# Environment variables and secrets
+# Environment variables and secrets
 .env
 .env.*
 !.env.example
@@ -57,3 +57,8 @@ temp/
 *.ldf
 *.sqlite
 *.db
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
