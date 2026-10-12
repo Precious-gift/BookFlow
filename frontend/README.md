@@ -59,6 +59,17 @@ All design system tokens are strictly frozen per `ui-ux/design-system/AUTHORITAT
 1. **Tailwind CSS v4 Configuration & Redundancy Elimination:** The project bootstrapped with Tailwind CSS v4. Design tokens are declared natively in `src/app/globals.css` using the `@theme` directive, which generates 100% of the CSS utility classes. The `@config` directive in `globals.css` was evaluated and removed as redundant because `@theme` is first-class in v4 and removing `@config` eliminated dynamic file parsing overhead while producing byte-for-byte identical output CSS (14,356 bytes). `tailwind.config.ts` is retained as the authoritative TypeScript design-token catalog and typed contract for unit test suites and external tools.
 2. **ES Module Configuration:** `"type": "module"` is configured in `package.json` to ensure clean compatibility with Node 24 runtime without CJS/ESM reparsing warnings.
 3. **QueryClientProvider Integration (getQueryClient Pattern):** Implemented in `src/providers/query-provider.tsx` (and re-exported as `QueryClientProvider.tsx`) using TanStack Query's official `getQueryClient()` pattern. On the server, a new `QueryClient` is created per request to avoid cross-request leaks; on the client, a singleton is preserved across renders, preventing cache loss during Suspense transitions. Configured with `staleTime: 60000ms`, `refetchOnWindowFocus: false`, and `retry: 1`.
+4. **Shared UI Component Architecture & Route Group Isolation (Ticket T-07):**
+   - Reusable UI component library established in `src/components/ui/` (`Button`, `InputField`, `TimeChip`, `StatusBadge`, `Modal`, `Card`, `Table`) adhering strictly to frozen tokens in `AUTHORITATIVE_FOUNDATION_v1.1.md`.
+   - Every component implements 4 discrete states: Normal, Loading, Disabled, and Error.
+   - StatusBadge enforces the strict §6 accessibility rule: High-contrast text label + distinct visual icon indicator (Clock for Pending, Checkmark for Confirmed, Circle Check for Completed, Cross for Cancelled) + minimum 4.5:1 contrast against tinted badge background.
+   - Touch targets for interactive controls (buttons, form inputs, time slot chips, modal close triggers, drawer toggles) enforce a minimum bound of 44px (`min-h-[44px] min-w-[44px]`) on mobile and tablet devices.
+   - Three completely isolated route group layout shells scaffolded:
+     - `(public)/b/[slug]` — Accountless guest booking shell with brand header and zero owner/admin navigation controls.
+     - `(owner)/portal` — Solo-operator SaaS shell with persistent desktop sidebar (256px), tablet/mobile slide-over drawer, and single-operator KPI metrics.
+     - `(admin)/admin` — Platform administrator portal with dark slate oversight theme, aggregate platform metrics, and registered businesses directory.
+   - Dynamic route compatibility with Turbopack Partial Prefetching: dynamic segment `/b/[slug]` utilizes React `<Suspense>` boundaries and `generateStaticParams()` to ensure clean pre-rendering.
+
 
 ## 5. Verification Commands
 

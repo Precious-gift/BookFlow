@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function RootFoundationalPage() {
   return (
     <main className="min-h-screen bg-background text-text-primary p-6 md:p-12 flex flex-col items-center">
@@ -14,6 +16,43 @@ export default function RootFoundationalPage() {
           <p className="mt-1 text-sm text-text-secondary">
             Empirical verification test bench for frozen design tokens per AUTHORITATIVE_FOUNDATION_v1.1.md.
           </p>
+
+          {/* Ticket T-07 Deliverables Navigation */}
+          <div className="mt-4 pt-4 border-t border-surface-tertiary">
+            <div className="text-xs font-semibold text-text-secondary uppercase tracking-wider mb-2.5">
+              Ticket T-07 — Presentation Route Groups & Shared UI
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+              <Link
+                href="/components-gallery"
+                className="flex items-center justify-between p-2.5 rounded-lg border border-border bg-surface-secondary hover:bg-surface-tertiary font-medium text-text-primary transition-colors min-h-[44px]"
+              >
+                <span>Component Gallery (All States)</span>
+                <span className="text-primary font-bold">→</span>
+              </Link>
+              <Link
+                href="/b/apex-barber"
+                className="flex items-center justify-between p-2.5 rounded-lg border border-border bg-surface-secondary hover:bg-surface-tertiary font-medium text-text-primary transition-colors min-h-[44px]"
+              >
+                <span>(public) /b/[slug]</span>
+                <span className="text-primary font-bold">→</span>
+              </Link>
+              <Link
+                href="/portal"
+                className="flex items-center justify-between p-2.5 rounded-lg border border-border bg-surface-secondary hover:bg-surface-tertiary font-medium text-text-primary transition-colors min-h-[44px]"
+              >
+                <span>(owner) /portal</span>
+                <span className="text-primary font-bold">→</span>
+              </Link>
+              <Link
+                href="/admin"
+                className="flex items-center justify-between p-2.5 rounded-lg border border-border bg-surface-secondary hover:bg-surface-tertiary font-medium text-text-primary transition-colors min-h-[44px]"
+              >
+                <span>(admin) /admin</span>
+                <span className="text-primary font-bold">→</span>
+              </Link>
+            </div>
+          </div>
         </div>
 
         {/* 1. Core Brand Color Swatches */}
