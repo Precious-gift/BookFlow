@@ -1,0 +1,20 @@
+{
+  "_comment": "BookFlow YouGile Target Mapping Template. To populate into an existing workspace, supply the target UUIDs below and run: python populate_yougile.py --mode live --map-file <path>. If destination is unspecified and --create-new-project is not passed, live execution will safely abort.",
+  "project": {
+    "id": null,
+    "title": "BookFlow"
+  },
+  "board": {
+    "id": null,
+    "title": "BookFlow — MVP Implementation"
+  },
+  "columns": {
+    "Backlog": null,
+    "Ready": null,
+    "In Progress": null,
+    "Review": null,
+    "Done": null,
+    "Blocked": null
+  },
+  "tickets": {}
+}
